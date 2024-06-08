@@ -1,5 +1,5 @@
-# ThreeJS Portfolio Example
-![r3f_screenshot.png](assets%2Fr3f_screenshot.png)
+# 3D Gaussian Splatting Master Thesis
+![r3f_screenshot.png](public/assets/screenshot.png)
 ## Description
 A simple portfolio web app created with React Three fiber. Includes Monitoring and Debug UI.
 Based on the lesson **React Three Fiber** and **Drei** from [Three.js Journey](https://threejs-journey.com/lessons/r3f-drei).
