@@ -1,4 +1,4 @@
-import { OrbitControls } from '@react-three/drei';
+import { FirstPersonControls, OrbitControls } from '@react-three/drei';
 import { useControls } from 'leva';
 import { Garage } from './Garage.jsx';
 import { Cube } from './Cube.jsx';
@@ -13,6 +13,7 @@ export default function Scene() {
     <>
       <Garage />
       <OrbitControls makeDefault />
+      {/*<FirstPersonControls />*/}
       <directionalLight position={[1, 2, 3]} intensity={4.5} />
       <ambientLight intensity={1.5} />
       <Cube />

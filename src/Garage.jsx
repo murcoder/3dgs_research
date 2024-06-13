@@ -25,8 +25,8 @@ export function Garage() {
     {/*<Grid position={[0, -1, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />*/}
     <lumaSplatsThree
       source='https://lumalabs.ai/capture/def76f0d-a3f1-43d2-a7c0-7eb9d449bfc3'
-      position={[-1, 1, 0]}
-      pixelRatio={0.5}
+      position={[-0.5, 1, 0]}
+      particleRevealEnabled={true}
       enableThreeShaderIntegration={false}
     />
   </>;
