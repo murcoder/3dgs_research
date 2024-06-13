@@ -19,15 +19,13 @@ root.render(
     <Canvas
       className="r3f"
       gl={{
-        antialias: true,
+        antialias: false,
         toneMapping: THREE.ACESFilmicToneMapping,
-        outputColorSpace: THREE.SRGBColorSpace
+        outputColorSpace: THREE.SRGBColorSpace,
+        pixelRatio: 0.5
       }}
       camera={{
-        fov: 45,
-        near: 0.1,
-        far: 2000,
-        position: [-3, 1.5, 4]
+        position: [-2, 1, 1]
       }}>
       <Suspense fallback={<Loader />}>
         <Scene />

@@ -1,29 +1,22 @@
-import { Environment, ContactShadows } from '@react-three/drei';
-import { useControls, button } from 'leva';
-import { Perf } from 'r3f-perf';
-import { Computer } from './Computer.jsx';
-import { Selection, EffectComposer, Outline } from '@react-three/postprocessing';
-import { DemoReactThreeFiber } from './DemoReactThreeFiber.jsx';
+import { OrbitControls } from '@react-three/drei';
+import { useControls } from 'leva';
+import { Garage } from './Garage.jsx';
+import { Cube } from './Cube.jsx';
+import { Sphere } from './Sphere.jsx';
 
 export default function Scene() {
   const { monitoring } = useControls({
     monitoring: false
   });
-  const { backgroundColor } = useControls('Environment', {
-    backgroundColor: '#483931'
-  });
 
   return (
     <>
-      {monitoring ? <Perf position="top-left" /> : null}
-      {/*<Environment preset="sunset" />*/}
-      <DemoReactThreeFiber></DemoReactThreeFiber>
-
-      {/*<color args={[backgroundColor]} attach="background" />*/}
-
-      {/*<GaussianScene></GaussianScene>*/}
-
-      {/*<ContactShadows position-y={-1.4} opacity={0.4} scale={5} blur={2.4} />*/}
+      <Garage />
+      <OrbitControls makeDefault />
+      <directionalLight position={[1, 2, 3]} intensity={4.5} />
+      <ambientLight intensity={1.5} />
+      <Cube />
+      <Sphere />
     </>
   );
 }
