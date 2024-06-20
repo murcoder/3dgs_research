@@ -1,11 +1,13 @@
 import { Html, TransformControls } from '@react-three/drei';
 import React, { useRef } from 'react';
 import { useControls } from 'leva';
+import { CuboidCollider, Physics, RigidBody } from '@react-three/rapier';
 
 export function Cube() {
   const cube = useRef()
 
-  const { scale, position, color, visible } = useControls('cube', {
+  const { scale, position, color, visible, physics } = useControls('cube', {
+    physics: false,
     position:
       {
         value: { y: 1, z: 0 },
@@ -24,18 +26,27 @@ export function Cube() {
   })
 
   return <>
-    <TransformControls object={cube} />
-    <mesh ref={cube} visible={visible} position={[2, position.y, position.z]} scale={ scale }>
-      <boxGeometry />
-      <meshStandardMaterial color={color} />
-      <Html
-        position={[1, 1, 0]}
-        wrapperClass="label"
-        center
-        distanceFactor={8}
-      >
-        Cube
-      </Html>
-    </mesh>
+    {/*<TransformControls object={cube} />*/}
+    <Physics gravity={[0, -9.08, 0]}>
+    {physics ? (
+        <RigidBody colliders="ball">
+          <mesh castShadow ref={cube} visible={visible} position={[2, position.y, position.z]} scale={scale}>
+            <boxGeometry />
+            <meshStandardMaterial color={color} />
+            <Html position={[1, 1, 0]} wrapperClass="label" center distanceFactor={8}>
+              Cube
+            </Html>
+          </mesh>
+        </RigidBody>
+    ) : (
+      <mesh castShadow ref={cube} visible={visible} position={[2, position.y, position.z]} scale={scale}>
+        <boxGeometry />
+        <meshStandardMaterial color={color} />
+        <Html position={[1, 1, 0]} wrapperClass="label" center distanceFactor={8}>
+          Cube
+        </Html>
+      </mesh>
+    )}
+    </Physics>
   </>;
 }
