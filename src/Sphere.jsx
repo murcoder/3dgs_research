@@ -28,8 +28,9 @@ export function Sphere() {
       anchor={[0, 0, 0]}
       depthTest={false}
       lineWidth={4}
+      rotation={[0,5,0]}
       axisColors={['#9381ff', '#ff4d6d', '#7ae582']}
-      scale={200}
+      scale={150}
       fixed={true}
     >
       <mesh ref={sphere} visible={ visible } position={[1, position.y, position.z]} scale={scale}>
