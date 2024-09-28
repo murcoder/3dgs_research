@@ -1,12 +1,12 @@
-import React, { useRef } from 'react';
-import { Float, Html, PivotControls, Splat, TransformControls } from '@react-three/drei';
+import  React, { useRef } from 'react';
+import { Splat } from '@react-three/drei';
 import { useControls } from 'leva';
-import { useFrame } from '@react-three/fiber';
+import { CuboidCollider, RigidBody } from '@react-three/rapier';
 
 export function SplatObject() {
   const splat = useRef()
 
-  const { scale, position } = useControls('splat', {
+  const { scale, position, physics } = useControls('splat', {
     physics: false,
     position:
       {
@@ -24,31 +24,24 @@ export function SplatObject() {
   })
   return (
     <>
-      <PivotControls
-        anchor={[0, -1.2, 0]}
-        disableScaling={true}
-        depthTest={false}
-        rotation={[0,4,0]}
-        lineWidth={4}
-        axisColors={['#9381ff', '#ff4d6d', '#7ae582']}
-        scale={100}
-        fixed={true}
-      >
-        <Html
-          position={[1, 1, 0]}
-          wrapperClass="label"
-          center
-          distanceFactor={8}
-        >
-          Splat
-        </Html>
+      {physics ? (
+        <RigidBody colliders={false}>
         <Splat
           ref={splat}
           scale={scale}
           position={[2, position.y, position.z]}
           src="https://huggingface.co/cakewalk/splat-data/resolve/main/nike.splat"
         />
-      </PivotControls>
+          <CuboidCollider args={[0.4, 0.3, 0.5]} position={[2, position.y-0.5, position.z]} />
+        </RigidBody>
+      ) : (
+        <Splat
+          ref={splat}
+          scale={scale}
+          position={[2, position.y, position.z]}
+          src="https://huggingface.co/cakewalk/splat-data/resolve/main/nike.splat"
+        />
+      )}
     </>
   );
 }

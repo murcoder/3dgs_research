@@ -1,12 +1,12 @@
 import { CameraControls, Float, KeyboardControls, OrbitControls, Splat } from '@react-three/drei';
-import {Physics} from '@react-three/rapier';
+import { Physics } from '@react-three/rapier';
 import { useControls } from 'leva';
 import { Garage } from './Garage.jsx';
-import { Cube } from './Cube.jsx';
+import { Cube } from './Models/Cube.jsx';
 import { Sphere } from './Sphere.jsx';
 import { Perf } from 'r3f-perf';
 import { SplatObject } from './SplatObject.jsx';
-import { useFrame } from '@react-three/fiber';
+import { Floor } from './Models/Floor.jsx';
 
 export default function Scene() {
   const { monitoring } = useControls({
@@ -22,9 +22,12 @@ export default function Scene() {
       {/*<CameraControls makeDefault />*/}
       <directionalLight position={[1, 2, 3]} intensity={4.5} />
       <ambientLight intensity={1.5} />
-      <Cube />
-      <Sphere />
-      <SplatObject/>
+      <Physics debug colliders="hull">
+        <Cube />
+        <Floor />
+        <Sphere />
+        <SplatObject/>
+      </Physics>
       {/*<Splat alphaTest={0.1} src={`${cakewalk}/nike.splat`} scale={0.5} position={[0, 1.6, 2]} />*/}
     </>
   );

@@ -27,9 +27,8 @@ export function Cube() {
 
   return <>
     {/*<TransformControls object={cube} />*/}
-    <Physics gravity={[0, -9.08, 0]}>
     {physics ? (
-        <RigidBody colliders="ball">
+        <RigidBody colliders="cuboid">
           <mesh castShadow ref={cube} visible={visible} position={[2, position.y, position.z]} scale={scale}>
             <boxGeometry />
             <meshStandardMaterial color={color} />
@@ -47,6 +46,5 @@ export function Cube() {
         </Html>
       </mesh>
     )}
-    </Physics>
   </>;
 }
