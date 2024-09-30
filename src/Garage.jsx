@@ -33,6 +33,7 @@ export function Garage() {
       source='https://lumalabs.ai/capture/def76f0d-a3f1-43d2-a7c0-7eb9d449bfc3'
       position={[-0.5, 1, 0]}
       scale={1}
+      antialias={false}
       particleRevealEnabled={false}
       enableThreeShaderIntegration={false}
     />

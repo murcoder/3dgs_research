@@ -1,7 +1,15 @@
 import {KeyboardControls} from '@react-three/drei';
 import Ecctrl, { EcctrlAnimation } from "ecctrl";
+import { useControls } from 'leva';
 
 export default function Player () {
+  const {positionX, positionZ,  physics, disableControl, disableFollowCam} = useControls('player', {
+    // positionX: 1,
+    // positionZ: 3,
+    disableControl: false,
+    disableFollowCam: false,
+  })
+
 
   const keyboardMap = [
     { name: "forward", keys: ["ArrowUp", "KeyW"] },
@@ -10,11 +18,6 @@ export default function Player () {
     { name: "rightward", keys: ["ArrowRight", "KeyD"] },
     { name: "jump", keys: ["Space"] },
     { name: "run", keys: ["Shift"] },
-    // Optional animation key map
-    { name: "action1", keys: ["1"] },
-    { name: "action2", keys: ["2"] },
-    { name: "action3", keys: ["3"] },
-    { name: "action4", keys: ["KeyF"] },
   ];
 
   return (
@@ -22,6 +25,10 @@ export default function Player () {
         <KeyboardControls map={keyboardMap}>
           <Ecctrl
             debug
+            disableControl={disableControl}
+            disableFollowCam={disableFollowCam}
+            position={[1, 0, 3]}
+            camInitDis={-1}
             moveImpulsePointY={3}
             camFollowMult={10}
           >
