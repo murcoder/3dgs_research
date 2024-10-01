@@ -7,19 +7,6 @@ import React from 'react';
 extend({ LumaSplatsThree });
 
 export function Garage() {
-  const gridConfig = {
-    gridSize: [10.5, 10.5],
-    cellSize: 0.6,
-    cellThickness: 1,
-    cellColor: '#6f6f6f',
-    sectionSize: 3.3,
-    sectionThickness: 1.5,
-    sectionColor: '#c1c1c1',
-    fadeDistance: 25,
-    fadeStrength: 1,
-    followCamera: false,
-    infiniteGrid: true
-  }
 
   let splats = new LumaSplatsThree({
     source: 'https://lumalabs.ai/capture/def76f0d-a3f1-43d2-a7c0-7eb9d449bfc3',
@@ -28,7 +15,6 @@ export function Garage() {
   });
 
   return <>
-    <Grid position={[0, -1, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />
     <lumaSplatsThree
       source='https://lumalabs.ai/capture/def76f0d-a3f1-43d2-a7c0-7eb9d449bfc3'
       position={[-0.5, 1, 0]}

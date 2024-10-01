@@ -1,4 +1,4 @@
-import { CameraControls, Float, KeyboardControls, OrbitControls, useKeyboardControls } from '@react-three/drei';
+import { CameraControls, Float, Grid, KeyboardControls, OrbitControls, useKeyboardControls } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import { useControls } from 'leva';
 import { Garage } from './Garage.jsx';
@@ -8,15 +8,29 @@ import { Perf } from 'r3f-perf';
 import { SplatObject } from './Models/SplatObject.jsx';
 import { Floor } from './Models/Floor.jsx';
 import Player from './Models/Player.jsx';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Boundries } from './Models/Boundries.jsx';
 
 export default function Scene() {
-  const { monitoring, show3DScan, debugPhysics } = useControls('world', {
+  const { monitoring, show3DScan, debugPhysics, showGrid } = useControls('world', {
     monitoring: false,
     show3DScan: true,
-    debugPhysics: true
+    debugPhysics: true,
+    showGrid: false,
   });
+  const gridConfig = {
+    gridSize: [10.5, 10.5],
+    cellSize: 0.6,
+    cellThickness: 1,
+    cellColor: '#6f6f6f',
+    sectionSize: 3.3,
+    sectionThickness: 1.5,
+    sectionColor: '#c1c1c1',
+    fadeDistance: 25,
+    fadeStrength: 1,
+    followCamera: false,
+    infiniteGrid: true
+  }
 
   const [pausedPhysics, setPausedPhysics] = useState(true);
   useEffect(() => {
@@ -35,6 +49,7 @@ export default function Scene() {
       <ambientLight intensity={1.5} />
       <Physics debug={debugPhysics} colliders="hull" timeStep="vary" paused={pausedPhysics}>
         {show3DScan && <Garage />}
+        {showGrid && <Grid position={[0, -1, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />}
         <Player />
         <Cube />
         <Floor />

@@ -25,14 +25,21 @@ export default function Player () {
         <KeyboardControls map={keyboardMap}>
           <Ecctrl
             debug
+            dampingC={0.1}
+            floatingDis={1.5}
+            autoBalance={false}
+            animated
+            jumpVel={0}
+            camInitDis={-0.01}
+            camMinDis={-0.01}
+            camFollowMult={100}
+            turnVelMultiplier={1}
+            turnSpeed={10}
+            camLerpMult={1000}
+            mode={"CameraBasedMovement"}
             disableControl={disableControl}
             disableFollowCam={disableFollowCam}
-            position={[1, 0, 3]}
-            camInitDis={-1}
-            moveImpulsePointY={3}
-            camFollowMult={10}
-          >
-          </Ecctrl>
+          />
         </KeyboardControls>
     </>
   );

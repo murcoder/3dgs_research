@@ -8,26 +8,26 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.0.2",
-    "@eslint/js": "^9.1.1",
-    "@vitejs/plugin-react": "4.1",
-    "globals": "^15.0.0",
-    "prettier": "^3.2.5",
-    "vite": "^4.5.0"
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.11.1",
+    "@vitejs/plugin-react": "4.3",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "vite": "^5.4.8"
   },
   "dependencies": {
     "@lumaai/luma-web": "^0.2.2",
-    "@react-three/drei": "^9.88.7",
-    "@react-three/fiber": "^8.15.8",
-    "@react-three/postprocessing": "^2.16.2",
-    "@react-three/rapier": "^1.3.1",
+    "@react-three/drei": "^9.114.0",
+    "@react-three/fiber": "^8.17.8",
+    "@react-three/postprocessing": "^2.16.3",
+    "@react-three/rapier": "^1.4.0",
     "ecctrl": "^1.0.89",
     "gsap": "^3.12.5",
     "leva": "^0.9.35",
-    "r3f-perf": "^7.1.2",
-    "react": "18.2",
-    "react-dom": "18.2",
+    "r3f-perf": "^7.2.1",
+    "react": "18.3",
+    "react-dom": "18.3",
     "three": "^0.157.0",
-    "zustand": "^4.4.7"
+    "zustand": "^4.5.5"
   }
 }
