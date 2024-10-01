@@ -12,8 +12,12 @@ import React, { useEffect, useState } from 'react';
 import { Boundries } from './Models/Boundries.jsx';
 
 export default function Scene() {
-  const { monitoring, show3DScan, debugPhysics, showGrid } = useControls('world', {
+  const { monitoring, show3DScan, debugPhysics, showGrid, switchCameraControl } = useControls('world', {
     monitoring: false,
+    switchCameraControl: {
+      label: 'Camera',
+      options: { Player: 'player', Orbit: 'orbit' },
+    },
     show3DScan: true,
     debugPhysics: true,
     showGrid: false,
@@ -50,7 +54,11 @@ export default function Scene() {
       <Physics debug={debugPhysics} colliders="hull" timeStep="vary" paused={pausedPhysics}>
         {show3DScan && <Garage />}
         {showGrid && <Grid position={[0, -1, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />}
-        <Player />
+        {switchCameraControl === 'orbit' ? (
+          <OrbitControls enableZoom={true} enableDamping={false} makeDefault />
+        ) : (
+          <Player />
+        )}
         <Cube />
         <Floor />
         <Boundries />
