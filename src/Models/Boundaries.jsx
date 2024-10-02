@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { CuboidCollider, RigidBody } from '@react-three/rapier';
 import { PivotControls } from '@react-three/drei';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 const boxGeometry = new THREE.BoxGeometry(0.1, 8, 50)
 const wallMaterial = new THREE.MeshStandardMaterial({
   color: "blue",
@@ -9,7 +9,7 @@ const wallMaterial = new THREE.MeshStandardMaterial({
   transparent: true,
 });
 
-export function Boundries() {
+export function Boundaries() {
   const wall1 = useRef();
   const wall2 = useRef();
   // Set initial states for position and rotation
@@ -33,6 +33,16 @@ export function Boundries() {
       console.error("Mesh ref is undefined");
     }
   };
+
+  useEffect(() => {
+    // Do not render invisible walls (camera renders layer 0)
+    if (wall1.current) {
+      wall1.current.layers.set(1);
+    }
+    if (wall2.current) {
+      wall2.current.layers.set(1);
+    }
+  }, []);
 
   return <>
     <RigidBody type="fixed">

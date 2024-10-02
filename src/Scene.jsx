@@ -9,7 +9,7 @@ import { SplatObject } from './Models/SplatObject.jsx';
 import { Floor } from './Models/Floor.jsx';
 import Player from './Models/Player.jsx';
 import React, { useEffect, useState } from 'react';
-import { Boundries } from './Models/Boundries.jsx';
+import { Boundaries } from './Models/Boundaries.jsx';
 
 export default function Scene() {
   const { monitoring, show3DScan, debugPhysics, showGrid, switchCameraControl } = useControls('world', {
@@ -61,7 +61,7 @@ export default function Scene() {
         )}
         <Cube />
         <Floor />
-        <Boundries />
+        <Boundaries />
         {/*<Sphere />*/}
         <SplatObject/>
       </Physics>
