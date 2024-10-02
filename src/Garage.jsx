@@ -20,7 +20,7 @@ export function Garage() {
       position={[-0.5, 1, 0]}
       scale={1}
       antialias={false}
-      particleRevealEnabled={false}
+      particleRevealEnabled={true}
       enableThreeShaderIntegration={false}
     />
     {/*<PivotControls*/}

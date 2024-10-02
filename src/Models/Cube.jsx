@@ -6,7 +6,7 @@ import { CuboidCollider, Physics, RigidBody } from '@react-three/rapier';
 export function Cube() {
   const cube = useRef()
   const [hovered, setHovered] = useState(false);
-  const { scale, position, color, visible, physics } = useControls('cube', {
+  const { scale, position, color = '#a7fa68', visible, physics } = useControls('cube', {
     physics: false,
     position:
       {
@@ -14,7 +14,7 @@ export function Cube() {
         step: 0.01,
         joystick: 'invertY'
       },
-    color: '#a7fa68',
+    color: { value: '#a7fa68' },
     visible: true,
     scale:
       {
@@ -46,7 +46,7 @@ export function Cube() {
                 onPointerOver={handlePointerOver}
                 onPointerOut={handlePointerOut}>>
             <boxGeometry />
-            <meshStandardMaterial color={color} />
+            <meshStandardMaterial color={color || '#a7fa68'} />
             <Html position={[1, 1, 0]} wrapperClass="label" center distanceFactor={8}>
               Cube
             </Html>
@@ -83,7 +83,7 @@ export function Cube() {
             </div>
           </Html>
         )}
-        <meshStandardMaterial color={color} />
+        <meshStandardMaterial color={color || '#a7fa68'} />
         <Html position={[1, 1, 0]} wrapperClass="label" center distanceFactor={8}>
           Cube
         </Html>

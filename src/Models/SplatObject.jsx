@@ -4,8 +4,6 @@ import { useControls } from 'leva';
 import { CuboidCollider, RigidBody } from '@react-three/rapier';
 
 export function SplatObject() {
-  const splat = useRef()
-
   const { scale, position, physics } = useControls('splat', {
     physics: false,
     position:
@@ -27,7 +25,6 @@ export function SplatObject() {
       {physics ? (
         <RigidBody colliders={false}>
         <Splat
-          ref={splat}
           scale={scale}
           position={[2, position.y, position.z]}
           src="https://huggingface.co/cakewalk/splat-data/resolve/main/nike.splat"
@@ -36,7 +33,6 @@ export function SplatObject() {
         </RigidBody>
       ) : (
         <Splat
-          ref={splat}
           scale={scale}
           position={[2, position.y, position.z]}
           src="https://huggingface.co/cakewalk/splat-data/resolve/main/nike.splat"

@@ -16,10 +16,10 @@ export default function Scene() {
     monitoring: false,
     switchCameraControl: {
       label: 'Camera',
-      options: { Orbit: 'orbit', Player: 'player' },
+      options: { Orbit: 'orbit', FirstPerson: 'player' },
     },
     show3DScan: true,
-    debugPhysics: true,
+    debugPhysics: false,
     showGrid: false,
   });
   const gridConfig = {
@@ -63,7 +63,7 @@ export default function Scene() {
         <Floor />
         <Boundries />
         {/*<Sphere />*/}
-        {/*<SplatObject/>*/}
+        <SplatObject/>
       </Physics>
     </>
   );

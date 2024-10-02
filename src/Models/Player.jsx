@@ -3,14 +3,6 @@ import Ecctrl, { EcctrlAnimation } from "ecctrl";
 import { useControls } from 'leva';
 
 export default function Player () {
-  const {positionX, positionZ,  physics, disableControl, disableFollowCam} = useControls('player', {
-    // positionX: 1,
-    // positionZ: 3,
-    disableControl: false,
-    disableFollowCam: false,
-  })
-
-
   const keyboardMap = [
     { name: "forward", keys: ["ArrowUp", "KeyW"] },
     { name: "backward", keys: ["ArrowDown", "KeyS"] },
@@ -37,8 +29,6 @@ export default function Player () {
             turnSpeed={10}
             camLerpMult={1000}
             mode={"CameraBasedMovement"}
-            disableControl={disableControl}
-            disableFollowCam={disableFollowCam}
           />
         </KeyboardControls>
     </>
