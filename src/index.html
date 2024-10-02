@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research - Christoph Murauer</title>
-</head>
-<body>
-    <div id="root"></div>
-    <img class="controlKeys" src="./keyControls.png" alt="control keys">
-    <p class="title">
-        Research Project by
-        <a target="_blank" href="https://github.com/murcoder">Christoph Murauer</a>
-    </p>
-    <script type="module" src="./index.jsx"></script></body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+        <title>Research - Christoph Murauer</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <div id="infoText" class="fixed bottom-0 left-1/2 transform -translate-x-1/2 flex flex-col items-center mb-6">
+            <img src="./keyControls.png" alt="control keys" width="100px">
+            <br>
+                <p class="text-sm text-center">
+                    Research Project by<br>
+                    <a target="_blank" href="https://github.com/murcoder" class="text-black-600 hover:underline">Christoph Murauer</a>
+                </p>
+        </div>
+        <script type="module" src="./index.jsx"></script>
+    </body>
 </html>

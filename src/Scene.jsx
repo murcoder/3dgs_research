@@ -1,4 +1,4 @@
-import { CameraControls, Float, Grid, KeyboardControls, OrbitControls, useKeyboardControls } from '@react-three/drei';
+import { Grid, OrbitControls, } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import { useControls } from 'leva';
 import { Garage } from './Garage.jsx';
@@ -16,7 +16,7 @@ export default function Scene() {
     monitoring: false,
     switchCameraControl: {
       label: 'Camera',
-      options: { Player: 'player', Orbit: 'orbit' },
+      options: { Orbit: 'orbit', Player: 'player' },
     },
     show3DScan: true,
     debugPhysics: true,

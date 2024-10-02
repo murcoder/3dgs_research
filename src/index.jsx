@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import { StrictMode, Suspense } from 'react';
 import { Leva } from 'leva';
 import { Html, useProgress } from '@react-three/drei';
+import NavBar from './NavBar';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 function Loader() {
@@ -15,22 +16,23 @@ function Loader() {
 
 root.render(
   <StrictMode>
-    <Leva collapsed />
-    <Canvas
-      className="r3f"
-      gl={{
-        antialias: false,
-        toneMapping: THREE.ACESFilmicToneMapping,
-        outputColorSpace: THREE.SRGBColorSpace,
-        pixelRatio: 0.5
-      }}
-      camera={{
-        position: [-2, 1, 1],
-        fov: 75,
-      }}>
-      <Suspense fallback={<Loader />}>
-        <Scene />
-      </Suspense>
-    </Canvas>
+      <Leva collapsed />
+      <NavBar />
+      <Canvas
+        className="r3f"
+        gl={{
+          antialias: false,
+          toneMapping: THREE.ACESFilmicToneMapping,
+          outputColorSpace: THREE.SRGBColorSpace,
+          pixelRatio: 0.5
+        }}
+        camera={{
+          position: [-2, 1, 1],
+          fov: 75,
+        }}>
+        <Suspense fallback={<Loader />}>
+          <Scene />
+        </Suspense>
+      </Canvas>
   </StrictMode>
 );

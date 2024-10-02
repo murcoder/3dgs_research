@@ -38,7 +38,7 @@ export function Boundries() {
     <RigidBody type="fixed">
       <mesh
         ref={wall1}
-        receiveShadow={true}
+        receiveShadow={false}
         rotation={[0, 0.77, 0]}
         position={[0, 0, -1.9]}
         geometry={ boxGeometry }
@@ -57,7 +57,7 @@ export function Boundries() {
     {/*>*/}
         <mesh
           ref={wall2}
-          receiveShadow={true}
+          receiveShadow={false}
           rotation={meshRotation}
           position={meshPosition}
           geometry={ boxGeometry }
