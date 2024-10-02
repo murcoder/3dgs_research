@@ -16,7 +16,7 @@ function Loader() {
 
 root.render(
   <StrictMode>
-      <Leva collapsed />
+      <Leva />
       <NavBar />
       <Canvas
         className="r3f"

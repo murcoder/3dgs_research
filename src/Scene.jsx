@@ -63,7 +63,7 @@ export default function Scene() {
         <Floor />
         <Boundaries />
         {/*<Sphere />*/}
-        <SplatObject/>
+        {/*<SplatObject/>*/}
       </Physics>
     </>
   );
