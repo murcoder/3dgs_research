@@ -3,7 +3,7 @@ import { Physics } from '@react-three/rapier';
 import { useControls } from 'leva';
 import { Garage } from './Garage.jsx';
 import { Cube } from './Models/Cube.jsx';
-//import { Sphere } from './Models/Sphere.jsx';
+import { Sphere } from './Models/Sphere.jsx';
 import { Perf } from 'r3f-perf';
 import { SplatObject } from './Models/SplatObject.jsx';
 import { Floor } from './Models/Floor.jsx';
@@ -21,7 +21,7 @@ export default function Scene() {
     show3DScan: false,
     debug: true,
     pausePhysics: false,
-    showGrid: true,
+    showGrid: false,
   });
   const gridConfig = {
     gridSize: [10.5, 10.5],
@@ -37,15 +37,6 @@ export default function Scene() {
     infiniteGrid: true
   }
 
-  // const [pausedPhysics, setPausedPhysics] = useState(true);
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     setPausedPhysics(false);
-  //   }, 500);
-  //
-  //   return () => clearTimeout(timeout);
-  // }, []);
-
   return (
     <>
       {monitoring && <Perf position="top-left" />}
@@ -55,29 +46,18 @@ export default function Scene() {
       {showGrid && <Grid position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />}
       <Physics debug={debug} paused={pausePhysics}  timeStep="vary">
         <Cube />
+        {/*<Sphere />*/}
         {/*<Sparkles />*/}
+        {/*  <Boundaries />*/}
+        <SplatObject/>
         <Floor />
         {switchCameraControl === 'orbit' ? (
           <OrbitControls enableZoom={true} enableDamping={false} makeDefault />
         ) : (
-          <Player debug={debug}/>
+          <Player />
         )}
       </Physics>
       {show3DScan && <Garage />}
-      {/*<Physics debug={debugPhysics} colliders="hull" timeStep="vary" paused={pausedPhysics}>*/}
-      {/*  {show3DScan && <Garage />}*/}
-      {/*  {showGrid && <Grid position={[0, -1, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />}*/}
-      {/*  {switchCameraControl === 'orbit' ? (*/}
-      {/*    <OrbitControls enableZoom={true} enableDamping={false} makeDefault />*/}
-      {/*  ) : (*/}
-      {/*    <Player />*/}
-      {/*  )}*/}
-      {/*  <Cube />*/}
-      {/*  <Floor />*/}
-      {/*  <Boundaries />*/}
-      {/*  /!*<Sphere />*!/*/}
-      {/*  /!*<SplatObject/>*!/*/}
-      {/*</Physics>*/}
     </>
   );
 }

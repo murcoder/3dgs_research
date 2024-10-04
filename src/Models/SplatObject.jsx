@@ -8,9 +8,8 @@ export function SplatObject() {
     physics: false,
     position:
       {
-        value: { y: 1, z: 0 },
+        value: { x: 3.5, y: 3, z: 2.4 },
         step: 0.01,
-        joystick: ''
       },
     scale:
       {
@@ -26,15 +25,15 @@ export function SplatObject() {
         <RigidBody colliders={false}>
         <Splat
           scale={scale}
-          position={[2, position.y, position.z]}
+          position={[position.x, position.y, position.z]}
           src="https://huggingface.co/cakewalk/splat-data/resolve/main/nike.splat"
         />
-          <CuboidCollider args={[0.4, 0.3, 0.5]} position={[2, position.y-0.5, position.z]} />
+          <CuboidCollider args={[0.5, 0.2, 0.2]} position={[3.5, 2.4, 2]} />
         </RigidBody>
       ) : (
         <Splat
           scale={scale}
-          position={[2, position.y, position.z]}
+          position={[position.x, position.y, position.z]}
           src="https://huggingface.co/cakewalk/splat-data/resolve/main/nike.splat"
         />
       )}
