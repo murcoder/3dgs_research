@@ -36,11 +36,13 @@ export default function NavBar() {
         {/* Menu Links */}
         <ul
           className={`md:flex md:items-center space-y-4 md:space-y-0 md:space-x-6 font-body ${isOpen ? "block" : "hidden"} md:block`}>
+          <li><a href="https://radiancefields.com/platforms" className="text-gray-800 hover:underline" target='_blank'>News</a></li>
+          <li><a href="https://github.com/MrNeRF/awesome-3D-gaussian-splatting"
+                 className="text-gray-800 hover:underline" target='_blank'>Resources</a></li>
           <li><a href="https://drei.docs.pmnd.rs/getting-started/introduction"
-                 className="text-gray-800 hover:underline">DREI</a></li>
-          <li><a href="https://github.com/MrNeRF/awesome-3D-gaussian-splatting" className="text-gray-800 hover:underline">Resources</a></li>
-          <li><a href="https://radiancefields.com/platforms" className="text-gray-800 hover:underline">News</a></li>
-          <li><a href="https://threejs-portfolio-beryl.vercel.app/" className="text-gray-800 hover:underline">Portfolio</a></li>
+                 className="text-gray-800 hover:underline" target='_blank'>Docs</a></li>
+          <li><a href="https://threejs-portfolio-beryl.vercel.app/"
+                 className="text-gray-800 hover:underline" target='_blank'>Portfolio</a></li>
         </ul>
       </div>
     </nav>
