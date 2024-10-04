@@ -12,9 +12,9 @@ export function Floor() {
 
   return <>
     <RigidBody type="fixed">
-      <mesh  ref={floor} position-y={-1.25} receiveShadow={true}>
+      <mesh position={[0,-0.25,0]} ref={floor} receiveShadow={true}>
         <boxGeometry args={[50, 0.5, 50]} />
-        <meshStandardMaterial color="white" opacity={0} transparent={true}/>
+        <meshStandardMaterial color="#a7fa68" opacity={0} transparent={true}/>
       </mesh>
     </RigidBody>
   </>;

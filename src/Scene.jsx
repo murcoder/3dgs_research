@@ -1,9 +1,9 @@
-import { Grid, OrbitControls, } from '@react-three/drei';
+import { Grid, OrbitControls, Sparkles } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import { useControls } from 'leva';
 import { Garage } from './Garage.jsx';
 import { Cube } from './Models/Cube.jsx';
-import { Sphere } from './Models/Sphere.jsx';
+//import { Sphere } from './Models/Sphere.jsx';
 import { Perf } from 'r3f-perf';
 import { SplatObject } from './Models/SplatObject.jsx';
 import { Floor } from './Models/Floor.jsx';
@@ -12,15 +12,16 @@ import React, { useEffect, useState } from 'react';
 import { Boundaries } from './Models/Boundaries.jsx';
 
 export default function Scene() {
-  const { monitoring, show3DScan, debugPhysics, showGrid, switchCameraControl } = useControls('world', {
+  const { monitoring, show3DScan, debug, pausePhysics, showGrid, switchCameraControl } = useControls('world', {
     monitoring: false,
     switchCameraControl: {
       label: 'Camera',
       options: { Orbit: 'orbit', FirstPerson: 'player' },
     },
-    show3DScan: true,
-    debugPhysics: false,
-    showGrid: false,
+    show3DScan: false,
+    debug: true,
+    pausePhysics: false,
+    showGrid: true,
   });
   const gridConfig = {
     gridSize: [10.5, 10.5],
@@ -36,14 +37,14 @@ export default function Scene() {
     infiniteGrid: true
   }
 
-  const [pausedPhysics, setPausedPhysics] = useState(true);
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setPausedPhysics(false);
-    }, 500);
-
-    return () => clearTimeout(timeout);
-  }, []);
+  // const [pausedPhysics, setPausedPhysics] = useState(true);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     setPausedPhysics(false);
+  //   }, 500);
+  //
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
   return (
     <>
@@ -51,20 +52,32 @@ export default function Scene() {
       {/*<OrbitControls enableZoom={false} enableDamping={false} makeDefault/>*/}
       <directionalLight position={[1, 2, 3]} intensity={4.5} />
       <ambientLight intensity={1.5} />
-      <Physics debug={debugPhysics} colliders="hull" timeStep="vary" paused={pausedPhysics}>
-        {show3DScan && <Garage />}
-        {showGrid && <Grid position={[0, -1, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />}
+      {showGrid && <Grid position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />}
+      <Physics debug={debug} paused={pausePhysics}  timeStep="vary">
+        <Cube />
+        {/*<Sparkles />*/}
+        <Floor />
         {switchCameraControl === 'orbit' ? (
           <OrbitControls enableZoom={true} enableDamping={false} makeDefault />
         ) : (
-          <Player />
+          <Player debug={debug}/>
         )}
-        <Cube />
-        <Floor />
-        <Boundaries />
-        {/*<Sphere />*/}
-        {/*<SplatObject/>*/}
       </Physics>
+      {show3DScan && <Garage />}
+      {/*<Physics debug={debugPhysics} colliders="hull" timeStep="vary" paused={pausedPhysics}>*/}
+      {/*  {show3DScan && <Garage />}*/}
+      {/*  {showGrid && <Grid position={[0, -1, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />}*/}
+      {/*  {switchCameraControl === 'orbit' ? (*/}
+      {/*    <OrbitControls enableZoom={true} enableDamping={false} makeDefault />*/}
+      {/*  ) : (*/}
+      {/*    <Player />*/}
+      {/*  )}*/}
+      {/*  <Cube />*/}
+      {/*  <Floor />*/}
+      {/*  <Boundaries />*/}
+      {/*  /!*<Sphere />*!/*/}
+      {/*  /!*<SplatObject/>*!/*/}
+      {/*</Physics>*/}
     </>
   );
 }

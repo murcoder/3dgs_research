@@ -8,9 +8,7 @@ export function Sphere() {
   const { scale, position, color, visible } = useControls('sphere', {
     position:
       {
-        value: { y: 1, z: -2 },
-        step: 0.01,
-        joystick: 'invertY'
+        value: { x: 1, y: 0, z: -2 },
       },
     color: '#f37575',
     visible: true,
@@ -44,7 +42,7 @@ export function Sphere() {
       <mesh
         ref={sphere}
         visible={ visible }
-        position={[1, position.y, position.z]}
+        position={[position.x, position.y, position.z]}
         scale={scale}
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
@@ -52,7 +50,7 @@ export function Sphere() {
         <sphereGeometry/>
         <meshStandardMaterial color={color} />
         {hovered && (
-          <Outlines color="white" />
+          <Outlines color="white" thickness={5}/>
         )}
         {hovered && (
           <Html

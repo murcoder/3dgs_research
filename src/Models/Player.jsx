@@ -2,7 +2,7 @@ import {KeyboardControls} from '@react-three/drei';
 import Ecctrl, { EcctrlAnimation } from "ecctrl";
 import { useControls } from 'leva';
 
-export default function Player () {
+export default function Player ({debug}) {
   const keyboardMap = [
     { name: "forward", keys: ["ArrowUp", "KeyW"] },
     { name: "backward", keys: ["ArrowDown", "KeyS"] },
@@ -16,7 +16,7 @@ export default function Player () {
     <>
         <KeyboardControls map={keyboardMap}>
           <Ecctrl
-            debug
+            debug={debug}
             dampingC={0.1}
             floatingDis={1.5}
             autoBalance={false}
