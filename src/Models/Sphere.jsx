@@ -34,6 +34,7 @@ export function Sphere() {
           ref={sphere}
           position={[position.x, position.y, position.z]}
           scale={scale}
+          onClick={ (event) => { event.stopPropagation}}
           onPointerOver={handlePointerOver}
           onPointerOut={handlePointerOut}>
           <sphereGeometry />

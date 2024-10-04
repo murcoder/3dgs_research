@@ -12,7 +12,7 @@ import React, { useEffect, useState } from 'react';
 import { Boundaries } from './Models/Boundaries.jsx';
 
 export default function Scene() {
-  const { monitoring, show3DScan, debug, pausePhysics, showGrid, switchCameraControl } =
+  const { monitoring, show3DScan, debug, showGrid, switchCameraControl } =
     useControls('world', {
       monitoring: false,
       switchCameraControl: {
@@ -21,9 +21,23 @@ export default function Scene() {
       },
       show3DScan: true,
       debug: true,
-      pausePhysics: true,
       showGrid: false
     });
+
+
+  const [pausePhysics, setPausePhysics] = useState(true);
+
+  useEffect(() => {
+    // Make sure physics are turned on when switch to firstPerson
+    if (switchCameraControl) {
+      if (switchCameraControl === 'orbit') {
+        setPausePhysics(true);
+      } else if (switchCameraControl === 'player') {
+        setPausePhysics(false);
+      }
+    }
+  }, [switchCameraControl]);
+
   const gridConfig = {
     gridSize: [10.5, 10.5],
     cellSize: 0.6,
@@ -41,7 +55,6 @@ export default function Scene() {
   return (
     <>
       {monitoring && <Perf position="top-left" />}
-      {/*<OrbitControls enableZoom={false} enableDamping={false} makeDefault/>*/}
       <directionalLight position={[1, 2, 3]} intensity={4.5} />
       <ambientLight intensity={1.5} />
       {showGrid && (

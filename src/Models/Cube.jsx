@@ -21,6 +21,7 @@ export function Cube() {
       <mesh
             castShadow
             ref={cube}
+            onClick={ (event) => { event.stopPropagation}}
             onPointerOver={handlePointerOver}
             onPointerOut={handlePointerOut}>
         <boxGeometry />
