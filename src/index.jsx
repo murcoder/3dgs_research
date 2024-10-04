@@ -31,6 +31,8 @@ root.render(
         }}
         camera={{
           layers: 0,
+          near: 0.1,
+          far: 200,
           position: [-2, 3, 1.5],
           fov: 75,
         }}>

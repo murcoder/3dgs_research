@@ -26,7 +26,7 @@ export function Handle({ onClickHandle }) {
         onPointerOut={handlePointerOut}
         position={[0.72, 1.26, -0.08]} scale={[1.12, 0.42, 0.72]} rotation={[0, 0.7853981633974485, 0]}>
         <boxGeometry args={[0, 0, 0]} />
-        <Sparkles />
+        <Sparkles size={2} speed={0.3} scale={[1,2,1]} opacity={0.6}/>
         {hovered && <Outlines color="white" thickness={3} />}
         {hovered && (
           <Html position={[0.5, 0.5, 0]} center distanceFactor={8} style={{ pointerEvents: 'none' }}>
