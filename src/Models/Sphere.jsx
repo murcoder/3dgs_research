@@ -20,7 +20,9 @@ export function Sphere() {
   });
 
   const handlePointerOver = () => {
-    setHovered(true);
+    setTimeout(() => {
+      setHovered(true);
+    }, 100);
   };
 
   const handlePointerOut = () => {
@@ -35,7 +37,7 @@ export function Sphere() {
           position={[position.x, position.y, position.z]}
           scale={scale}
           onClick={(event) => {
-            event.stopPropagation;
+            event.stopPropagation();
           }}
           onPointerOver={handlePointerOver}
           onPointerOut={handlePointerOut}>
