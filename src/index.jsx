@@ -13,12 +13,15 @@ function Loader() {
   const { progress, active } = useProgress();
   return <Html center>{progress.toFixed(1)}%</Html>;
 }
-
+const handleContextMenu = (event) => {
+  event.preventDefault();
+};
 root.render(
   <StrictMode>
       <Leva />
       <NavBar />
       <Canvas
+        onContextMenu={handleContextMenu}
         className="r3f"
         gl={{
           antialias: false,

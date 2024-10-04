@@ -20,11 +20,13 @@ export default function Player() {
       <KeyboardControls map={keyboardMap}>
         <Ecctrl
           debug={debug}
+          position={1}
           dampingC={0.1}
           floatingDis={1.5}
           autoBalance={false}
           jumpVel={0}
           maxVelLimit={2.5}
+          camInitDir={{ x: 0, y: 60 }}
           camInitDis={-0.01}
           camMinDis={-0.01}
           camFollowMult={100}

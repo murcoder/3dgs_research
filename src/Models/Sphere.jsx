@@ -9,7 +9,7 @@ export function Sphere() {
   const [hovered, setHovered] = useState(false);
   const { scale, position } = useControls('sphere', {
     position: {
-      value: { x: 3, y: 2.4, z: 4 }
+      value: { x: 3, y: 2.4, z: 3.3 }
     },
     scale: {
       value: 0.3,

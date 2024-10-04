@@ -20,7 +20,7 @@ export default function Scene() {
         options: { Free: 'orbit', FirstPerson: 'player' }
       },
       show3DScan: true,
-      debug: true,
+      debug: false,
       showGrid: false
     });
 
@@ -28,7 +28,6 @@ export default function Scene() {
   const [pausePhysics, setPausePhysics] = useState(true);
 
   useEffect(() => {
-    // Make sure physics are turned on when switch to firstPerson
     if (switchCameraControl) {
       if (switchCameraControl === 'orbit') {
         setPausePhysics(true);
@@ -67,7 +66,8 @@ export default function Scene() {
         <SplatObject />
         <Floor />
         {switchCameraControl === 'orbit' ? (
-          <CameraControls />
+          // TODO - Add fixed camera positions: https://yomotsu.github.io/camera-controls/examples/basic.html
+          <CameraControls pan={false} />
         ) : (
           <Player />
         )}

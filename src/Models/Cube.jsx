@@ -1,4 +1,4 @@
-import { Html, Outlines, TransformControls } from '@react-three/drei';
+import { Html, Outlines } from '@react-three/drei';
 import React, { useRef, useState } from 'react';
 import { RigidBody } from '@react-three/rapier';
 import { Label } from '../Label.jsx';
