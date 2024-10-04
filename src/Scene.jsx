@@ -1,4 +1,4 @@
-import { Grid, OrbitControls, Sparkles } from '@react-three/drei';
+import { CameraControls, Grid } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import { useControls } from 'leva';
 import { Garage } from './Garage.jsx';
@@ -12,17 +12,18 @@ import React, { useEffect, useState } from 'react';
 import { Boundaries } from './Models/Boundaries.jsx';
 
 export default function Scene() {
-  const { monitoring, show3DScan, debug, pausePhysics, showGrid, switchCameraControl } = useControls('world', {
-    monitoring: false,
-    switchCameraControl: {
-      label: 'Camera',
-      options: { Orbit: 'orbit', FirstPerson: 'player' },
-    },
-    show3DScan: false,
-    debug: true,
-    pausePhysics: false,
-    showGrid: false,
-  });
+  const { monitoring, show3DScan, debug, pausePhysics, showGrid, switchCameraControl } =
+    useControls('world', {
+      monitoring: false,
+      switchCameraControl: {
+        label: 'Camera',
+        options: { Free: 'orbit', FirstPerson: 'player' }
+      },
+      show3DScan: true,
+      debug: true,
+      pausePhysics: true,
+      showGrid: false
+    });
   const gridConfig = {
     gridSize: [10.5, 10.5],
     cellSize: 0.6,
@@ -35,7 +36,7 @@ export default function Scene() {
     fadeStrength: 1,
     followCamera: false,
     infiniteGrid: true
-  }
+  };
 
   return (
     <>
@@ -43,16 +44,17 @@ export default function Scene() {
       {/*<OrbitControls enableZoom={false} enableDamping={false} makeDefault/>*/}
       <directionalLight position={[1, 2, 3]} intensity={4.5} />
       <ambientLight intensity={1.5} />
-      {showGrid && <Grid position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />}
-      <Physics debug={debug} paused={pausePhysics}  timeStep="vary">
+      {showGrid && (
+        <Grid position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />
+      )}
+      <Physics debug={debug} paused={pausePhysics} timeStep="vary">
         <Cube />
-        {/*<Sphere />*/}
-        {/*<Sparkles />*/}
-        {/*  <Boundaries />*/}
-        <SplatObject/>
+        <Sphere />
+        <Boundaries />
+        <SplatObject />
         <Floor />
         {switchCameraControl === 'orbit' ? (
-          <OrbitControls enableZoom={true} enableDamping={false} makeDefault />
+          <CameraControls />
         ) : (
           <Player />
         )}

@@ -25,7 +25,7 @@ export function Cube() {
             onPointerOut={handlePointerOut}>
         <boxGeometry />
         {hovered && (
-          <Outlines color="#f37575" thickness={5} />
+          <Outlines color="white" thickness={8} />
         )}
         {hovered && (
           <Html

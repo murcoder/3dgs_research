@@ -28,7 +28,7 @@ root.render(
         }}
         camera={{
           layers: 0,
-          position: [-2, 1, 1],
+          position: [-2, 3, 1.5],
           fov: 75,
         }}>
         <Suspense fallback={<Loader />}>
