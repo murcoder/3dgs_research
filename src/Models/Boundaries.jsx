@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const wallMaterial = new THREE.MeshStandardMaterial({
   color: 'blue',
-  opacity: 0.4,
+  opacity: 0.3,
   transparent: true
 });
 

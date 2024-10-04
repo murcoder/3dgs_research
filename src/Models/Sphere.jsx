@@ -34,12 +34,13 @@ export function Sphere() {
           ref={sphere}
           position={[position.x, position.y, position.z]}
           scale={scale}
-          onClick={ (event) => { event.stopPropagation}}
+          onClick={(event) => {
+            event.stopPropagation;
+          }}
           onPointerOver={handlePointerOver}
           onPointerOut={handlePointerOut}>
           <sphereGeometry />
-          <Sparkles />
-          <meshStandardMaterial color={"#f37575"} transparent={true} />
+          <meshStandardMaterial color={'#f37575'} transparent={true} />
           {hovered && <Outlines color="white" thickness={5} />}
           {hovered && (
             <Html position={[0.5, 0.5, 0]} center distanceFactor={8}>

@@ -1,4 +1,4 @@
-import { CameraControls, Grid } from '@react-three/drei';
+import { CameraControls, Grid, Html } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import { useControls } from 'leva';
 import { Garage } from './Garage.jsx';
@@ -10,6 +10,10 @@ import { Floor } from './Models/Floor.jsx';
 import Player from './Models/Player.jsx';
 import React, { useEffect, useState } from 'react';
 import { Boundaries } from './Models/Boundaries.jsx';
+import { SplatObject2 } from './Models/SplatObject2.jsx';
+import { Handle } from './Models/Handle.jsx';
+import { Sphere2 } from './Models/Sphere2.jsx';
+import { Label } from './Label.jsx';
 
 export default function Scene() {
   const { monitoring, show3DScan, debug, showGrid, switchCameraControl } =
@@ -26,6 +30,7 @@ export default function Scene() {
 
 
   const [pausePhysics, setPausePhysics] = useState(true);
+  const [showSplatObject2, setShowSplatObject2] = useState(false);
 
   useEffect(() => {
     if (switchCameraControl) {
@@ -64,10 +69,17 @@ export default function Scene() {
         <Sphere />
         <Boundaries />
         <SplatObject />
+        {showSplatObject2 && (
+          <Html position={[0.5, 2, 0]} center distanceFactor={8}>
+            <Label title={'Tutorial 1'} content={'Get some information here'} />
+          </Html>
+        )}
+        {showSplatObject2 && <SplatObject2 />}
+        {showSplatObject2 &&  <Sphere2 />}
+        <Handle onClickHandle={() => setShowSplatObject2(true)} />
         <Floor />
         {switchCameraControl === 'orbit' ? (
-          // TODO - Add fixed camera positions: https://yomotsu.github.io/camera-controls/examples/basic.html
-          <CameraControls pan={false} />
+          <CameraControls />
         ) : (
           <Player />
         )}
