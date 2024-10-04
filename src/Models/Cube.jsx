@@ -33,6 +33,7 @@ export function Cube() {
             position={[0.5, 0.5, 0]}
             center
             distanceFactor={8}
+            style={{ pointerEvents: 'none' }}
           >
             <Label
               title={"This is a Cube"}

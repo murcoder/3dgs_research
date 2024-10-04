@@ -29,7 +29,7 @@ export function Handle({ onClickHandle }) {
         <Sparkles />
         {hovered && <Outlines color="white" thickness={3} />}
         {hovered && (
-          <Html position={[0.5, 0.5, 0]} center distanceFactor={8}>
+          <Html position={[0.5, 0.5, 0]} center distanceFactor={8} style={{ pointerEvents: 'none' }}>
             <Label title={'This is a an Interaction point'} content={'Press me!'} />
           </Html>
         )}

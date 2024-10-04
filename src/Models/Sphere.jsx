@@ -45,7 +45,7 @@ export function Sphere() {
           <meshStandardMaterial color={'#f37575'} transparent={true} />
           {hovered && <Outlines color="white" thickness={5} />}
           {hovered && (
-            <Html position={[0.5, 0.5, 0]} center distanceFactor={8}>
+            <Html position={[0.5, 0.5, 0]} center distanceFactor={8} style={{ pointerEvents: 'none' }}>
               <Label title={'This is a Sphere'} content={'Hovering over me!'} />
             </Html>
           )}

@@ -70,7 +70,7 @@ export default function Scene() {
         <Boundaries />
         <SplatObject />
         {showSplatObject2 && (
-          <Html position={[0.5, 2, 0]} center distanceFactor={8}>
+          <Html position={[0.5, 2, 0]} center distanceFactor={8} style={{ pointerEvents: 'none' }}>
             <Label title={'Tutorial 1'} content={'Get some information here'} />
           </Html>
         )}
