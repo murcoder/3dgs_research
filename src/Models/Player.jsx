@@ -2,7 +2,7 @@ import { KeyboardControls } from '@react-three/drei';
 import Ecctrl, { EcctrlAnimation } from 'ecctrl';
 import { useControls } from 'leva';
 
-export default function Player() {
+export default function Player({position, cameraPos}) {
   const { debug } = useControls('player', {
     debug: false
   });
@@ -19,21 +19,21 @@ export default function Player() {
     <>
       <KeyboardControls map={keyboardMap}>
         <Ecctrl
-          debug={debug}
-          position={1}
+          position={position}
+          camInitDir={cameraPos} // set look-at initial position
+          camCollision={false} // disable camera collision detect (useless in FP mode)
+          camInitDis={-0.01} // camera intial position
+          camMinDis={-0.01} // camera zoom in closest position
+          camFollowMult={1000} // give a big number here, so the camera follows the target (character) instantly
+          camLerpMult={1000} // give a big number here, so the camera lerp to the followCam position instantly
+          turnVelMultiplier={1} // Turning speed same as moving speed
           dampingC={0.1}
-          floatingDis={1.5}
           autoBalance={false}
-          jumpVel={0}
           maxVelLimit={2.5}
-          camInitDir={{ x: 0, y: 60 }}
-          camInitDis={-0.01}
-          camMinDis={-0.01}
-          camFollowMult={100}
-          turnVelMultiplier={1}
-          turnSpeed={30}
-          camLerpMult={1000}
-          mode={'CameraBasedMovement'}
+          jumpVel={0} // disable jump
+          floatingDis={1.5} // Set higher view-point
+          turnSpeed={100} // give it big turning speed to prevent turning wait time
+          mode="CameraBasedMovement" // character's rotation will follow camera's rotation in this mode
         />
       </KeyboardControls>
     </>

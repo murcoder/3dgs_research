@@ -1,12 +1,13 @@
 import './style.css';
 import ReactDOM from 'react-dom/client';
 import { Canvas } from '@react-three/fiber';
-import Scene from './Scene.jsx';
+import Scene1 from './Scene1.jsx';
 import * as THREE from 'three';
 import { StrictMode, Suspense } from 'react';
 import { Leva } from 'leva';
 import { Html, useProgress } from '@react-three/drei';
 import NavBar from './NavBar';
+import Experience from './Experience.jsx';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 function Loader() {
@@ -21,6 +22,7 @@ root.render(
       <Leva />
       <NavBar />
       <Canvas
+        shadows
         onContextMenu={handleContextMenu}
         className="r3f"
         gl={{
@@ -37,7 +39,7 @@ root.render(
           fov: 75,
         }}>
         <Suspense fallback={<Loader />}>
-          <Scene />
+          <Experience />
         </Suspense>
       </Canvas>
   </StrictMode>
