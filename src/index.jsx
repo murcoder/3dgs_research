@@ -1,7 +1,6 @@
 import './style.css';
 import ReactDOM from 'react-dom/client';
 import { Canvas } from '@react-three/fiber';
-import Scene1 from './Scene1.jsx';
 import * as THREE from 'three';
 import { StrictMode, Suspense } from 'react';
 import { Leva } from 'leva';

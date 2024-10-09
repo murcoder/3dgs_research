@@ -1,7 +1,7 @@
 import { CameraControls, Grid, Html } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import { useControls } from 'leva';
-import { Garage } from './Garage.jsx';
+import { Garage } from './Models/Garage.jsx';
 import { Cube } from './Models/Cube.jsx';
 import { Sphere } from './Models/Sphere.jsx';
 import { Perf } from 'r3f-perf';
