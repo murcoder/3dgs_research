@@ -1,11 +1,7 @@
 import { KeyboardControls } from '@react-three/drei';
-import Ecctrl, { EcctrlAnimation } from 'ecctrl';
-import { useControls } from 'leva';
+import Ecctrl from 'ecctrl';
 
 export default function Player({position, cameraPos, mode = "CameraBasedMovement"}) {
-  const { debug } = useControls('player', {
-    debug: false
-  });
   const keyboardMap = [
     { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
     { name: 'backward', keys: ['ArrowDown', 'KeyS'] },
@@ -22,7 +18,7 @@ export default function Player({position, cameraPos, mode = "CameraBasedMovement
           capsuleHalfHeight={0.6}
           floatHeight={0.6}
           position={position}
-          camInitDir={cameraPos} // set look-at initial position
+          camInitDir={cameraPos} // Camera initial rotation direction (in radians)
           camCollision={false} // disable camera collision detect (useless in FP mode)
           camInitDis={-0.01} // camera intial position
           camMinDis={-0.01} // camera zoom in the closest position
