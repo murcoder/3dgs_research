@@ -1,8 +1,8 @@
 import { useControls } from 'leva';
 import { Perf } from 'r3f-perf';
 import React, { useRef, useState, useEffect } from 'react';
-import Scene1 from './Scenes/Scene1.jsx';
-import Scene2 from './Scenes/Scene2.jsx';
+import Scene1 from './scenes/Scene1.jsx';
+import Scene2 from './scenes/Scene2.jsx';
 
 export default function Experience() {
   const scene1 = useRef();
@@ -14,7 +14,7 @@ export default function Experience() {
     switchScenes: {
       label: 'Scenes',
       options: { Scene1: 1, Scene2: 2 },
-      value: 1 // Default value set to Scene1
+      value: 2
     },
     switchCameraControl: {
       label: 'Camera',
@@ -42,9 +42,9 @@ export default function Experience() {
       <directionalLight position={[1, 2, 3]} intensity={4.5} />
       <ambientLight intensity={1.5} />
       {currentScene === 1 && (
-        <Scene1 ref={scene1} debug={debug} laserCutterClicked={handleLaserCutterClicked} />
+        <Scene1 ref={scene1} debug={debug} laserCutterClicked={handleLaserCutterClicked} cameraMode={switchCameraControl} />
       )}
-      {currentScene === 2 && <Scene2 ref={scene2} debug={debug} />}
+      {currentScene === 2 && <Scene2 ref={scene2} debug={debug} cameraMode={switchCameraControl}/>}
     </>
   );
 }

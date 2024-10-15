@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { StrictMode, Suspense } from 'react';
 import { Leva } from 'leva';
 import { Html, useProgress } from '@react-three/drei';
-import NavBar from './NavBar';
+import NavBar from './html/NavBar.jsx';
 import Experience from './Experience.jsx';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
