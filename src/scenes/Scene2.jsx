@@ -1,4 +1,4 @@
-import { CameraControls, Grid, PointerLockControls, Select } from '@react-three/drei';
+import { CameraControls, Grid, Html, PointerLockControls, Select } from '@react-three/drei';
 import { Machine1 } from '../models/Machine1.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
@@ -6,9 +6,10 @@ import React, { forwardRef, useRef, useState } from 'react';
 import { Sphere } from '../models/Sphere.jsx';
 import { Floor } from '../models/Floor.jsx';
 import { Machine2 } from '../models/Machine2.jsx';
+import Checklist from '../html/Checklist.jsx';
 
 const Scene2 = forwardRef(({debug, cameraMode}, ref) => {
-
+  const machine = useRef();
   const gridConfig = {
     gridSize: [10.5, 10.5],
     cellSize: 0.6,
@@ -30,13 +31,16 @@ const Scene2 = forwardRef(({debug, cameraMode}, ref) => {
 
   return (
     <group ref={ref}>
+
       {/*<PointerLockControls />*/}
+      <Checklist />
+
       <Grid position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />
       <Physics debug={debug} timeStep="vary">
         {showMachine1 ? (
-          <Machine1 onMachineClick={handleMachineClick} />
+          <Machine1 ref={machine} onMachineClick={handleMachineClick} />
         ) : (
-          <Machine2 onMachineClick={handleMachineClick} />
+          <Machine2 ref={machine} onMachineClick={handleMachineClick} />
         )}
         <Sphere />
         <Floor />

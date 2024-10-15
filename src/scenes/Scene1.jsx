@@ -15,7 +15,7 @@ const Scene1 = forwardRef(({debug, cameraMode, laserCutterClicked, doorClicked},
         {cameraMode === 'orbit' ? (
           <CameraControls />
         ) : (
-          <Player position={[-3, 1, 0]} cameraPos={{ x: 0, y: 1.6 }} />
+          <Player position={[-3, 1, 0]} cameraPos={{ x: 0, y: Math.PI / 2}} />
         )}
       </Physics>
     </group>
