@@ -36,7 +36,7 @@ export default function NavBar() {
         {/* Menu Links */}
         <ul
           className={`md:flex md:items-center space-y-4 md:space-y-0 md:space-x-6 font-body ${isOpen ? "block" : "hidden"} md:block`}>
-          <li><a href="https://sbcode.net/react-three-fiber/" className="text-gray-800 hover:underline" target='_blank'>Tutorials</a></li>
+          <li><a href="https://threejs-journey.com//" className="text-gray-800 hover:underline" target='_blank'>Tutorial</a></li>
           <li><a href="https://github.com/MrNeRF/awesome-3D-gaussian-splatting"
                  className="text-gray-800 hover:underline" target='_blank'>Papers</a></li>
           <li><a href="https://drei.docs.pmnd.rs/getting-started/introduction"

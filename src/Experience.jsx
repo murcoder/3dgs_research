@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Scene1 from './scenes/Scene1.jsx';
 import Scene2 from './scenes/Scene2.jsx';
 import Scene3 from './scenes/Scene3.jsx';
+import { GizmoHelper, GizmoViewport } from '@react-three/drei';
 
 export default function Experience() {
   const scene1 = useRef();
@@ -15,7 +16,7 @@ export default function Experience() {
     switchScenes: {
       label: 'Scenes',
       options: { Scene1: 1, Scene2: 2, Scene3: 3 },
-      value: 1
+      value: 2
     },
     switchCameraControl: {
       label: 'Camera',
@@ -26,14 +27,8 @@ export default function Experience() {
 
   const [currentScene, setCurrentScene] = useState(switchScenes);
 
-  const switchToScene1 = () => {
-    setCurrentScene(1);
-  };
-  const switchToScene2 = () => {
-    setCurrentScene(2);
-  };
-  const switchToScene3 = () => {
-    setCurrentScene(3);
+  const switchToScene = (sceneNumber) => {
+    setCurrentScene(sceneNumber);
   };
 
   // Effect to handle scene changes based on the switchScenes control
@@ -44,13 +39,37 @@ export default function Experience() {
   return (
     <>
       {monitoring && <Perf position="top-left" />}
+      {/*<GizmoHelper alignment="bottom-right" margin={[80, 80]} renderPriority={1}>*/}
+      {/*  <GizmoViewport axisColors={["hotpink", "aquamarine", "#3498DB"]} labelColor="black" />*/}
+      {/*</GizmoHelper>*/}
       <directionalLight position={[1, 2, 3]} intensity={4.5} />
       <ambientLight intensity={1.5} />
       {currentScene === 1 && (
-        <Scene1 ref={scene1} debug={debug} cameraMode={switchCameraControl} laserCutterClicked={switchToScene2} doorClicked={switchToScene3}/>
+        <Scene1
+          renderPriority={2}
+          ref={scene1}
+          debug={debug}
+          cameraMode={switchCameraControl}
+          laserCutterClicked={() => switchToScene(2)}
+          doorClicked={() => switchToScene(3)}
+        />
       )}
-      {currentScene === 2 && <Scene2 ref={scene2} debug={debug} cameraMode={switchCameraControl}/>}
-      {currentScene === 3 && <Scene3 ref={scene3} debug={debug} cameraMode={switchCameraControl} laserCutterClicked={switchToScene2} doorClicked={switchToScene1}/>}
+      {currentScene === 2 &&
+        <Scene2
+          renderPriority={2}
+          ref={scene2}
+          debug={debug}
+          cameraMode={switchCameraControl}
+        />}
+      {currentScene === 3 &&
+        <Scene3
+          renderPriority={2}
+          ref={scene3}
+          debug={debug}
+          cameraMode={switchCameraControl}
+          laserCutterClicked={() => switchToScene(2)}
+          doorClicked={() => switchToScene(1)}
+        />}
     </>
   );
 }

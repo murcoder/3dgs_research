@@ -10,12 +10,12 @@ const Scene3 = forwardRef(({debug, laserCutterClicked, cameraMode, doorClicked},
   return (
     <group ref={ref}>
       <Physics debug={debug} timeStep="vary">
-        <Garage  onMachineClick={laserCutterClicked} onDoorClick={doorClicked}/>
-        <Floor />
+        <Garage  renderPriority={2} onMachineClick={laserCutterClicked} onDoorClick={doorClicked}/>
+        <Floor renderPriority={1} />
         {cameraMode === 'orbit' ? (
           <CameraControls />
         ) : (
-          <Player position={[2.3, 1, -1.5]} cameraPos={{ x: 0, y: 30 }} />
+          <Player renderPriority={5} alphaTest position={[2.3, 1, -1.5]} cameraPos={{ x: 0, y: 30 }} />
         )}
       </Physics>
     </group>
