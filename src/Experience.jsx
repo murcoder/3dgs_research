@@ -28,14 +28,8 @@ export default function Experience() {
 
   const [currentScene, setCurrentScene] = useState(switchScenes);
 
-  const switchToScene1 = () => {
-    setCurrentScene(1);
-  };
-  const switchToScene2 = () => {
-    setCurrentScene(2);
-  };
-  const switchToScene3 = () => {
-    setCurrentScene(3);
+  const switchToScene = (sceneNumber) => {
+    setCurrentScene(sceneNumber);
   };
 
   // Effect to handle scene changes based on the switchScenes control
@@ -46,14 +40,24 @@ export default function Experience() {
   return (
     <>
       {monitoring && <Perf position="top-left" />}
+      {/*<GizmoHelper alignment="bottom-right" margin={[80, 80]} renderPriority={1}>*/}
+      {/*  <GizmoViewport axisColors={["hotpink", "aquamarine", "#3498DB"]} labelColor="black" />*/}
+      {/*</GizmoHelper>*/}
       <directionalLight position={[1, 2, 3]} intensity={4.5} />
       <ambientLight intensity={1.5} />
       {currentScene === 1 && (
-        <Room1 ref={scene1} debug={debug} cameraMode={switchCameraControl} laserCutterClicked={switchToScene2} doorClicked={switchToScene3}/>
+        <Room1
+          renderPriority={2}
+          ref={room1}
+          debug={debug}
+          cameraMode={switchCameraControl}
+          laserCutterClicked={() => switchToScene(1)}
+          doorClicked={() => switchToScene(2)}
+        />
       )}
-      {currentScene === 2 && <Room2 ref={room2} debug={debug} cameraMode={switchCameraControl} laserCutterClicked={switchToScene2} doorClicked={switchToScene1}/>}
-      {currentScene === 3 && <LasercutDetail ref={lasercutDetail} debug={debug} cameraMode={switchCameraControl}/>}
-      {currentScene === 4 && <TechTest ref={techTest} debug={debug} cameraMode={switchCameraControl}/>}
+      {currentScene === 2 && <Room2  renderPriority={2} ref={room2} debug={debug} cameraMode={switchCameraControl} laserCutterClicked={switchToScene2} doorClicked={switchToScene1}/>}
+      {currentScene === 3 && <LasercutDetail  renderPriority={2} ref={lasercutDetail} debug={debug} cameraMode={switchCameraControl}/>}
+      {currentScene === 4 && <TechTest  renderPriority={2} ref={techTest} debug={debug} cameraMode={switchCameraControl}/>}
     </>
   );
 }

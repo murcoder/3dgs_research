@@ -1,12 +1,13 @@
-import { CameraControls, Grid, Html, PointerLockControls, Select } from '@react-three/drei';
+import { CameraControls, Environment, Grid, Html, PointerLockControls, Select } from '@react-three/drei';
 import { Machine1 } from '../models/Machine1.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import React, { forwardRef, useRef, useState } from 'react';
+import React, { forwardRef, startTransition, useRef, useState, useTransition } from 'react';
 import { Sphere } from '../models/Sphere.jsx';
 import { Floor } from '../models/Floor.jsx';
 import { Machine2 } from '../models/Machine2.jsx';
 import Checklist from '../html/Checklist.jsx';
+import { useControls } from 'leva';
 
 const LasercutDetail = forwardRef(({debug, cameraMode}, ref) => {
   const machine = useRef();
@@ -33,21 +34,23 @@ const LasercutDetail = forwardRef(({debug, cameraMode}, ref) => {
     <group ref={ref}>
 
       {/*<PointerLockControls />*/}
-      <Checklist />
+      <Checklist renderPriority={2} />
+      <Environment preset={'apartment'} background backgroundBlurriness={1} />
 
-      <Grid position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />
+
+      <Grid renderPriority={1} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />
       <Physics debug={debug} timeStep="vary">
         {showMachine1 ? (
-          <Machine1 ref={machine} onMachineClick={handleMachineClick} />
+          <Machine1 renderPriority={1} ref={machine} onMachineClick={handleMachineClick} />
         ) : (
-          <Machine2 ref={machine} onMachineClick={handleMachineClick} />
+          <Machine2 renderPriority={1} ref={machine} onMachineClick={handleMachineClick} />
         )}
-        <Sphere />
-        <Floor />
+        <Sphere renderPriority={3} />
+        <Floor renderPriority={1} />
         {cameraMode === 'orbit' ? (
           <CameraControls />
         ) : (
-          <Player alphaTest position={[0, 1, -3]} cameraPos={{ x: 0, y: 0 }} mode={"CameraBasedMovement"} />
+          <Player renderPriority={5} alphaTest position={[0, 1, -3]} cameraPos={{ x: 0, y: 0 }} mode={"CameraBasedMovement"} />
         )}
       </Physics>
     </group>

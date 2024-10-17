@@ -33,6 +33,7 @@ export function Sphere() {
     <>
       <RigidBody colliders="ball">
         <mesh
+          castShadow
           ref={sphere}
           position={[position.x, position.y, position.z]}
           scale={scale}
