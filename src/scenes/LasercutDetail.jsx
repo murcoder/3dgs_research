@@ -1,11 +1,11 @@
 import { CameraControls, Environment, Grid, Html, PointerLockControls, Select } from '@react-three/drei';
-import { Machine1 } from '../models/Machine1.jsx';
+import { LasercutClosed } from '../models/LasercutClosed.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
 import React, { forwardRef, startTransition, useRef, useState, useTransition } from 'react';
 import { Sphere } from '../models/Sphere.jsx';
 import { Floor } from '../models/Floor.jsx';
-import { Machine2 } from '../models/Machine2.jsx';
+import { LasercutOpened } from '../models/LasercutOpened.jsx';
 import Checklist from '../html/Checklist.jsx';
 import { useControls } from 'leva';
 
@@ -41,9 +41,9 @@ const LasercutDetail = forwardRef(({debug, cameraMode}, ref) => {
       <Grid renderPriority={1} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />
       <Physics debug={debug} timeStep="vary">
         {showMachine1 ? (
-          <Machine1 renderPriority={1} ref={machine} onMachineClick={handleMachineClick} />
+          <LasercutClosed renderPriority={1} ref={machine} onMachineClick={handleMachineClick} />
         ) : (
-          <Machine2 renderPriority={1} ref={machine} onMachineClick={handleMachineClick} />
+          <LasercutOpened renderPriority={1} ref={machine} onMachineClick={handleMachineClick} />
         )}
         <Sphere renderPriority={3} />
         <Floor renderPriority={1} />
