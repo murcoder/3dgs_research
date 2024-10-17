@@ -28,13 +28,11 @@ root.render(
           antialias: false,
           toneMapping: THREE.ACESFilmicToneMapping,
           outputColorSpace: THREE.SRGBColorSpace,
-          pixelRatio: 0.5
+          pixelRatio: 2
         }}
         camera={{
-          layers: 0,
           near: 0.1,
           far: 200,
-          position: [-2, 3, 1.5],
           fov: 75,
         }}>
         <Suspense fallback={<Loader />}>

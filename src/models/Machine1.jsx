@@ -27,29 +27,31 @@ export const Machine1 = forwardRef(({ onMachineClick }, ref) => {
   };
 
   return (
-    <RigidBody type="fixed" colliders={false}>
-      <CuboidCollider
-        rotation={[0, 0, 0]}
-        position={[position.x, position.y, position.z]}
-        args={[args.x, args.y, args.z]}
-      />
-      <mesh
-        ref={meshRef}
-        onClick={onMachineClick}
-        onPointerOver={handlePointerOver}
-        onPointerOut={handlePointerOut}
-        name="lasercutter_closed"
-        position={[-0.04, 0.9, -0.2]}
-        material={transparentMaterial}>
-        <boxGeometry args={[2.6, 2.04, 1.44]} />
-      </mesh>
-      {hovered && <Outlines color="green" thickness={8} />}
-      {hovered && (
-        <Html position={[0.5, 0.5, 0]} center distanceFactor={8} style={{ pointerEvents: 'none' }}>
-          <Label title={'Lasercutter'} content={'Open me!'} />
-        </Html>
-      )}
-      <Splat scale={0.85} src={'./splats/lasercutter_closed.splat'} />
-    </RigidBody>
+    <>
+    <Splat scale={0.85} src={'./splats/lasercutter_closed.splat'} />
+      <RigidBody type="fixed" colliders={false}>
+        <CuboidCollider
+          rotation={[0, 0, 0]}
+          position={[position.x, position.y, position.z]}
+          args={[args.x, args.y, args.z]}
+        />
+        <mesh
+          ref={meshRef}
+          onClick={onMachineClick}
+          onPointerOver={handlePointerOver}
+          onPointerOut={handlePointerOut}
+          name="lasercutter_closed"
+          position={[-0.04, 0.9, -0.2]}
+          material={transparentMaterial}>
+          <boxGeometry args={[2.6, 2.04, 1.44]} />
+        </mesh>
+        {hovered && <Outlines color="green" thickness={8} />}
+        {hovered && (
+          <Html position={[0.5, 0.5, 0]} center distanceFactor={8} style={{ pointerEvents: 'none' }}>
+            <Label title={'Lasercutter'} content={'Open me!'} />
+          </Html>
+        )}
+      </RigidBody>
+    </>
   );
 });

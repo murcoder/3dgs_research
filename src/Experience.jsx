@@ -1,20 +1,22 @@
 import { useControls } from 'leva';
 import { Perf } from 'r3f-perf';
 import React, { useRef, useState, useEffect } from 'react';
-import Scene1 from './scenes/Scene1.jsx';
-import Scene2 from './scenes/Scene2.jsx';
-import Scene3 from './scenes/Scene3.jsx';
+import Room1 from './scenes/Room1.jsx';
+import LasercutDetail from './scenes/LasercutDetail.jsx';
+import Room2 from './scenes/Room2.jsx';
+import TechTest from './scenes/TechTest.jsx';
 
 export default function Experience() {
   const scene1 = useRef();
-  const scene2 = useRef();
-  const scene3 = useRef();
+  const lasercutDetail = useRef();
+  const room2 = useRef();
+  const techTest = useRef();
 
   const { monitoring, debug, switchCameraControl, switchScenes } = useControls('world', {
     monitoring: false,
     switchScenes: {
       label: 'Scenes',
-      options: { Scene1: 1, Scene2: 2, Scene3: 3 },
+      options: { Room1: 1, Room2: 2, LasercutDetail: 3, TechTest: 4 },
       value: 1
     },
     switchCameraControl: {
@@ -47,10 +49,11 @@ export default function Experience() {
       <directionalLight position={[1, 2, 3]} intensity={4.5} />
       <ambientLight intensity={1.5} />
       {currentScene === 1 && (
-        <Scene1 ref={scene1} debug={debug} cameraMode={switchCameraControl} laserCutterClicked={switchToScene2} doorClicked={switchToScene3}/>
+        <Room1 ref={scene1} debug={debug} cameraMode={switchCameraControl} laserCutterClicked={switchToScene2} doorClicked={switchToScene3}/>
       )}
-      {currentScene === 2 && <Scene2 ref={scene2} debug={debug} cameraMode={switchCameraControl}/>}
-      {currentScene === 3 && <Scene3 ref={scene3} debug={debug} cameraMode={switchCameraControl} laserCutterClicked={switchToScene2} doorClicked={switchToScene1}/>}
+      {currentScene === 2 && <Room2 ref={room2} debug={debug} cameraMode={switchCameraControl} laserCutterClicked={switchToScene2} doorClicked={switchToScene1}/>}
+      {currentScene === 3 && <LasercutDetail ref={lasercutDetail} debug={debug} cameraMode={switchCameraControl}/>}
+      {currentScene === 4 && <TechTest ref={techTest} debug={debug} cameraMode={switchCameraControl}/>}
     </>
   );
 }
