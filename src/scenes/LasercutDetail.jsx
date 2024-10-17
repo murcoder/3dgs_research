@@ -8,8 +8,9 @@ import { Floor } from '../models/Floor.jsx';
 import { LasercutOpened } from '../models/LasercutOpened.jsx';
 import Checklist from '../html/Checklist.jsx';
 import { useControls } from 'leva';
+import { Button } from '../html/Button.jsx';
 
-const LasercutDetail = forwardRef(({debug, cameraMode}, ref) => {
+const LasercutDetail = forwardRef(({debug, cameraMode, onReturnClick}, ref) => {
   const machine = useRef();
   const gridConfig = {
     gridSize: [10.5, 10.5],
@@ -34,11 +35,13 @@ const LasercutDetail = forwardRef(({debug, cameraMode}, ref) => {
     <group ref={ref}>
 
       {/*<PointerLockControls />*/}
+      {/*<Environment preset={'apartment'} background backgroundBlurriness={1} />*/}
       <Checklist renderPriority={2} />
-      <Environment preset={'apartment'} background backgroundBlurriness={1} />
+      <Html>
+        <Button handleClick={onReturnClick} />
+      </Html>
 
-
-      <Grid renderPriority={1} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />
+      <Grid renderPriority={2} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />
       <Physics debug={debug} timeStep="vary">
         {showMachine1 ? (
           <LasercutClosed renderPriority={1} ref={machine} onMachineClick={handleMachineClick} />
@@ -50,7 +53,13 @@ const LasercutDetail = forwardRef(({debug, cameraMode}, ref) => {
         {cameraMode === 'orbit' ? (
           <CameraControls />
         ) : (
-          <Player renderPriority={5} alphaTest position={[0, 1, -3]} cameraPos={{ x: 0, y: 0 }} mode={"CameraBasedMovement"} />
+          <Player
+            renderPriority={5}
+            alphaTest
+            position={[0, 1, -3]}
+            cameraPos={{ x: 0, y: 0 }}
+            mode={"CameraBasedMovement"}
+          />
         )}
       </Physics>
     </group>

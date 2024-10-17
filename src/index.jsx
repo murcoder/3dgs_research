@@ -31,6 +31,7 @@ root.render(
           pixelRatio: 2
         }}
         camera={{
+          layers: 0,
           near: 0.1,
           far: 200,
           fov: 75,

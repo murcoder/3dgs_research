@@ -51,7 +51,7 @@ export default function Experience() {
           ref={room1}
           debug={debug}
           cameraMode={switchCameraControl}
-          laserCutterClicked={() => switchToScene(1)}
+          laserCutterClicked={() => switchToScene(3)}
           doorClicked={() => switchToScene(2)}
         />
       }
@@ -69,7 +69,8 @@ export default function Experience() {
           renderPriority={2}
           ref={lasercutDetail}
           debug={debug}
-          cameraMode={switchCameraControl}/>
+          cameraMode={switchCameraControl}
+          onReturnClick={() => switchToScene(1)}/>
       }
       {currentScene === 4 &&
         <TechTest
