@@ -17,13 +17,13 @@ export default function Experience() {
     switchScenes: {
       label: 'Scenes',
       options: { Room1: 1, Room2: 2, LasercutDetail: 3, TechTest: 4 },
-      value: 3
+      value: 1
     },
     switchCameraControl: {
       label: 'Camera',
       options: { FirstPerson: 'player', Free: 'orbit' }
     },
-    debug: true
+    debug: false
   });
 
   const [currentScene, setCurrentScene] = useState(switchScenes);

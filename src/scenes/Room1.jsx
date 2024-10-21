@@ -8,8 +8,8 @@ import { Door } from '../boundries/Door.jsx';
 import { useControls } from 'leva';
 
 const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked }, ref) => {
-  const { use3DScan } = useControls('world', {
-    use3DScan: true
+  const { show3DScan } = useControls('world', {
+    show3DScan: true
   });
   const gridConfig = {
     gridSize: [10.5, 10.5],
@@ -28,10 +28,10 @@ const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked }
   return (
     <group ref={ref}>
       <Physics debug={debug} timeStep="vary">
-        {use3DScan ? (
+        {show3DScan ? (
           <Splat renderOrder={2} scale={1} src="./splats/lasercutter_room.splat" />
         ) : null}
-        {!use3DScan ? (
+        {!show3DScan ? (
           <Grid
             renderPriority={3}
             position={[0, 0, 0]}
