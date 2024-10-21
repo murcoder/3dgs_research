@@ -4,7 +4,7 @@ import { RigidBody } from '@react-three/rapier';
 import { Label } from '../html/Label.jsx';
 import { transparentMaterial} from '../constants/materials.js';
 
-export const LasercutOpened = forwardRef(({ onMachineClick }, ref) => {
+export const LasercutOpened = forwardRef(({ onMachineClick, renderOrder }, ref) => {
   const meshRef = useRef();
   const [hovered, setHovered] = useState(false);
 
@@ -19,10 +19,11 @@ export const LasercutOpened = forwardRef(({ onMachineClick }, ref) => {
 
   return (
     <>
-      <Splat position={[-0.16, -0.04, -0.05]} src={'./splats/lasercutter_opened.splat'} />
+      <Splat renderOrder={renderOrder} position={[-0.16, -0.04, -0.05]} src={'./splats/lasercutter_opened.splat'} />
       {/*<Lasercutter position={{x:0, y:0.9, z:-0.2}} boxGeometry={{width:2.6, height:2.04, depth:1.44}} onMachineClick={onMachineClick}/>*/}
       <RigidBody type="fixed">
         <mesh
+          renderOrder={renderOrder+1}
           ref={meshRef}
           onClick={onMachineClick}
           onPointerOver={handlePointerOver}

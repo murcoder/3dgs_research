@@ -47,7 +47,6 @@ export default function Experience() {
       <ambientLight intensity={1.5} />
       {currentScene === 1 &&
         <Room1
-          renderPriority={2}
           ref={room1}
           debug={debug}
           cameraMode={switchCameraControl}
@@ -57,7 +56,6 @@ export default function Experience() {
       }
       {currentScene === 2 &&
         <Room2
-          renderPriority={2}
           ref={room2}
           debug={debug}
           cameraMode={switchCameraControl}
@@ -66,7 +64,6 @@ export default function Experience() {
       }
       {currentScene === 3 &&
         <LasercutDetail
-          renderPriority={2}
           ref={lasercutDetail}
           debug={debug}
           cameraMode={switchCameraControl}
@@ -74,7 +71,6 @@ export default function Experience() {
       }
       {currentScene === 4 &&
         <TechTest
-          renderPriority={2}
           ref={techTest}
           debug={debug}
           cameraMode={switchCameraControl}/>

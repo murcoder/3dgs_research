@@ -1,7 +1,7 @@
 import { KeyboardControls } from '@react-three/drei';
 import Ecctrl from 'ecctrl';
 
-export default function Player({position, cameraPos, mode = "CameraBasedMovement"}) {
+export default function Player({ position, cameraPos, mode = 'CameraBasedMovement', renderOrder }) {
   const keyboardMap = [
     { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
     { name: 'backward', keys: ['ArrowDown', 'KeyS'] },
@@ -15,6 +15,8 @@ export default function Player({position, cameraPos, mode = "CameraBasedMovement
     <>
       <KeyboardControls map={keyboardMap}>
         <Ecctrl
+          renderOrder={renderOrder}
+          canJump={false}
           capsuleHalfHeight={0.6}
           floatHeight={0.6}
           position={position}

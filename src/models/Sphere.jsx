@@ -4,7 +4,7 @@ import { useControls } from 'leva';
 import { Label } from '../html/Label.jsx';
 import { RigidBody } from '@react-three/rapier';
 
-export function Sphere() {
+export function Sphere({renderOrder}) {
   const sphere = useRef();
   const [hovered, setHovered] = useState(false);
   const { scale, position } = useControls('sphere', {
@@ -33,6 +33,7 @@ export function Sphere() {
     <>
       <RigidBody colliders="ball">
         <mesh
+          renderOrder={renderOrder}
           castShadow
           ref={sphere}
           position={[position.x, position.y, position.z]}

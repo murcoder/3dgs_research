@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Label } from './Label.jsx';
 import { Html } from '@react-three/drei';
 
-export default function Checklist() {
+export default function Checklist({renderOrder}) {
 
   return (
-    <Html position={[-2.5, 2, 0]} center distanceFactor={10} style={{ pointerEvents: 'none' }}>
+    <Html renderOrder={renderOrder} position={[-2.5, 2, 0]} center distanceFactor={10} style={{ pointerEvents: 'none' }}>
       <div className="relative">
         <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-60 bg-gray-800 text-white text-sm p-2 rounded-lg shadow-lg">
           <div className="p-4">

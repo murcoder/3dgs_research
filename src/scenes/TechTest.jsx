@@ -4,7 +4,7 @@ import { Physics } from '@react-three/rapier';
 import React, { forwardRef } from 'react';
 import { Floor } from '../models/Floor.jsx';
 
-const TechTest = forwardRef(({debug, cameraMode}, ref) => {
+const TechTest = forwardRef(({ debug, cameraMode }, ref) => {
   const gridConfig = {
     gridSize: [10.5, 10.5],
     cellSize: 0.6,
@@ -21,15 +21,25 @@ const TechTest = forwardRef(({debug, cameraMode}, ref) => {
 
   return (
     <group ref={ref}>
-      <Grid position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} renderOrder={-1} />
-      <Splat position={[10, 0, 0]} src={'./splats/lasercutter_closed.splat'} />
-      <Splat position={[10, 0, 0]} src={'./splats/lasercutter_closed_huggingface.splat'} />
+      <Grid renderOrder={1} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
+      <Splat renderOrder={2} position={[10, 0, 0]} src={'./splats/lasercutter_closed.splat'} />
+      <Splat
+        renderOrder={2}
+        position={[10, 0, 0]}
+        src={'./splats/lasercutter_closed_huggingface.splat'}
+      />
       <Physics debug={debug} timeStep="vary">
-        <Floor />
+        <Floor renderOrder={1} />
         {cameraMode === 'orbit' ? (
           <CameraControls />
         ) : (
-          <Player alphaTest position={[0, 1, -3]} cameraPos={{ x: 0, y: 0 }} mode={"CameraBasedMovement"} />
+          <Player
+            renderOrder={5}
+            alphaTest
+            position={[0, 1, -3]}
+            cameraPos={{ x: 0, y: 0 }}
+            mode={'CameraBasedMovement'}
+          />
         )}
       </Physics>
     </group>
