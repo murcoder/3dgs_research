@@ -3,6 +3,9 @@ import { Html } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
 import { transparentMaterial } from '../constants/materials.js';
 import { Label } from '../html/Label.jsx';
+import * as THREE from 'three';
+import { useFrame, useThree } from '@react-three/fiber';
+import {calculateTooltipPosition} from '../helper.js';
 
 export const Lasercutter = forwardRef(
   (
@@ -14,17 +17,19 @@ export const Lasercutter = forwardRef(
     },
     ref
   ) => {
+    const { camera, pointer } = useThree();
     const meshRef = useRef();
     const [hovered, setHovered] = useState(false);
+    const [tooltipPosition, setTooltipPosition] = useState(new THREE.Vector3());
 
-    const handlePointerOver = () => {
-      setTimeout(() => {
-        setHovered(true);
-      }, 100);
-    };
-    const handlePointerOut = () => {
-      setHovered(false);
-    };
+    useFrame(() => {
+      // Update tooltip position every frame
+      if (hovered) {
+        // Convert normalized mouse coordinates to world space
+        const newPostion = calculateTooltipPosition(pointer, camera)
+        setTooltipPosition(newPostion);
+      }
+    });
 
     return (
       <>
@@ -33,8 +38,13 @@ export const Lasercutter = forwardRef(
             renderOrder={renderOrder}
             ref={meshRef}
             onClick={onMachineClick}
-            onPointerOver={handlePointerOver}
-            onPointerOut={handlePointerOut}
+            onPointerEnter={(event) => {
+              event.stopPropagation();
+              setHovered(true);
+            }}
+            onPointerLeave={() => {
+              setHovered(false);
+            }}
             name="lasercutter_closed"
             position={[position.x, position.y, position.z]}
             material={transparentMaterial}>
@@ -42,11 +52,11 @@ export const Lasercutter = forwardRef(
           </mesh>
           {hovered && (
             <Html
-              position={[0.5, 0.5, 0]}
               center
-              distanceFactor={8}
+              position={tooltipPosition.toArray()}
+              distanceFactor={3}
               style={{ pointerEvents: 'none' }}>
-              <Label title={'Lasercutter'} content={'Click me!'} />
+              <Label title={'Lasercutter'} content={'Click for more details'} />
             </Html>
           )}
         </RigidBody>
