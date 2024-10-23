@@ -1,20 +1,12 @@
-import {
-  CameraControls,
-  Environment,
-  Grid,
-  Html,
-  PointerLockControls,
-  Select
-} from '@react-three/drei';
+import { CameraControls, Grid, Html } from '@react-three/drei';
 import { LasercutClosed } from '../models/LasercutClosed.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import React, { forwardRef, startTransition, useRef, useState, useTransition } from 'react';
+import React, { forwardRef, useRef, useState, useTransition } from 'react';
 import { Sphere } from '../models/Sphere.jsx';
 import { Floor } from '../models/Floor.jsx';
 import { LasercutOpened } from '../models/LasercutOpened.jsx';
 import Checklist from '../html/Checklist.jsx';
-import { useControls } from 'leva';
 import { Button } from '../html/Button.jsx';
 
 const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) => {
@@ -47,7 +39,7 @@ const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) =>
         <Button handleClick={onReturnClick} />
       </Html>
 
-      <Grid renderOrder={2} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
+      <Grid renderOrder={1} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
       <Physics debug={debug} timeStep="vary">
         {showMachine1 ? (
           <LasercutClosed renderOrder={2} ref={machine} onMachineClick={handleMachineClick} />
