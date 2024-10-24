@@ -8,8 +8,8 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { calculateTooltipPosition } from '../helper.js';
 
 export const LasercutOpened = forwardRef(({ onMachineClick, renderOrder }, ref) => {
-  const { camera, pointer } = useThree();
   const meshRef = useRef();
+  const { camera, pointer } = useThree();
   const [hovered, setHovered] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState(new THREE.Vector3());
 
@@ -33,7 +33,7 @@ export const LasercutOpened = forwardRef(({ onMachineClick, renderOrder }, ref) 
       <RigidBody type="fixed">
         <mesh
           renderOrder={renderOrder + 1}
-          ref={meshRef}
+          ref={ref|| meshRef}
           onClick={onMachineClick}
           onPointerEnter={(event) => {
             event.stopPropagation();

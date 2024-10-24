@@ -34,11 +34,10 @@ const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) =>
     <group ref={ref}>
       {/*<PointerLockControls />*/}
       {/*<Environment preset={'apartment'} background backgroundBlurriness={1} />*/}
-      <Checklist renderOrder={2} />
+      <Checklist occludeRefs={[machine]} renderOrder={1} />
       <Html>
         <Button handleClick={onReturnClick} />
       </Html>
-
       <Grid renderOrder={1} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
       <Physics debug={debug} timeStep="vary">
         {showMachine1 ? (

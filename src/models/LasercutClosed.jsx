@@ -8,8 +8,8 @@ import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
 export const LasercutClosed = forwardRef(({ onMachineClick, renderOrder }, ref) => {
-  const { camera, pointer } = useThree();
   const meshRef = useRef();
+  const { camera, pointer } = useThree();
   const [hovered, setHovered] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState(new THREE.Vector3());
 
@@ -22,13 +22,29 @@ export const LasercutClosed = forwardRef(({ onMachineClick, renderOrder }, ref) 
     }
   });
 
+  function Annotation({ children, ...props }) {
+    return (
+      <Html
+        {...props}
+        transform
+      >
+        <div className="annotation" onClick={() => console.log('.')}>
+          {children}
+        </div>
+      </Html>
+    )
+  }
+
   return (
     <>
+      {/*<Annotation position={[1.75, 3, 2.5]}>*/}
+      {/*  Steuerung <span style={{ fontSize: '1.5em' }}>🌗</span>*/}
+      {/*</Annotation>*/}
       <Splat renderOrder={renderOrder} scale={0.85} src={'./splats/lasercutter_closed.splat'} />
       <RigidBody type="fixed">
         <mesh
           renderOrder={renderOrder+1}
-          ref={meshRef}
+          ref={ref || meshRef}
           onClick={onMachineClick}
           onPointerEnter={(event) => {
             event.stopPropagation();
