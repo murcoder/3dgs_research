@@ -2,15 +2,13 @@ import React from 'react';
 import { Html } from '@react-three/drei';
 import useGame from '../stores/useGame.jsx';
 
-export default function Checklist({ renderOrder, occludeRefs=[], ...props }) {
+export default function Checklist({ renderOrder, occludeRefs = [], ...props }) {
   const { cleaningTasks, setCleaningTasks } = useGame((state) => ({
     cleaningTasks: state.cleaningTasks,
     setCleaningTasks: state.setCleaningTasks,
   }));
 
   const handleTaskToggle = (index) => {
-    console.log('clicked', index)
-    // Update the task completion status
     const updatedTasks = cleaningTasks.map((task, taskIndex) =>
       taskIndex === index ? { ...task, completed: !task.completed } : task
     );
@@ -18,6 +16,9 @@ export default function Checklist({ renderOrder, occludeRefs=[], ...props }) {
     // Update the store
     setCleaningTasks(updatedTasks);
   };
+
+  // Check if all tasks are completed
+  const allTasksCompleted = cleaningTasks.every(task => task.completed);
 
   return (
     <Html
@@ -45,12 +46,16 @@ export default function Checklist({ renderOrder, occludeRefs=[], ...props }) {
                     />
                     {/* Task label with strikethrough if completed */}
                     <span className={task.completed ? 'line-through' : ''}>
-                {task.label}
-              </span>
+                      {task.label}
+                    </span>
                   </label>
                 </li>
               ))}
             </ul>
+            {/* Display "FINISHED!" message if all tasks are completed */}
+            {allTasksCompleted && (
+              <p className="text-green-500 text-center mt-2 font-bold">FINISHED!</p>
+            )}
           </div>
         </div>
       </div>
