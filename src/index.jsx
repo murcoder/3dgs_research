@@ -7,38 +7,54 @@ import { Leva } from 'leva';
 import { Html, useProgress } from '@react-three/drei';
 import NavBar from './html/NavBar.jsx';
 import Experience from './Experience.jsx';
+import LaserChecklist1 from './html/LaserChecklist1.jsx';
+import useGame from './stores/useGame.jsx';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
+
 function Loader() {
   const { progress, active } = useProgress();
   return <Html center>{progress.toFixed(1)}%</Html>;
 }
+
 const handleContextMenu = (event) => {
   event.preventDefault();
 };
+
+const Checklist = () => {
+  const currentScene = useGame((state) => state.currentScene);
+
+  return (
+    <>
+      {currentScene === 3 && <LaserChecklist1 />}
+    </>
+  );
+};
+
 root.render(
   <StrictMode>
-      <Leva />
-      <NavBar />
-      <Canvas
-        shadows
-        onContextMenu={handleContextMenu}
-        className="r3f"
-        gl={{
-          antialias: false,
-          toneMapping: THREE.ACESFilmicToneMapping,
-          outputColorSpace: THREE.SRGBColorSpace,
-          pixelRatio: 2
-        }}
-        camera={{
-          layers: 0,
-          near: 0.1,
-          far: 200,
-          fov: 75,
-        }}>
-        <Suspense fallback={<Loader />}>
-          <Experience />
-        </Suspense>
-      </Canvas>
+    <Leva />
+    <NavBar />
+    <Checklist />
+    <Canvas
+      shadows
+      onContextMenu={handleContextMenu}
+      className="r3f"
+      gl={{
+        antialias: false,
+        toneMapping: THREE.ACESFilmicToneMapping,
+        outputColorSpace: THREE.SRGBColorSpace,
+        pixelRatio: 2
+      }}
+      camera={{
+        layers: 0,
+        near: 0.1,
+        far: 200,
+        fov: 75
+      }}>
+      <Suspense fallback={<Loader />}>
+        <Experience />
+      </Suspense>
+    </Canvas>
   </StrictMode>
 );

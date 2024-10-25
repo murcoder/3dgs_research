@@ -34,7 +34,7 @@ const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) =>
     <group ref={ref}>
       {/*<PointerLockControls />*/}
       {/*<Environment preset={'apartment'} background backgroundBlurriness={1} />*/}
-      <Checklist occludeRefs={[machine]} renderOrder={1} />
+      {/*<Checklist occludeRefs={[machine]} renderOrder={1} />*/}
       <Html>
         <Button handleClick={onReturnClick} />
       </Html>
