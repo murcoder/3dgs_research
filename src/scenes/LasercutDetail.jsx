@@ -35,9 +35,9 @@ const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) =>
       {/*<PointerLockControls />*/}
       {/*<Environment preset={'apartment'} background backgroundBlurriness={1} />*/}
       {/*<Checklist occludeRefs={[machine]} renderOrder={1} />*/}
-      <Html>
-        <Button handleClick={onReturnClick} />
-      </Html>
+      {/*<Html>*/}
+      {/*  <Button handleClick={onReturnClick} />*/}
+      {/*</Html>*/}
       <Grid renderOrder={1} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
       <Physics debug={debug} timeStep="vary">
         {showMachine1 ? (
@@ -45,7 +45,7 @@ const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) =>
         ) : (
           <LasercutOpened renderOrder={2} ref={machine} onMachineClick={handleMachineClick} />
         )}
-        <Sphere renderOrder={4} />
+        {/*<Sphere renderOrder={4} />*/}
         <Floor renderOrder={1} />
         {cameraMode === 'orbit' ? (
           <CameraControls />

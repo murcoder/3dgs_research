@@ -2,13 +2,14 @@ import './style.css';
 import ReactDOM from 'react-dom/client';
 import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
-import { StrictMode, Suspense } from 'react';
+import React, { StrictMode, Suspense } from 'react';
 import { Leva } from 'leva';
 import { Html, useProgress } from '@react-three/drei';
 import NavBar from './html/NavBar.jsx';
 import Experience from './Experience.jsx';
 import LaserChecklist1 from './html/LaserChecklist1.jsx';
 import useGame from './stores/useGame.jsx';
+import { Button } from './html/Button.jsx';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 
@@ -23,10 +24,26 @@ const handleContextMenu = (event) => {
 
 const Checklist = () => {
   const currentScene = useGame((state) => state.currentScene);
-
   return (
     <>
       {currentScene === 3 && <LaserChecklist1 />}
+    </>
+  );
+};
+
+const BackButton = () => {
+  const { currentScene, setCurrentScene } = useGame((state) => ({
+    currentScene: state.currentScene,
+    setCurrentScene: state.setCurrentScene,
+  }));
+
+  const handleBackClick = () => {
+    setCurrentScene(1);
+  };
+
+  return (
+    <>
+      {currentScene === 3 && <Button handleClick={handleBackClick} />}
     </>
   );
 };
@@ -36,6 +53,7 @@ root.render(
     <Leva />
     <NavBar />
     <Checklist />
+    <BackButton />
     <Canvas
       shadows
       onContextMenu={handleContextMenu}
