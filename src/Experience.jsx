@@ -23,7 +23,7 @@ export default function Experience() {
     scenes: {
       label: 'Scenes',
       options: { Room1: 1, Room2: 2, LasercutDetail: 3, TechTest: 4 },
-      default: 3,
+      default: 1,
       onChange: (slug, propName, options) => {
         if (!options.initial) {
           switchScenes(slug);
