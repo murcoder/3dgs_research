@@ -1,5 +1,5 @@
 import React, { forwardRef, useRef, useState } from 'react';
-import { Html } from '@react-three/drei';
+import { Html, Outlines } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
 import { transparentMaterial } from '../constants/materials.js';
 import { Label } from '../html/Label.jsx';
@@ -49,6 +49,7 @@ export const Lasercutter = forwardRef(
             position={[position.x, position.y, position.z]}
             material={transparentMaterial}>
             <boxGeometry args={[boxGeometry.width, boxGeometry.height, boxGeometry.depth]} />
+            {hovered && <Outlines color="white" thickness={5} />}
           </mesh>
           {hovered && (
             <Html
