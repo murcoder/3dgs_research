@@ -39,7 +39,7 @@ export default function NavBar() {
           className={`md:flex md:items-center space-y-4 md:space-y-0 md:space-x-6 font-body ${isOpen ? 'block' : 'hidden'} md:block`}>
           <li>
             <a
-              href="https://threejs-journey.com//"
+              href="https://threejs-journey.com"
               className="text-gray-800 hover:underline"
               target="_blank">
               Tutorial

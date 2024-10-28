@@ -13,7 +13,6 @@ body,
     touch-action: none;
     width: 100%;
     height: calc(100vh - 64px);
-    margin-top: 64px;
 }
 .htmlScreen iframe
 {

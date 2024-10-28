@@ -1,0 +1,62 @@
+import React, { useState } from 'react';
+import { Html } from '@react-three/drei';
+
+export function Annotation({children, iconPath, onClick, cursorStyle = "cursor-pointer", ...props}) {
+  const [isPointHovered, setIsPointHovered] = useState(false);
+  const [isTextHovered, setIsTextHovered] = useState(false);
+  let hideTimeout;
+
+  const handlePointEnter = () => {
+    clearTimeout(hideTimeout);
+    setIsPointHovered(true);
+  };
+
+  // Hide details when pointer leaves point-0, after a small delay
+  const handlePointLeave = () => {
+    hideTimeout = setTimeout(() => {
+      setIsPointHovered(false);
+    }, 150);
+  };
+
+  // Set hover state for text container only if point-0 was hovered
+  const handleTextEnter = () => {
+    if (isPointHovered) {
+      clearTimeout(hideTimeout);
+      setIsTextHovered(true);
+    }
+  };
+
+  // Clear both hover states if pointer leaves text
+  const handleTextLeave = () => {
+    hideTimeout = setTimeout(() => {
+      setIsTextHovered(false);
+      setIsPointHovered(false);
+    }, 150);
+  };
+
+  return (
+    <Html {...props} distanceFactor={5}>
+      <div className="relative">
+        <div
+          id="point-0"
+          onPointerEnter={handlePointEnter}
+          onPointerLeave={handlePointLeave}
+          onClick={onClick}
+          className={
+            'z-20 w-10 h-10 rounded-full bg-black/50 border border-white/80 text-white font-light text-sm flex items-center justify-center '
+          + cursorStyle}>
+          <img src={iconPath} alt="Open Icon" className="w-8 h-8" />
+        </div>
+        <div
+          id="point-0-text"
+          onPointerEnter={handleTextEnter}
+          onPointerLeave={handleTextLeave}
+          className={`z-10 transition-opacity duration-300 ${
+            isPointHovered || isTextHovered ? 'opacity-100' : 'opacity-0'
+          }`}>
+          {children}
+        </div>
+      </div>
+    </Html>
+  );
+}

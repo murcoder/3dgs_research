@@ -3,49 +3,31 @@ import { Html, Splat } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
 import { Label } from '../html/Label.jsx';
 import { transparentMaterial } from '../constants/materials.js';
-import {calculateTooltipPosition} from '../helper.js';
+import { calculateTooltipPosition } from '../helper.js';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
+import { MachineDetailsTable } from '../html/MachineDetailsTable.jsx';
+import { Annotation } from '../html/Annotation.jsx';
 
 export const LasercutClosed = forwardRef(({ onMachineClick, renderOrder }, ref) => {
   const meshRef = useRef();
   const { camera, pointer } = useThree();
   const [hovered, setHovered] = useState(false);
-  const [tooltipPosition, setTooltipPosition] = useState(new THREE.Vector3());
-
-  useFrame(() => {
-    // Update tooltip position every frame
-    if (hovered) {
-      // Convert normalized mouse coordinates to world space
-      const newPostion = calculateTooltipPosition(pointer, camera)
-      setTooltipPosition(newPostion);
-    }
-  });
-
-  function Annotation({ children, ...props }) {
-    return (
-      <Html
-        {...props}
-        transform
-      >
-        <div className="annotation" onClick={() => console.log('.')}>
-          {children}
-        </div>
-      </Html>
-    )
-  }
 
   return (
     <>
-      {/*<Annotation position={[1.75, 3, 2.5]}>*/}
-      {/*  Steuerung <span style={{ fontSize: '1.5em' }}>🌗</span>*/}
-      {/*</Annotation>*/}
+      <Annotation iconPath={"./icons/info_icon.svg"} cursorStyle={"cursor-help"} renderOrder={3} position={[1, 2, 0]}>
+        <MachineDetailsTable />
+      </Annotation>
+      <Annotation onClick={onMachineClick} iconPath={"./icons/open_icon.svg"} cursorStyle={"cursor-pointer"} renderOrder={3} position={[-0.4, 1.8, -0.3]}>
+        <div className="bg-black/80 w-52 p-2 text-center text-sm rounded-lg text-white transition pointer-events-none"><p>Click to open</p></div>
+      </Annotation>
       <Splat renderOrder={renderOrder} scale={0.85} src={'./splats/lasercutter_closed.splat'} />
       <RigidBody type="fixed">
         <mesh
-          renderOrder={renderOrder+1}
+          renderOrder={renderOrder + 1}
           ref={ref || meshRef}
-          onClick={onMachineClick}
+          // onClick={onMachineClick}
           onPointerEnter={(event) => {
             event.stopPropagation();
             setHovered(true);
@@ -58,15 +40,6 @@ export const LasercutClosed = forwardRef(({ onMachineClick, renderOrder }, ref) 
           material={transparentMaterial}>
           <boxGeometry args={[2.6, 2.04, 1.44]} />
         </mesh>
-        {hovered && (
-          <Html
-            center
-            position={tooltipPosition.toArray()}
-            distanceFactor={8}
-            style={{ pointerEvents: 'none' }}>
-            <Label title={'Lasercutter'} content={'Click to open'} />
-          </Html>
-        )}
       </RigidBody>
     </>
   );

@@ -48,7 +48,7 @@ export default function LaserChecklist1({ renderOrder, occludeRefs = [], ...prop
 
   return (
     <div
-      className="z-50 w-60 bg-gray-800 text-white text-sm rounded-lg shadow-2xl"
+      className="z-50 w-60 bg-black/80 text-white text-sm rounded-lg shadow-2xl"
       style={{
         position: 'absolute',
         top: `${position.y}px`,
@@ -59,7 +59,7 @@ export default function LaserChecklist1({ renderOrder, occludeRefs = [], ...prop
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
-      <div className="absolute top-[-16px] left-1/2 transform -translate-x-1/2 h-4 w-10 bg-gray-800 rounded-t-md shadow-md"/>
+      <div className="absolute top-[-16px] left-1/2 transform -translate-x-1/2 h-4 w-10 bg-black/80 rounded-t-md shadow-md"/>
       <div className="p-4 pt-6">
         <h1 className="text-center uppercase text-lg font-bold tracking-widest">Checkliste</h1>
         <p className="text-xs text-center mb-4 text-gray-400">Erfülle alle Aufgaben</p>

@@ -10,6 +10,7 @@ import Experience from './Experience.jsx';
 import LaserChecklist1 from './html/LaserChecklist1.jsx';
 import useGame from './stores/useGame.jsx';
 import { Button } from './html/Button.jsx';
+import { Headline } from './html/Headline.jsx';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 
@@ -48,9 +49,27 @@ const BackButton = () => {
   );
 };
 
+const DynamicHeadline = () => {
+  const { currentScene, setCurrentScene } = useGame((state) => ({
+    currentScene: state.currentScene,
+    setCurrentScene: state.setCurrentScene,
+  }));
+
+  const handleBackClick = () => {
+    setCurrentScene(1);
+  };
+
+  return (
+    <>
+      {currentScene === 3 && <Headline title={"Lasercutter - Speedy 100 Flex"} />}
+    </>
+  );
+};
+
 root.render(
   <StrictMode>
     <Leva />
+    <DynamicHeadline />
     <NavBar />
     <Checklist />
     <BackButton />

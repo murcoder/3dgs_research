@@ -30,6 +30,7 @@ export default function Player({ position, cameraPos, mode = 'CameraBasedMovemen
           dampingC={0.1}
           autoBalance={false}
           maxVelLimit={2.5}
+          camZoomSpeed={0}
           jumpVel={0} // disable jump
           floatingDis={1.5} // Set higher view-point
           turnSpeed={100} // give it big turning speed to prevent turning wait time
