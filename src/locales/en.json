@@ -1,4 +1,7 @@
 {
+  "buttons": {
+    "back": "Back"
+  },
   "cleaningTasks": {
     "task1": "Clear away drinks",
     "task2": "Remove dust",
