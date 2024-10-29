@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Html } from '@react-three/drei';
 
-export function Annotation({children, iconPath, onClick, cursorStyle = "cursor-pointer", ...props}) {
+export function Annotation({children, iconPath, onClick, cursorStyle = "cursor-pointer", iconStyle, textStyle, ...props}) {
   const [isPointHovered, setIsPointHovered] = useState(false);
   const [isTextHovered, setIsTextHovered] = useState(false);
   let hideTimeout;
@@ -38,22 +38,21 @@ export function Annotation({children, iconPath, onClick, cursorStyle = "cursor-p
     <Html {...props} distanceFactor={5}>
       <div className="relative">
         <div
-          id="point-0"
           onPointerEnter={handlePointEnter}
           onPointerLeave={handlePointLeave}
           onClick={onClick}
           className={
-            'z-20 w-10 h-10 rounded-full bg-black/50 border border-white/80 text-white font-light text-sm flex items-center justify-center '
-          + cursorStyle}>
-          <img src={iconPath} alt="Open Icon" className="w-8 h-8" />
+            'z-20 w-10 h-10 rounded-full bg-black/50 border border-white/80 text-white font-light text-sm flex items-center justify-center ' +
+            cursorStyle
+          }>
+          <img src={iconPath} alt="Open Icon" className={'w-8 h-8 ' + iconStyle} />
         </div>
         <div
-          id="point-0-text"
           onPointerEnter={handleTextEnter}
           onPointerLeave={handleTextLeave}
           className={`z-10 transition-opacity duration-300 ${
             isPointHovered || isTextHovered ? 'opacity-100' : 'opacity-0'
-          }`}>
+          }` + ' ' + textStyle}>
           {children}
         </div>
       </div>

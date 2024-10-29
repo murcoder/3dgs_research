@@ -24,6 +24,9 @@
     "doorText": "Klicke um den Raum zu wechseln"
   },
   "laser": {
-    "open": "Klicke zum Öffnen"
+    "open": "Öffne die Klappe",
+    "close": "Schließe die Klappe",
+    "lens": "Linsenanordnung",
+    "buttons": "Steuerung"
   }
 }

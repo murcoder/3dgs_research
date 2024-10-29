@@ -24,6 +24,9 @@
     "doorText": "Click to access this room"
   },
   "laser": {
-    "open": "Click to open"
+    "open": "Open the lid",
+    "close": "Close the lid",
+    "lens": "Lens arrangement",
+    "buttons": "Controls"
   }
 }
