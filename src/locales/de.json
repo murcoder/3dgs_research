@@ -1,0 +1,26 @@
+{
+  "cleaningTasks": {
+    "task1": "Getränke wegräumen",
+    "task2": "Staubreste entfernen",
+    "task3": "Linse reinigen",
+    "task4": "Düse säubern"
+  },
+  "checklistTitle": "Checkliste",
+  "checklistDescription": "Erfülle alle Aufgaben",
+  "allTasksDone": "FERTIG!",
+  "navigation": {
+    "tutorial": "Tutorial",
+    "papers": "Papers",
+    "docs": "Doku",
+    "about": "Über mich"
+  },
+  "boundaries": {
+    "laserTitle": "Lasercutter",
+    "details": "Klicke für mehr Details",
+    "doorTitle": "Raum 2",
+    "doorText": "Klicke um den Raum zu wechseln"
+  },
+  "laser": {
+    "open": "Klicke zum Öffnen"
+  }
+}

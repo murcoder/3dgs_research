@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import {useTranslation} from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher.jsx';
 
 export default function NavBar() {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -42,7 +45,7 @@ export default function NavBar() {
               href="https://threejs-journey.com"
               className="text-gray-800 hover:underline"
               target="_blank">
-              Tutorial
+              {t('navigation.tutorial')}
             </a>
           </li>
           <li>
@@ -50,7 +53,7 @@ export default function NavBar() {
               href="https://github.com/MrNeRF/awesome-3D-gaussian-splatting"
               className="text-gray-800 hover:underline"
               target="_blank">
-              Papers
+              {t('navigation.papers')}
             </a>
           </li>
           <li>
@@ -58,7 +61,7 @@ export default function NavBar() {
               href="https://drei.docs.pmnd.rs/getting-started/introduction"
               className="text-gray-800 hover:underline"
               target="_blank">
-              Docs
+              {t('navigation.docs')}
             </a>
           </li>
           <li>
@@ -66,8 +69,11 @@ export default function NavBar() {
               href="https://threejs-portfolio-murauer.vercel.app/"
               className="text-gray-800 hover:underline"
               target="_blank">
-              Portfolio
+              {t('navigation.about')}
             </a>
+          </li>
+          <li>
+            <LanguageSwitcher />
           </li>
         </ul>
       </div>

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
 import React, { StrictMode, Suspense } from 'react';
+import './i18n';
 import { Leva } from 'leva';
 import { Html, useProgress } from '@react-three/drei';
 import NavBar from './html/NavBar.jsx';

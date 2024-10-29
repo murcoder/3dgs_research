@@ -1,4 +1,5 @@
 import React, { forwardRef, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Html, Outlines } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
 import { transparentMaterial } from '../constants/materials.js';
@@ -18,6 +19,7 @@ export const Door = forwardRef(
     },
     ref
   ) => {
+    const { t } = useTranslation();
     const { camera, pointer } = useThree();
     const meshRef = useRef();
     const [hovered, setHovered] = useState(false);
@@ -59,7 +61,7 @@ export const Door = forwardRef(
               position={tooltipPosition.toArray()}
               distanceFactor={3}
               style={{ pointerEvents: 'none' }}>
-              <Label title={'Change Room'} content={'Click to access this room'} />
+              <Label title={t('boundaries.doorTitle')} content={t('boundaries.doorText')} />
             </Html>
           )}
         </RigidBody>

@@ -27,10 +27,12 @@
     "@react-three/rapier": "^1.4.0",
     "ecctrl": "^1.0.89",
     "gsap": "^3.12.5",
+    "i18next": "^23.16.4",
     "leva": "^0.9.35",
     "r3f-perf": "^7.2.1",
     "react": "18.3",
     "react-dom": "18.3",
+    "react-i18next": "^15.1.0",
     "three": "^0.157.0",
     "zustand": "^4.5.5"
   }

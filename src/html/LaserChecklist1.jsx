@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import useGame from '../stores/useGame.jsx';
 
 export default function LaserChecklist1({ renderOrder, occludeRefs = [], ...props }) {
+  const { t } = useTranslation();
   const { cleaningTasks, setCleaningTasks } = useGame((state) => ({
     cleaningTasks: state.cleaningTasks,
     setCleaningTasks: state.setCleaningTasks
@@ -61,8 +63,8 @@ export default function LaserChecklist1({ renderOrder, occludeRefs = [], ...prop
     >
       <div className="absolute top-[-16px] left-1/2 transform -translate-x-1/2 h-4 w-10 bg-black/80 rounded-t-md shadow-md"/>
       <div className="p-4 pt-6">
-        <h1 className="text-center uppercase text-lg font-bold tracking-widest">Checkliste</h1>
-        <p className="text-xs text-center mb-4 text-gray-400">Erfülle alle Aufgaben</p>
+        <h1 className="text-center uppercase text-lg font-bold tracking-widest"> {t('checklistTitle')}</h1>
+        <p className="text-xs text-center mb-4 text-gray-400">{t('checklistDescription')}</p>
         <ul className="text-xs text-left list-none space-y-2">
           {cleaningTasks.map((task, index) => (
             <li key={index}>
@@ -73,13 +75,13 @@ export default function LaserChecklist1({ renderOrder, occludeRefs = [], ...prop
                   onChange={() => handleTaskToggle(index)}
                   className="form-checkbox h-4 w-4 text-blue-500"
                 />
-                <span className={task.completed ? 'line-through text-gray-400' : ''}>{task.label}</span>
+                <span className={task.completed ? 'line-through text-gray-400' : ''}>{t(`cleaningTasks.task${index + 1}`)}</span>
               </label>
             </li>
           ))}
         </ul>
         {allTasksCompleted && (
-          <p className="text-green-400 text-center mt-4 font-bold">FINISHED!</p>
+          <p className="text-green-400 text-center mt-4 font-bold">{t('allTasksDone')}</p>
         )}
       </div>
     </div>

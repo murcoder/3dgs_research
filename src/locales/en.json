@@ -1,0 +1,26 @@
+{
+  "cleaningTasks": {
+    "task1": "Clear away drinks",
+    "task2": "Remove dust",
+    "task3": "Clean the lens",
+    "task4": "Clean the nozzle"
+  },
+  "checklistTitle": "Checklist",
+  "checklistDescription": "Finish all tasks",
+  "allTasksDone": "FINISHED!",
+  "navigation": {
+    "tutorial": "Tutorial",
+    "papers": "Papers",
+    "docs": "Docs",
+    "about": "About me"
+  },
+  "boundaries": {
+    "laserTitle": "Lasercutter",
+    "details": "Click for more details",
+    "doorTitle": "Room 2",
+    "doorText": "Click to access this room"
+  },
+  "laser": {
+    "open": "Click to open"
+  }
+}
