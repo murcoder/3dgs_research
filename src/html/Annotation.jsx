@@ -6,7 +6,8 @@ export function Annotation({children, iconPath, onClick, cursorStyle = "cursor-p
   const [isTextHovered, setIsTextHovered] = useState(false);
   let hideTimeout;
 
-  const handlePointEnter = () => {
+  const handlePointEnter = (event) => {
+    event.stopPropagation();
     clearTimeout(hideTimeout);
     setIsPointHovered(true);
   };
@@ -19,7 +20,8 @@ export function Annotation({children, iconPath, onClick, cursorStyle = "cursor-p
   };
 
   // Set hover state for text container only if point-0 was hovered
-  const handleTextEnter = () => {
+  const handleTextEnter = (event) => {
+    event.stopPropagation();
     if (isPointHovered) {
       clearTimeout(hideTimeout);
       setIsTextHovered(true);

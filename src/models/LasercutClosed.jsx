@@ -1,6 +1,6 @@
 import React, { forwardRef, useRef, useState } from 'react';
 import { Html, Splat } from '@react-three/drei';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { RigidBody } from '@react-three/rapier';
 import { Label } from '../html/Label.jsx';
 import { transparentMaterial } from '../constants/materials.js';
@@ -9,20 +9,43 @@ import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { MachineDetailsTable } from '../html/MachineDetailsTable.jsx';
 import { Annotation } from '../html/Annotation.jsx';
+import { LaserButtonsDetails } from '../html/LaserButtonsDetails.jsx';
 
-export const LasercutClosed = forwardRef(({ onMachineClick, renderOrder }, ref) => {
-  const {t} = useTranslation()
+export const LasercutClosed = forwardRef(({ openClick, renderOrder }, ref) => {
+  const { t } = useTranslation();
   const meshRef = useRef();
   const { camera, pointer } = useThree();
   const [hovered, setHovered] = useState(false);
 
   return (
     <>
-      <Annotation iconPath={"./icons/info_icon.svg"} cursorStyle={"cursor-help"} renderOrder={3} position={[1, 2, 0]}>
+      <Annotation
+        iconPath={'./icons/info_icon.svg'}
+        cursorStyle={'cursor-help'}
+        renderOrder={3}
+        position={[1, 2, 0]}>
         <MachineDetailsTable />
       </Annotation>
-      <Annotation onClick={onMachineClick} iconPath={"./icons/open_icon.svg"} cursorStyle={"cursor-pointer"} renderOrder={3} position={[-0.4, 1.8, -0.3]}>
-        <div className="bg-black/80 w-52 p-2 text-center text-sm rounded-lg text-white transition pointer-events-none"><p>{t('laser.open')}</p></div>
+      <Annotation
+        onClick={openClick}
+        iconPath={'./icons/open_icon.svg'}
+        cursorStyle={'cursor-pointer'}
+        renderOrder={3}
+        position={[-0.4, 1.8, -0.3]}>
+        <div className="bg-black/80 w-52 p-2 text-center text-sm rounded-lg text-white transition pointer-events-none">
+          <p>{t('laser.open')}</p>
+        </div>
+      </Annotation>
+      <Annotation
+        iconPath={'./icons/image_icon.svg'}
+        cursorStyle={'cursor-help'}
+        renderOrder={3}
+        position={[-1.2, 1.8, -0.3]}>
+        <div className="bg-black/80 w-80 p-2 text-center text-sm rounded-lg text-white transition h-96 overflow-hidden">
+          <p className="pointer-events-none"> {t('laser.buttons')}</p>
+          <img className="pointer-events-none" src="./assets/laser_buttons.png" alt="laser_buttons" />
+          <LaserButtonsDetails />
+        </div>
       </Annotation>
       <Splat renderOrder={renderOrder} scale={0.85} src={'./splats/lasercutter_closed.splat'} />
       <RigidBody type="fixed">

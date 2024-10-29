@@ -10,20 +10,20 @@ import { calculateTooltipPosition } from '../helper.js';
 import { Annotation } from '../html/Annotation.jsx';
 import { LaserButtonsDetails } from '../html/LaserButtonsDetails.jsx';
 
-export const LasercutOpened = forwardRef(({ onMachineClick, renderOrder }, ref) => {
+export const LasercutOpened = forwardRef(({ closeClick, renderOrder }, ref) => {
   const meshRef = useRef();
   const { t } = useTranslation();
   const { camera, pointer } = useThree();
   const [hovered, setHovered] = useState(false);
-  const [tooltipPosition, setTooltipPosition] = useState(new THREE.Vector3());
+
+  const handleZoomClick = () => {
+    setShowMachine1(!showMachine1);
+  };
 
   useFrame(() => {
-    // Update tooltip position every frame
-    if (hovered) {
-      // Convert normalized mouse coordinates to world space
-      const newPostion = calculateTooltipPosition(pointer, camera);
-      setTooltipPosition(newPostion);
-    }
+    // Smoothly move to target camera position
+    //camera.position.lerp(new THREE.Vector3(cameraPosition.x, cameraPosition.y, cameraPosition.z), 0.1);
+    //console.log('camera', camera)
   });
 
   return (
@@ -34,7 +34,7 @@ export const LasercutOpened = forwardRef(({ onMachineClick, renderOrder }, ref) 
         src={'./splats/lasercutter_opened.splat'}
       />
       <Annotation
-        onClick={onMachineClick}
+        onClick={closeClick}
         iconPath={'./icons/open_icon.svg'}
         iconStyle={'rotate-180'}
         cursorStyle={'cursor-pointer'}
@@ -54,22 +54,20 @@ export const LasercutOpened = forwardRef(({ onMachineClick, renderOrder }, ref) 
           <img src="./assets/laser_100_lens.png" alt="laser_100_lens" />
         </div>
       </Annotation>
-      <Annotation
-        iconPath={'./icons/image_icon.svg'}
-        cursorStyle={'cursor-help'}
-        renderOrder={3}
-        position={[-1.2, 1.8, -0.3]}>
-        <div className="bg-black/80 w-80 p-2 text-center text-sm rounded-lg text-white transition h-96 overflow-hidden">
-          <p>{t('laser.buttons')}</p>
-          <img src="./assets/laser_buttons.png" alt="laser_buttons" />
-          <LaserButtonsDetails/>
-        </div>
-      </Annotation>
+      {/*<Annotation*/}
+      {/*  onClick={handleZoomClick}*/}
+      {/*  iconPath={'./icons/magnify_icon.svg'}*/}
+      {/*  cursorStyle={'cursor-pointer'}*/}
+      {/*  renderOrder={3}*/}
+      {/*  position={[-1.2, 1.8, -0.25]}>*/}
+      {/*  <div className="bg-black/80 w-52 p-2 text-center text-sm rounded-lg text-white transition pointer-events-none">*/}
+      {/*    <p>{t('detailView')}</p>*/}
+      {/*  </div>*/}
+      {/*</Annotation>*/}
       <RigidBody type="fixed">
         <mesh
           renderOrder={renderOrder + 1}
           ref={ref || meshRef}
-          // onClick={onMachineClick}
           onPointerEnter={(event) => {
             event.stopPropagation();
             setHovered(true);
@@ -82,15 +80,6 @@ export const LasercutOpened = forwardRef(({ onMachineClick, renderOrder }, ref) 
           material={transparentMaterial}>
           <boxGeometry args={[2.6, 2.04, 1.44]} />
         </mesh>
-        {/*{hovered && (*/}
-        {/*  <Html*/}
-        {/*    center*/}
-        {/*    position={tooltipPosition.toArray()}*/}
-        {/*    distanceFactor={8}*/}
-        {/*    style={{ pointerEvents: 'none' }}>*/}
-        {/*    <Label title={'Lasercutter'} content={'Click to close'} />*/}
-        {/*  </Html>*/}
-        {/*)}*/}
       </RigidBody>
     </>
   );

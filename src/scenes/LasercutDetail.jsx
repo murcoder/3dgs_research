@@ -41,9 +41,9 @@ const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) =>
       <Grid renderOrder={1} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
       <Physics debug={debug} timeStep="vary">
         {showMachine1 ? (
-          <LasercutClosed renderOrder={2} ref={machine} onMachineClick={handleMachineClick} />
+          <LasercutClosed renderOrder={2} ref={machine} openClick={handleMachineClick} />
         ) : (
-          <LasercutOpened renderOrder={2} ref={machine} onMachineClick={handleMachineClick} />
+          <LasercutOpened renderOrder={2} ref={machine} closeClick={handleMachineClick} />
         )}
         {/*<Sphere renderOrder={4} />*/}
         <Floor renderOrder={1} />

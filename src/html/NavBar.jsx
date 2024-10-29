@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import {useTranslation} from 'react-i18next';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
 
-export default function NavBar() {
+export default function NavBar({ closeDetailClick, showDetailBar = false, detailTitle }) {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -77,6 +77,22 @@ export default function NavBar() {
           </li>
         </ul>
       </div>
+      {showDetailBar && (
+        <div className="bg-black/80 text-white h-12 flex items-center p-2">
+          <div className="flex-shrink-0">
+            <img
+              onClick={closeDetailClick}
+              src="./icons/close_icon.svg"
+              alt="close_icon"
+              className="cursor-pointer w-5 h-5 hover:opacity-80 ml-2"
+            />
+          </div>
+          <div className="flex-grow text-center">
+            <h1 className="font-bold text-lg">{detailTitle}</h1>
+          </div>
+        </div>
+
+      )}
     </nav>
   );
 }

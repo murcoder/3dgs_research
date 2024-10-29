@@ -10,6 +10,6 @@ export default create(subscribeWithSelector((set) => ({
     ],
     setCleaningTasks: (tasks) => set({ cleaningTasks: tasks }),
 
-    currentScene: 1,
+    currentScene: 3,
     setCurrentScene: (scene) => set({ currentScene: scene }),
 })));

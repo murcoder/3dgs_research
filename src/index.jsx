@@ -24,19 +24,47 @@ const handleContextMenu = (event) => {
   event.preventDefault();
 };
 
+const handleBackClick = () => {
+  const { currentScene, setCurrentScene } = useGame((state) => ({
+    currentScene: state.currentScene,
+    setCurrentScene: state.setCurrentScene
+  }));
+  setCurrentScene(1);
+};
+
 const Checklist = () => {
   const currentScene = useGame((state) => state.currentScene);
-  return (
-    <>
-      {currentScene === 3 && <LaserChecklist1 />}
-    </>
-  );
+  return <>{currentScene === 3 && <LaserChecklist1 />}</>;
 };
 
-const BackButton = () => {
+// const DynamicTitleBar = () => {
+//   const { currentScene, setCurrentScene } = useGame((state) => ({
+//     currentScene: state.currentScene,
+//     setCurrentScene: state.setCurrentScene
+//   }));
+//
+//   const handleBackClick = () => {
+//     setCurrentScene(1);
+//   };
+//
+//   return (
+//     <>
+//       {currentScene === 3 && (
+//         <div className="bg-black/80 justify-center items-center text-center">
+//           <h1 className="z-50 h-10 text-white text-lg">Lasercutter - Speedy 100 Flex</h1>
+//           <Button handleClick={handleBackClick}>
+//             <img src="./icons/close_icon.svg" alt="close_icon" className="w-5 h-5" />
+//           </Button>
+//         </div>
+//       )}
+//     </>
+//   );
+// };
+
+const DynamicNavBar = () => {
   const { currentScene, setCurrentScene } = useGame((state) => ({
     currentScene: state.currentScene,
-    setCurrentScene: state.setCurrentScene,
+    setCurrentScene: state.setCurrentScene
   }));
 
   const handleBackClick = () => {
@@ -45,35 +73,46 @@ const BackButton = () => {
 
   return (
     <>
-      {currentScene === 3 && <Button handleClick={handleBackClick} />}
+      {currentScene === 3 ? (
+        <NavBar
+          closeDetailClick={handleBackClick}
+          showDetailBar={true}
+          detailTitle={'Lasercutter | Speedy 100 Flex'}
+        />
+      ) : (
+        // <div className="bg-black/80 justify-center items-center text-center">
+        //   <h1 className="z-50 h-10 text-white text-lg">Lasercutter - Speedy 100 Flex</h1>
+        //   <Button handleClick={handleBackClick}>
+        //     <img src="./icons/close_icon.svg" alt="close_icon" className="w-5 h-5" />
+        //   </Button>
+        // </div>
+        <NavBar />
+      )}
     </>
   );
 };
 
-const DynamicHeadline = () => {
-  const { currentScene, setCurrentScene } = useGame((state) => ({
-    currentScene: state.currentScene,
-    setCurrentScene: state.setCurrentScene,
-  }));
-
-  const handleBackClick = () => {
-    setCurrentScene(1);
-  };
-
-  return (
-    <>
-      {currentScene === 3 && <Headline title={"Lasercutter - Speedy 100 Flex"} />}
-    </>
-  );
-};
+// const DynamicHeadline = () => {
+//   const { currentScene, setCurrentScene } = useGame((state) => ({
+//     currentScene: state.currentScene,
+//     setCurrentScene: state.setCurrentScene
+//   }));
+//
+//   const handleBackClick = () => {
+//     setCurrentScene(1);
+//   };
+//
+//   return <>{currentScene === 3 && <Headline title={'Lasercutter - Speedy 100 Flex'} />}</>;
+// };
 
 root.render(
   <StrictMode>
     <Leva />
-    <DynamicHeadline />
+    {/*<DynamicHeadline />*/}
     <NavBar />
+    <DynamicNavBar />
+    {/*<DynamicTitleBar />*/}
     <Checklist />
-    <BackButton />
     <Canvas
       shadows
       onContextMenu={handleContextMenu}
