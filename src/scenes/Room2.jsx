@@ -7,7 +7,7 @@ import { Lasercutter } from '../boundries/Lasercutter.jsx';
 import { Door } from '../boundries/Door.jsx';
 import { useControls } from 'leva';
 
-const Room2 = forwardRef(({ debug, laserCutterClicked, cameraMode, doorClicked }, ref) => {
+const Room2 = forwardRef(({ debug, laserCutterClicked, cameraMode, door1Clicked, door3Clicked }, ref) => {
   const { show3DScan } = useControls('world', {
     show3DScan: true
   });
@@ -39,10 +39,20 @@ const Room2 = forwardRef(({ debug, laserCutterClicked, cameraMode, doorClicked }
           onMachineClick={laserCutterClicked}
         />
         <Door
+          name={"room1_door"}
           renderOrder={3}
           position={{ x: 4.2, y: 1.54, z: -2.02 }}
           rotation={{ x: 0, y: 1.57, z: 0 }}
-          onDoorClick={doorClicked}
+          tooltipDistanceFactor={10}
+          onDoorClick={door1Clicked}
+        />
+        <Door
+          name={"textil_door"}
+          renderOrder={3}
+          position={{ x: -9.15, y: 1.54, z: -0.62 }}
+          rotation={{ x: 0, y: 1.57, z: 0 }}
+          tooltipDistanceFactor={10}
+          onDoorClick={door3Clicked}
         />
         <Floor renderOrder={1} />
         {cameraMode === 'orbit' ? (

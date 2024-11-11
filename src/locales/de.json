@@ -21,7 +21,7 @@
   "boundaries": {
     "laserTitle": "Lasercutter",
     "details": "Klicke für mehr Details",
-    "doorTitle": "Raum 2",
+    "doorTitle": "Raum wechseln",
     "doorText": "Klicke um den Raum zu wechseln"
   },
   "laser": {

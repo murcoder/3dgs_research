@@ -46,7 +46,12 @@ const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked }
           boxGeometry={{ width: 2.8, height: 1.52, depth: 1.44 }}
           onMachineClick={laserCutterClicked}
         />
-        <Door renderOrder={3} position={{ x: -2.4, y: 1.54, z: 2.86 }} onDoorClick={doorClicked} />
+        <Door
+          renderOrder={3}
+          position={{ x: -2.4, y: 1.54, z: 2.86 }}
+          onDoorClick={doorClicked}
+          tooltipDistanceFactor={3}
+        />
         <Floor renderOrder={1} />
         {cameraMode === 'orbit' ? (
           <CameraControls />

@@ -15,7 +15,9 @@ export const Door = forwardRef(
       rotation = { x: 0, y: 0, z: 0 },
       boxGeometry = { width: 1.42, height: 2.88, depth: 0.1 },
       onDoorClick,
-      renderOrder
+      renderOrder,
+      tooltipDistanceFactor,
+      ...props
     },
     ref
   ) => {
@@ -38,6 +40,7 @@ export const Door = forwardRef(
       <>
         <RigidBody type="fixed">
           <mesh
+            {...props}
             renderOrder={renderOrder}
             ref={meshRef}
             onClick={onDoorClick}
@@ -48,10 +51,10 @@ export const Door = forwardRef(
             onPointerLeave={() => {
               setHovered(false);
             }}
-            name="door"
             position={[position.x, position.y, position.z]}
             rotation={[rotation.x, rotation.y, rotation.z]}
-            material={transparentMaterial}>
+            material={transparentMaterial}
+          >
             <boxGeometry args={[boxGeometry.width, boxGeometry.height, boxGeometry.depth]} />
             {hovered && <Outlines color="white" thickness={5} />}
           </mesh>
@@ -59,7 +62,7 @@ export const Door = forwardRef(
             <Html
               center
               position={tooltipPosition.toArray()}
-              distanceFactor={3}
+              distanceFactor={tooltipDistanceFactor}
               style={{ pointerEvents: 'none' }}>
               <Label title={t('boundaries.doorTitle')} content={t('boundaries.doorText')} />
             </Html>

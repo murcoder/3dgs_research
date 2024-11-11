@@ -34,7 +34,7 @@ const handleBackClick = () => {
 
 const Checklist = () => {
   const currentScene = useGame((state) => state.currentScene);
-  return <>{currentScene === 3 && <LaserChecklist1 />}</>;
+  return <>{currentScene === 4 && <LaserChecklist1 />}</>;
 };
 
 // const DynamicTitleBar = () => {
@@ -73,7 +73,7 @@ const DynamicNavBar = () => {
 
   return (
     <>
-      {currentScene === 3 ? (
+      {currentScene === 4 ? (
         <NavBar
           closeDetailClick={handleBackClick}
           showDetailBar={true}

@@ -5,11 +5,13 @@ import Room1 from './scenes/Room1.jsx';
 import Room2 from './scenes/Room2.jsx';
 import LasercutDetail from './scenes/LasercutDetail.jsx';
 import TechTest from './scenes/TechTest.jsx';
-import useGame from './stores/useGame.jsx'; // Import the store
+import useGame from './stores/useGame.jsx';
+import Room3 from './scenes/Room3.jsx'; // Import the store
 
 export default function Experience() {
   const room1 = useRef();
   const room2 = useRef();
+  const room3 = useRef();
   const lasercutDetail = useRef();
   const techTest = useRef();
 
@@ -22,7 +24,7 @@ export default function Experience() {
     monitoring: false,
     scenes: {
       label: 'Scenes',
-      options: { Room1: 1, Room2: 2, LasercutDetail: 3, TechTest: 4 },
+      options: { Room1: 1, Room2: 2, Room3: 3, LasercutDetail: 4, TechTest: 5 },
       default: 1,
       onChange: (slug, propName, options) => {
         if (!options.initial) {
@@ -53,7 +55,7 @@ export default function Experience() {
           ref={room1}
           debug={debug}
           cameraMode={switchCameraControl}
-          laserCutterClicked={() => switchScenes(3)}
+          laserCutterClicked={() => switchScenes(4)}
           doorClicked={() => switchScenes(2)}
         />
       )}
@@ -62,11 +64,21 @@ export default function Experience() {
           ref={room2}
           debug={debug}
           cameraMode={switchCameraControl}
-          laserCutterClicked={() => switchScenes(3)}
-          doorClicked={() => switchScenes(1)}
+          laserCutterClicked={() => switchScenes(4)}
+          door1Clicked={() => switchScenes(1)}
+          door3Clicked={() => switchScenes(3)}
         />
       )}
       {currentScene === 3 && (
+        <Room3
+          ref={room3}
+          debug={debug}
+          cameraMode={switchCameraControl}
+          laserCutterClicked={() => switchScenes(4)}
+          doorClicked={() => switchScenes(2)}
+        />
+      )}
+      {currentScene === 4 && (
         <LasercutDetail
           ref={lasercutDetail}
           debug={debug}
@@ -74,7 +86,7 @@ export default function Experience() {
           onReturnClick={() => switchScenes(1)}
         />
       )}
-      {currentScene === 4 && (
+      {currentScene === 5 && (
         <TechTest ref={techTest} debug={debug} cameraMode={switchCameraControl} />
       )}
     </>
