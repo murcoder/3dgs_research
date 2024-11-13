@@ -21,7 +21,7 @@ export const PcDesk = forwardRef(({ renderOrder }, ref) => {
         rotation={rotation}
         src={'./splats/pc_desk.splat'}
       />
-      <RigidBody type="fixed" position={[0.13999994277954, -0.74, -0.26]} rotation={[0, -0.04014257279586959, 0]}>
+      <RigidBody type="fixed" position={[0.14, -0.74, -0.26]} rotation={[0, -0.04, 0]}>
         <mesh
           renderOrder={renderOrder + 1}
           ref={ref || meshRef}
