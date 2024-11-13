@@ -5,7 +5,7 @@
   },
   "laserDetailRoom": {
     "turnPcOn": "PC",
-    "turnPcOnText": "Turn PC on/off"
+    "turnPcOnText": "PC ein/ausschalten"
   },
   "cleaningTasks": {
     "task1": "Getränke wegräumen",

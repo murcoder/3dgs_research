@@ -81,7 +81,6 @@ export const PcDesk = forwardRef(({ renderOrder }, ref) => {
             distanceFactor={6}
             style={{ pointerEvents: 'none' }}>
             <Label
-              title={t('laserDetailRoom.turnPcOn')}
               content={t('laserDetailRoom.turnPcOnText')}
             />
           </Html>
