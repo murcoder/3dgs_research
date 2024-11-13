@@ -59,6 +59,7 @@ const Room2 = forwardRef(({ debug, laserCutterClicked, cameraMode, door1Clicked,
           <CameraControls />
         ) : (
           <Player renderOrder={5} position={[2.3, 1, -1.5]} cameraPos={{ x: 0, y: 30 }} />
+          // <Player renderOrder={5} position={[4, 1, 0]} cameraPos={{ x: 0, y: 0 }} />
         )}
       </Physics>
     </group>

@@ -8,9 +8,11 @@ import { Floor } from '../models/Floor.jsx';
 import { LasercutOpened } from '../models/LasercutOpened.jsx';
 import Checklist from '../html/Checklist.jsx';
 import { Button } from '../html/Button.jsx';
+import { PcDesk } from '../models/PcDesk.jsx';
 
 const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) => {
   const machine = useRef();
+  const pcDesk = useRef();
   const gridConfig = {
     gridSize: [10.5, 10.5],
     cellSize: 0.6,
@@ -45,6 +47,7 @@ const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) =>
         ) : (
           <LasercutOpened renderOrder={2} ref={machine} closeClick={handleMachineClick} />
         )}
+        <PcDesk renderOrder={2} ref={pcDesk}/>
         {/*<Sphere renderOrder={4} />*/}
         <Floor renderOrder={1} />
         {cameraMode === 'orbit' ? (

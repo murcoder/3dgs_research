@@ -49,14 +49,14 @@ export function Annotation({children, iconPath, onClick, cursorStyle = "cursor-p
           }>
           <img src={iconPath} alt="Open Icon" className={'w-8 h-8 ' + iconStyle} />
         </div>
-        <div
-          onPointerEnter={handleTextEnter}
-          onPointerLeave={handleTextLeave}
-          className={`z-10 transition-opacity duration-300 ${
-            isPointHovered || isTextHovered ? 'opacity-100' : 'opacity-0'
-          }` + ' ' + textStyle}>
-          {children}
-        </div>
+        {(isPointHovered || isTextHovered) && (
+          <div
+            onPointerEnter={handleTextEnter}
+            onPointerLeave={handleTextLeave}
+            className={`z-10 transition-opacity duration-300 ${textStyle}`}>
+            {children}
+          </div>
+        )}
       </div>
     </Html>
   );
