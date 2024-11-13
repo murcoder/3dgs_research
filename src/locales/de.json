@@ -29,5 +29,26 @@
     "close": "Schließe die Klappe",
     "lens": "Linsenanordnung",
     "buttons": "Steuerung"
+  },
+  "lasercutDetails": {
+    "machineData": "Daten",
+    "workArea": "Arbeitsfläche",
+    "loadingArea": "Ladefläche",
+    "speed": "Geschwindigkeit",
+    "acceleration": "Beschleunigung",
+    "motor": "Motor",
+    "encoder": "Encoder",
+    "lenses": "Linsen",
+    "available": "Verfügbar",
+    "addressableAccuracy": "Adressierbare Genauigkeit",
+    "repeatability": "Wiederholgenauigkeit",
+    "partConsistency": "Teilemaßhaltigkeit",
+    "maxWorkpieceWeight": "Max. Werkstückgewicht",
+    "extraction": "Absaugung",
+    "laserEquipment": "Laserausstattung",
+    "laserClass": "Laserklasse",
+    "interlock": "Interlock (Verriegelung)",
+    "dimensions": "Dimensionen",
+    "powerRequirement": "Strombedarf"
   }
 }

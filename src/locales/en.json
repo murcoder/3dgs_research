@@ -29,5 +29,26 @@
     "close": "Close the lid",
     "lens": "Lens arrangement",
     "buttons": "Controls"
+  },
+  "lasercutDetails": {
+    "machineData": "Data",
+    "workArea": "Work Area",
+    "loadingArea": "Loading Area",
+    "speed": "Speed",
+    "acceleration": "Acceleration",
+    "motor": "Motor",
+    "encoder": "Encoder",
+    "lenses": "Lenses",
+    "available": "Available",
+    "addressableAccuracy": "Addressable Accuracy",
+    "repeatability": "Repeatability",
+    "partConsistency": "Part Consistency",
+    "maxWorkpieceWeight": "Max. Workpiece Weight",
+    "extraction": "Extraction",
+    "laserEquipment": "Laser Equipment",
+    "laserClass": "Laser Class",
+    "interlock": "Interlock",
+    "dimensions": "Dimensions",
+    "powerRequirement": "Power Requirement"
   }
 }
