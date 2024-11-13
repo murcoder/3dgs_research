@@ -16,25 +16,25 @@ export const Door = forwardRef(
       boxGeometry = { width: 1.42, height: 2.88, depth: 0.1 },
       onDoorClick,
       renderOrder,
-      tooltipDistanceFactor,
+      tooltipDistanceFactor=6,
       ...props
     },
     ref
   ) => {
     const { t } = useTranslation();
-    const { camera, pointer } = useThree();
     const meshRef = useRef();
     const [hovered, setHovered] = useState(false);
-    const [tooltipPosition, setTooltipPosition] = useState(new THREE.Vector3());
-
-    useFrame(() => {
-      // Update tooltip position every frame
-      if (hovered) {
-        // Convert normalized mouse coordinates to world space
-        const newPostion = calculateTooltipPosition(pointer, camera);
-        setTooltipPosition(newPostion);
-      }
-    });
+    //const { camera, pointer } = useThree();
+    // const [tooltipPosition, setTooltipPosition] = useState(new THREE.Vector3());
+    //
+    // useFrame(() => {
+    //   // Update tooltip position every frame
+    //   if (hovered) {
+    //     // Convert normalized mouse coordinates to world space
+    //     const newPostion = calculateTooltipPosition(pointer, camera);
+    //     setTooltipPosition(newPostion);
+    //   }
+    // });
 
     return (
       <>
@@ -61,7 +61,7 @@ export const Door = forwardRef(
           {hovered && (
             <Html
               center
-              position={tooltipPosition.toArray()}
+              position={[position.x, position.y+1, position.z]}
               distanceFactor={tooltipDistanceFactor}
               style={{ pointerEvents: 'none' }}>
               <Label title={t('boundaries.doorTitle')} content={t('boundaries.doorText')} />

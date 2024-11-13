@@ -62,7 +62,6 @@ const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked }
           renderOrder={3}
           position={{ x: -2.4, y: 1.54, z: 2.86 }}
           onDoorClick={doorClicked}
-          tooltipDistanceFactor={3}
         />
         <Floor renderOrder={1} />
         <Wall
