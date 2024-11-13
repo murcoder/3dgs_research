@@ -53,7 +53,7 @@ export const PcDesk = forwardRef(({ renderOrder }, ref) => {
       </RigidBody>
 
       {/* PC */}
-      <RigidBody type="fixed" position={[0.14, -0.74, -0.26]} rotation={[0, -0.04, 0]}>
+      <RigidBody type="fixed" position={[0.14, -0.74, -0.29]} rotation={[0, -0.04, 0]}>
         <mesh
           renderOrder={renderOrder + 1}
           ref={ref || meshRef}
@@ -71,8 +71,8 @@ export const PcDesk = forwardRef(({ renderOrder }, ref) => {
           }}
           material={transparentMaterial}
         >
-          <boxGeometry args={[0.8, 0.65, 0.4]} />
-          {hoveredPc && <Outlines color="gray" thickness={6} />}
+          <boxGeometry args={[0.8, 0.65, 0.3]} />
+          {hoveredPc && <Outlines color="white" thickness={6} />}
         </mesh>
         {hoveredPc && (
           <Html
