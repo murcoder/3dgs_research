@@ -34,6 +34,18 @@
     "lens": "Linsenanordnung",
     "buttons": "Steuerung"
   },
+  "laserCutButtons": {
+    "1": "Positioniertasten Z",
+    "2": "Positioniertasten X/Y",
+    "3": "Start / Pause / Wiederholen",
+    "4": "Stand-By",
+    "5": "Absaugung",
+    "6": "SHIFT",
+    "7": "Stopp",
+    "8": "Statusanzeige Laserstrahl",
+    "9": "Statusanzeige",
+    "10": "Home"
+  },
   "lasercutDetails": {
     "machineData": "Daten",
     "workArea": "Arbeitsfläche",

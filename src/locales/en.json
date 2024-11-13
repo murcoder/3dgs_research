@@ -34,6 +34,18 @@
     "lens": "Lens arrangement",
     "buttons": "Controls"
   },
+  "laserCutButtons": {
+    "1": "Positioning buttons Z",
+    "2": "Positioning buttons X/Y",
+    "3": "Start / Pause / Repeat",
+    "4": "Stand-By",
+    "5": "Exhaust",
+    "6": "SHIFT",
+    "7": "Stop",
+    "8": "Laser Beam Status Indicator",
+    "9": "Status Indicator",
+    "10": "Home"
+  },
   "lasercutDetails": {
     "machineData": "Data",
     "workArea": "Work Area",

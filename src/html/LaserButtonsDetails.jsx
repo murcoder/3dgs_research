@@ -1,15 +1,19 @@
+import { useTranslation } from 'react-i18next';
+
 export function LaserButtonsDetails() {
+  const { t } = useTranslation();
+
   const buttonDetails = [
-    { label: "1", value: "Positioniertasten Z" },
-    { label: "2", value: "Positioniertasten X/Y" },
-    { label: "3", value: "Start / Pause / Wiederholen" },
-    { label: "4", value: "Stand-By" },
-    { label: "5", value: "Absaugung" },
-    { label: "6", value: "SHIFT" },
-    { label: "7", value: "Stopp" },
-    { label: "8", value: "Statusanzeige Laserstrahl" },
-    { label: "9", value: "Statusanzeige" },
-    { label: "10", value: "Home" },
+    { label: "1", value: t("laserCutButtons.1") },
+    { label: "2", value: t("laserCutButtons.2") },
+    { label: "3", value: t("laserCutButtons.3") },
+    { label: "4", value: t("laserCutButtons.4") },
+    { label: "5", value: t("laserCutButtons.5") },
+    { label: "6", value: t("laserCutButtons.6") },
+    { label: "7", value: t("laserCutButtons.7") },
+    { label: "8", value: t("laserCutButtons.8") },
+    { label: "9", value: t("laserCutButtons.9") },
+    { label: "10", value: t("laserCutButtons.10") },
   ];
 
   return (
