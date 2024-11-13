@@ -1,12 +1,8 @@
-import React, { forwardRef, useRef, useState } from 'react';
-import { Html, Splat } from '@react-three/drei';
+import React, { forwardRef, useRef } from 'react';
+import { Splat } from '@react-three/drei';
 import { useTranslation } from 'react-i18next';
 import { RigidBody } from '@react-three/rapier';
-import { Label } from '../html/Label.jsx';
 import { transparentMaterial } from '../constants/materials.js';
-import { calculateTooltipPosition } from '../helper.js';
-import { useFrame, useThree } from '@react-three/fiber';
-import * as THREE from 'three';
 import { MachineDetailsTable } from '../html/MachineDetailsTable.jsx';
 import { Annotation } from '../html/Annotation.jsx';
 import { LaserButtonsDetails } from '../html/LaserButtonsDetails.jsx';
@@ -14,8 +10,6 @@ import { LaserButtonsDetails } from '../html/LaserButtonsDetails.jsx';
 export const LasercutClosed = forwardRef(({ openClick, renderOrder }, ref) => {
   const { t } = useTranslation();
   const meshRef = useRef();
-  const { camera, pointer } = useThree();
-  const [hovered, setHovered] = useState(false);
 
   return (
     <>
@@ -43,7 +37,11 @@ export const LasercutClosed = forwardRef(({ openClick, renderOrder }, ref) => {
         position={[-1.2, 1.8, -0.3]}>
         <div className="bg-black/80 w-80 p-2 text-center text-sm rounded-lg text-white transition h-96 overflow-hidden">
           <p className="pointer-events-none"> {t('laser.buttons')}</p>
-          <img className="pointer-events-none" src="./assets/laser_buttons.png" alt="laser_buttons" />
+          <img
+            className="pointer-events-none"
+            src="./assets/laser_buttons.png"
+            alt="laser_buttons"
+          />
           <LaserButtonsDetails />
         </div>
       </Annotation>
@@ -52,17 +50,10 @@ export const LasercutClosed = forwardRef(({ openClick, renderOrder }, ref) => {
         <mesh
           renderOrder={renderOrder + 1}
           ref={ref || meshRef}
-          onPointerEnter={(event) => {
-            event.stopPropagation();
-            setHovered(true);
-          }}
-          onPointerLeave={() => {
-            setHovered(false);
-          }}
           name="lasercutter_closed"
           position={[0, 0.9, -0.2]}
           material={transparentMaterial}>
-          <boxGeometry args={[2.6, 2.04, 1.44]} />
+          <boxGeometry args={[2.9, 2.04, 1.44]} />
         </mesh>
       </RigidBody>
     </>
