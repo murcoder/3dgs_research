@@ -6,8 +6,11 @@ import { CameraControls, Grid, Splat } from '@react-three/drei';
 import { Lasercutter } from '../boundries/Lasercutter.jsx';
 import { Door } from '../boundries/Door.jsx';
 import { useControls } from 'leva';
+import { Wall } from '../boundries/Wall.jsx';
 
 const Room2 = forwardRef(({ debug, laserCutterClicked, cameraMode, door1Clicked, door3Clicked }, ref) => {
+  const wallHeight = 6
+  const wallYPosition = 3
   const { show3DScan } = useControls('world', {
     show3DScan: true
   });
@@ -55,6 +58,30 @@ const Room2 = forwardRef(({ debug, laserCutterClicked, cameraMode, door1Clicked,
           onDoorClick={door3Clicked}
         />
         <Floor renderOrder={1} />
+        <Wall
+          renderOrder={1}
+          position={{ x: 4, y: wallYPosition, z: 0 }}
+          rotation={{ x: 0, y: Math.PI/2, z: 0 }}
+          boxGeometry={{ width: 10, height: wallHeight, depth: 0.1 }}
+        />
+        <Wall
+          renderOrder={1}
+          position={{ x: -10, y: wallYPosition, z: 0 }}
+          rotation={{ x: 0, y: Math.PI/2, z: 0 }}
+          boxGeometry={{ width: 10, height: wallHeight, depth: 0.1 }}
+        />
+        <Wall
+          renderOrder={1}
+          position={{ x: 0, y: wallYPosition, z: 3.5 }}
+          rotation={{ x: 0, y: 0, z: 0 }}
+          boxGeometry={{ width: 20, height: wallHeight, depth: 0.1 }}
+        />
+        <Wall
+          renderOrder={1}
+          position={{ x: 0, y: wallYPosition, z: -3.5 }}
+          rotation={{ x: 0, y: 0, z: 0 }}
+          boxGeometry={{ width: 20, height: wallHeight, depth: 0.1 }}
+        />
         {cameraMode === 'orbit' ? (
           <CameraControls />
         ) : (

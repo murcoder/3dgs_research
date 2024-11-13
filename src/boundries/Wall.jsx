@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import { RigidBody } from '@react-three/rapier';
 import { transparentMaterial } from '../constants/materials.js';
 
@@ -14,6 +14,12 @@ export const Wall = forwardRef(
     ref
   ) => {
     const meshRef = useRef();
+    useEffect(() => {
+      // Do not render invisible walls (camera renders layer 0)
+      if (meshRef.current) {
+        meshRef.current.layers.set(1);
+      }
+    }, []);
 
     return (
       <>

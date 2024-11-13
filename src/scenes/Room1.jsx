@@ -6,8 +6,14 @@ import { CameraControls, Grid, Splat } from '@react-three/drei';
 import { Lasercutter } from '../boundries/Lasercutter.jsx';
 import { Door } from '../boundries/Door.jsx';
 import { useControls } from 'leva';
+import { Wall } from '../boundries/Wall.jsx';
 
 const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked }, ref) => {
+  const wallGeometry = {
+    height: 6,
+    width: 10
+  }
+  const wallYPosition = 3
   const { show3DScan } = useControls('world', {
     show3DScan: true
   });
@@ -46,6 +52,12 @@ const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked }
           boxGeometry={{ width: 2.8, height: 1.52, depth: 1.44 }}
           onMachineClick={laserCutterClicked}
         />
+        <Lasercutter
+          renderOrder={3}
+          position={{ x: -0.2, y: 0.9, z: -2.3 }}
+          boxGeometry={{ width: 3, height: 1.52, depth: 1.44 }}
+          onMachineClick={laserCutterClicked}
+        />
         <Door
           renderOrder={3}
           position={{ x: -2.4, y: 1.54, z: 2.86 }}
@@ -53,6 +65,30 @@ const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked }
           tooltipDistanceFactor={3}
         />
         <Floor renderOrder={1} />
+        <Wall
+          renderOrder={1}
+          position={{ x: 3, y: wallYPosition, z: 0 }}
+          rotation={{ x: 0, y: Math.PI/2, z: 0 }}
+          boxGeometry={{ width: wallGeometry.width, height: wallGeometry.height, depth: 0.1 }}
+        />
+        <Wall
+          renderOrder={1}
+          position={{ x: -3.5, y: wallYPosition, z: 0 }}
+          rotation={{ x: 0, y: Math.PI/2, z: 0 }}
+          boxGeometry={{ width: wallGeometry.width, height: wallGeometry.height, depth: 0.1 }}
+        />
+        <Wall
+          renderOrder={1}
+          position={{ x: 0, y: wallYPosition, z: 3 }}
+          rotation={{ x: 0, y: 0, z: 0 }}
+          boxGeometry={{ width: wallGeometry.width, height: wallGeometry.height, depth: 0.1 }}
+        />
+        <Wall
+          renderOrder={1}
+          position={{ x: 0, y: wallYPosition, z: -3 }}
+          rotation={{ x: 0, y: 0, z: 0 }}
+          boxGeometry={{ width: wallGeometry.width, height: wallGeometry.height, depth: 0.1 }}
+        />
         {cameraMode === 'orbit' ? (
           <CameraControls />
         ) : (
