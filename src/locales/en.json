@@ -3,6 +3,10 @@
   "buttons": {
     "back": "Back"
   },
+  "laserDetailRoom": {
+    "turnPcOn": "PC",
+    "turnPcOnText": "PC einschalten"
+  },
   "cleaningTasks": {
     "task1": "Clear away drinks",
     "task2": "Remove dust",
