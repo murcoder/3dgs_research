@@ -50,7 +50,7 @@ const Room2 = forwardRef(({ debug, laserCutterClicked, cameraMode, door1Clicked,
           name={"textil_door"}
           renderOrder={3}
           position={{ x: -9.15, y: 1.54, z: -0.62 }}
-          rotation={{ x: 0, y: 1.57, z: 0 }}
+          rotation={{ x: 0, y: Math.PI/2, z: 0 }}
           tooltipDistanceFactor={10}
           onDoorClick={door3Clicked}
         />

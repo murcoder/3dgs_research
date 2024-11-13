@@ -1,14 +1,12 @@
-import { CameraControls, Grid, Html } from '@react-three/drei';
+import { CameraControls, Grid } from '@react-three/drei';
 import { LasercutClosed } from '../models/LasercutClosed.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import React, { forwardRef, useRef, useState, useTransition } from 'react';
-import { Sphere } from '../models/Sphere.jsx';
+import React, { forwardRef, useRef, useState } from 'react';
 import { Floor } from '../models/Floor.jsx';
 import { LasercutOpened } from '../models/LasercutOpened.jsx';
-import Checklist from '../html/Checklist.jsx';
-import { Button } from '../html/Button.jsx';
 import { PcDesk } from '../models/PcDesk.jsx';
+import { Wall } from '../boundries/Wall.jsx';
 
 const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) => {
   const machine = useRef();
@@ -36,11 +34,8 @@ const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) =>
     <group ref={ref}>
       {/*<PointerLockControls />*/}
       {/*<Environment preset={'apartment'} background backgroundBlurriness={1} />*/}
-      {/*<Checklist occludeRefs={[machine]} renderOrder={1} />*/}
-      {/*<Html>*/}
-      {/*  <Button handleClick={onReturnClick} />*/}
-      {/*</Html>*/}
       <Grid renderOrder={1} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
+
       <Physics debug={debug} timeStep="vary">
         {showMachine1 ? (
           <LasercutClosed renderOrder={2} ref={machine} openClick={handleMachineClick} />
@@ -50,6 +45,26 @@ const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) =>
         <PcDesk renderOrder={2} ref={pcDesk}/>
         {/*<Sphere renderOrder={4} />*/}
         <Floor renderOrder={1} />
+        <Wall
+          renderOrder={1}
+          position={{ x: 20, y: 5, z: 0 }}
+          rotation={{ x: 0, y: Math.PI/2, z: 0 }}
+        />
+        <Wall
+          renderOrder={1}
+          position={{ x: -20, y: 5, z: 0 }}
+          rotation={{ x: 0, y: Math.PI/2, z: 0 }}
+        />
+        <Wall
+          renderOrder={1}
+          position={{ x: 0, y: 5, z: 20 }}
+          rotation={{ x: 0, y: 0, z: 0 }}
+        />
+        <Wall
+          renderOrder={1}
+          position={{ x: 0, y: 5, z: -20 }}
+          rotation={{ x: 0, y: 0, z: 0 }}
+        />
         {cameraMode === 'orbit' ? (
           <CameraControls />
         ) : (
