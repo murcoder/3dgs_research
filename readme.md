@@ -35,4 +35,4 @@ Integrated HTML and Videos
 
 
 ## License
-[MIT licensed](LICENSE)
+[GPL3 licensed](LICENSE)
