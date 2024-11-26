@@ -24,14 +24,6 @@ const handleContextMenu = (event) => {
   event.preventDefault();
 };
 
-const handleBackClick = () => {
-  const { currentScene, setCurrentScene } = useGame((state) => ({
-    currentScene: state.currentScene,
-    setCurrentScene: state.setCurrentScene
-  }));
-  setCurrentScene(1);
-};
-
 const Checklist = () => {
   const currentScene = useGame((state) => state.currentScene);
   return <>{currentScene === 4 && <LaserChecklist1 />}</>;

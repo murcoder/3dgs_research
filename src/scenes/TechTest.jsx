@@ -1,10 +1,21 @@
-import { CameraControls, Grid, Splat } from '@react-three/drei';
+import { CameraControls, Grid, Html, Splat } from '@react-three/drei';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import { Floor } from '../models/Floor.jsx';
+import { Wall } from '../boundries/Wall.jsx';
+import { useControls } from 'leva';
+import { Label } from '../html/Label.jsx';
+import {useTranslation} from 'react-i18next';
+import { LumaSplatsThree, LumaSplatsSemantics } from "@lumaai/luma-web";
+import { extend } from '@react-three/fiber';
+
+// Extend LumaSplatsThree to make it available in react-three-fiber
+extend({ LumaSplatsThree });
 
 const TechTest = forwardRef(({ debug, cameraMode }, ref) => {
+  const {t} = useTranslation()
+  const laserRef = useRef();
   const gridConfig = {
     gridSize: [10.5, 10.5],
     cellSize: 0.6,
@@ -18,16 +29,66 @@ const TechTest = forwardRef(({ debug, cameraMode }, ref) => {
     followCamera: false,
     infiniteGrid: true
   };
+  const { showLaserCutter } = useControls('world', {
+    showLaserCutter: true
+  });
+  const laserSplatPosition = { x:-2, y:0, z:5 }
+  const laserHuggingPosition = { x:-8, y:0, z:5 }
+  const laserLumaPosition = { x:-14, y:1, z:5 }
 
   return (
     <group ref={ref}>
       <Grid renderOrder={1} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
-      <Splat renderOrder={2} position={[10, 0, 0]} src={'./splats/lasercutter_closed.splat'} />
-      <Splat
-        renderOrder={2}
-        position={[10, 0, 0]}
-        src={'./splats/lasercutter_closed_huggingface.splat'}
-      />
+      {showLaserCutter ? (
+        <group ref={laserRef} rotation={[0, Math.PI / 2, 0]}>
+          {/* ANTIMATTER15/SPLAT */}
+          <Splat
+            renderOrder={2}
+            position={[laserSplatPosition.x, laserSplatPosition.y, laserSplatPosition.z]}
+            src={'./splats/lasercutter_closed.splat'}
+          />
+          <Html
+            center
+            position={[laserSplatPosition.x, laserSplatPosition.y + 3, laserSplatPosition.z]}
+            distanceFactor={8}
+            style={{ pointerEvents: 'none' }}>
+            <Label title={'antimatter15/splat'} content={'Created with LumaAI | exported in Luma | integrated with DREI <Splat>'} />
+          </Html>
+
+          {/* HUGGINGFACE */}
+          <Splat
+            renderOrder={2}
+            position={[laserHuggingPosition.x, laserHuggingPosition.y, laserHuggingPosition.z]}
+            src={'./splats/lasercutter_closed_huggingface.splat'}
+          />
+          <Html
+            center
+            position={[laserHuggingPosition.x, laserHuggingPosition.y + 3, laserHuggingPosition.z]}
+            distanceFactor={8}
+            style={{ pointerEvents: 'none' }}>
+            <Label title={'Huggingface'} content={'Created with LumaAI | exported in Huggingface | integrated with DREI <Splat>'} />
+          </Html>
+
+          {/* LUMA */}
+          <lumaSplatsThree
+            renderOrder={2}
+            semanticsMask={LumaSplatsSemantics.FOREGROUND}
+            source="https://lumalabs.ai/capture/fc042829-31c6-4c14-8b74-502838c19ede"
+            position={[laserLumaPosition.x, laserLumaPosition.y, laserLumaPosition.z]}
+            rotation={[0,Math.PI,0]}
+            scale={0.8}
+            antialias={false}
+            particleRevealEnabled={true}
+          />
+          <Html
+            center
+            position={[laserLumaPosition.x, laserLumaPosition.y+2, laserLumaPosition.z]}
+            distanceFactor={8}
+            style={{ pointerEvents: 'none' }}>
+            <Label title={'Luma Web Library'} content={'Integrated with Luma Web Library'} />
+          </Html>
+        </group>
+      ) : null}
       <Physics debug={debug} timeStep="vary">
         <Floor renderOrder={1} />
         {cameraMode === 'orbit' ? (
@@ -41,6 +102,18 @@ const TechTest = forwardRef(({ debug, cameraMode }, ref) => {
             mode={'CameraBasedMovement'}
           />
         )}
+        <Wall
+          renderOrder={1}
+          position={{ x: 20, y: 5, z: 0 }}
+          rotation={{ x: 0, y: Math.PI / 2, z: 0 }}
+        />
+        <Wall
+          renderOrder={1}
+          position={{ x: -20, y: 5, z: 0 }}
+          rotation={{ x: 0, y: Math.PI / 2, z: 0 }}
+        />
+        <Wall renderOrder={1} position={{ x: 0, y: 5, z: 20 }} rotation={{ x: 0, y: 0, z: 0 }} />
+        <Wall renderOrder={1} position={{ x: 0, y: 5, z: -20 }} rotation={{ x: 0, y: 0, z: 0 }} />
       </Physics>
     </group>
   );
