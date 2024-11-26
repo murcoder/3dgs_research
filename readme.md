@@ -1,7 +1,8 @@
-# 3D Gaussian Splatting Master Thesis
+# Interactive 3D-Gaussian-Splatting WebApp
 ![demo](public/assets/demo_1.gif)
 ## Description
-A research project to create an interactive 3D Gaussian Splatting scene with react-three-fiber. Includes Physics, monitoring and Debug UI.
+A research project to create an interactive [3D-Gaussian-Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) scene with react-three-fiber. 
+Includes Physics, monitoring, PlayerController, Debug UI and more.
 
 ## Tech Stack
 
