@@ -1,5 +1,5 @@
 # 3D Gaussian Splatting Master Thesis
-![demo](public/assets/demo.gif)
+![demo](public/assets/demo_1.gif)
 ## Description
 A research project to create an interactive 3D Gaussian Splatting scene with react-three-fiber. Includes Physics, monitoring and Debug UI.
 
@@ -22,6 +22,17 @@ A research project to create an interactive 3D Gaussian Splatting scene with rea
 npm install
 npm run dev
 ```
+
+## Interactive Splats
+Conditional Rendering of different scans
+
+![demo](public/assets/demo_2.gif)
+
+## Mixed Content
+Integrated HTML and Videos
+
+![demo](public/assets/demo_3.gif)
+
 
 ## License
 [MIT licensed](LICENSE)
