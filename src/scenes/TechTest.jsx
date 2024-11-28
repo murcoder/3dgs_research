@@ -1,7 +1,7 @@
 import { CameraControls, Grid, Html, Splat } from '@react-three/drei';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import { Floor } from '../models/Floor.jsx';
 import { Wall } from '../boundries/Wall.jsx';
 import { useControls } from 'leva';
@@ -13,7 +13,7 @@ import { extend } from '@react-three/fiber';
 // Extend LumaSplatsThree to make it available in react-three-fiber
 extend({ LumaSplatsThree });
 
-const TechTest = forwardRef(({ debug, cameraMode }, ref) => {
+const TechTest = forwardRef(({ debug, cameraMode, toneMapping, alphaTest, show3DScan, paused }, ref) => {
   const {t} = useTranslation()
   const laserRef = useRef();
   const gridConfig = {
@@ -29,9 +29,6 @@ const TechTest = forwardRef(({ debug, cameraMode }, ref) => {
     followCamera: false,
     infiniteGrid: true
   };
-  const { showLaserCutter } = useControls('world', {
-    showLaserCutter: true
-  });
   const laserSplatPosition = { x:-2, y:0, z:5 }
   const laserHuggingPosition = { x:-8, y:0, z:5 }
   const laserLumaPosition = { x:-14, y:1, z:5 }
@@ -39,13 +36,15 @@ const TechTest = forwardRef(({ debug, cameraMode }, ref) => {
   return (
     <group ref={ref}>
       <Grid renderOrder={1} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
-      {showLaserCutter ? (
+      {show3DScan ? (
         <group ref={laserRef} rotation={[0, Math.PI / 2, 0]}>
           {/* ANTIMATTER15/SPLAT */}
           <Splat
             renderOrder={2}
             position={[laserSplatPosition.x, laserSplatPosition.y, laserSplatPosition.z]}
             src={'./splats/lasercutter_closed.splat'}
+            toneMapped={toneMapping}
+            alphaTest={alphaTest}
           />
           <Html
             center
@@ -60,6 +59,8 @@ const TechTest = forwardRef(({ debug, cameraMode }, ref) => {
             renderOrder={2}
             position={[laserHuggingPosition.x, laserHuggingPosition.y, laserHuggingPosition.z]}
             src={'./splats/lasercutter_closed_huggingface.splat'}
+            toneMapped={toneMapping}
+            alphaTest={alphaTest}
           />
           <Html
             center
@@ -89,7 +90,7 @@ const TechTest = forwardRef(({ debug, cameraMode }, ref) => {
           </Html>
         </group>
       ) : null}
-      <Physics debug={debug} timeStep="vary">
+      <Physics debug={debug} timeStep="vary" paused={paused}>
         <Floor renderOrder={1} />
         {cameraMode === 'orbit' ? (
           <CameraControls />
@@ -100,6 +101,7 @@ const TechTest = forwardRef(({ debug, cameraMode }, ref) => {
             position={[0, 1, -3]}
             cameraPos={{ x: 0, y: 0 }}
             mode={'CameraBasedMovement'}
+            autoBalance={false}
           />
         )}
         <Wall

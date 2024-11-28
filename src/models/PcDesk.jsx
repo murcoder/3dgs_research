@@ -7,7 +7,7 @@ import Video from './Video.jsx';
 import * as THREE from 'three';
 import { Label } from '../html/Label.jsx';
 
-export const PcDesk = forwardRef(({ renderOrder }, ref) => {
+export const PcDesk = forwardRef(({ renderOrder, toneMapping, alphaTest }, ref) => {
   const meshRef = useRef();
   const [aspectRatio, setAspectRatio] = useState(1);
   const { t } = useTranslation();
@@ -37,6 +37,8 @@ export const PcDesk = forwardRef(({ renderOrder }, ref) => {
         position={[position.x, position.y, position.z]}
         rotation={rotation}
         src={'./splats/pc_desk.splat'}
+        toneMapped={toneMapping}
+        alphaTest={alphaTest}
       />
 
       {/* DESK */}

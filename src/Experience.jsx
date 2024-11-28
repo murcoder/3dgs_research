@@ -1,12 +1,12 @@
 import { useControls } from 'leva';
 import { Perf } from 'r3f-perf';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Room1 from './scenes/Room1.jsx';
 import Room2 from './scenes/Room2.jsx';
 import LasercutDetail from './scenes/LasercutDetail.jsx';
 import TechTest from './scenes/TechTest.jsx';
 import useGame from './stores/useGame.jsx';
-import Room3 from './scenes/Room3.jsx'; // Import the store
+import Room3 from './scenes/Room3.jsx';
 
 export default function Experience() {
   const room1 = useRef();
@@ -38,6 +38,27 @@ export default function Experience() {
     },
     debug: false
   });
+  const {alphaTest, toneMapping, show3DScan } = useControls('Splats', {
+    show3DScan: true,
+    alphaTest: {
+      value: 0,
+      min: 0,
+      max: 0.99,
+      step: 0.01
+    },
+    toneMapping: false
+    },
+    { collapsed: true } );
+
+  const [paused, setPaused] = useState(false);
+  useEffect(() => {
+    setPaused(true);
+    const timer = setTimeout(() => {
+      setPaused(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   function switchScenes(sceneNumber) {
     setCurrentScene(sceneNumber);
@@ -54,40 +75,64 @@ export default function Experience() {
         <Room1
           ref={room1}
           debug={debug}
+          alphaTest={alphaTest}
+          toneMapping={toneMapping}
+          show3DScan={show3DScan}
           cameraMode={switchCameraControl}
           laserCutterClicked={() => switchScenes(4)}
           doorClicked={() => switchScenes(2)}
+          paused={paused}
         />
       )}
       {currentScene === 2 && (
         <Room2
           ref={room2}
           debug={debug}
+          alphaTest={alphaTest}
+          toneMapping={toneMapping}
+          show3DScan={show3DScan}
           cameraMode={switchCameraControl}
           laserCutterClicked={() => switchScenes(4)}
           door1Clicked={() => switchScenes(1)}
           door3Clicked={() => switchScenes(3)}
+          paused={paused}
         />
       )}
       {currentScene === 3 && (
         <Room3
           ref={room3}
           debug={debug}
+          alphaTest={alphaTest}
+          toneMapping={toneMapping}
+          show3DScan={show3DScan}
           cameraMode={switchCameraControl}
           laserCutterClicked={() => switchScenes(4)}
           doorClicked={() => switchScenes(2)}
+          paused={paused}
         />
       )}
       {currentScene === 4 && (
         <LasercutDetail
           ref={lasercutDetail}
           debug={debug}
+          alphaTest={alphaTest}
+          toneMapping={toneMapping}
+          show3DScan={show3DScan}
           cameraMode={switchCameraControl}
           onReturnClick={() => switchScenes(1)}
+          paused={paused}
         />
       )}
       {currentScene === 5 && (
-        <TechTest ref={techTest} debug={debug} cameraMode={switchCameraControl} />
+        <TechTest
+          ref={techTest}
+          debug={debug}
+          alphaTest={alphaTest}
+          toneMapping={toneMapping}
+          show3DScan={show3DScan}
+          cameraMode={switchCameraControl}
+          paused={paused}
+        />
       )}
     </>
   );

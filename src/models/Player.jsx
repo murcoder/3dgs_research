@@ -1,7 +1,7 @@
 import { KeyboardControls } from '@react-three/drei';
 import Ecctrl from 'ecctrl';
 
-export default function Player({ position, cameraPos, mode = 'CameraBasedMovement', renderOrder }) {
+export default function Player({ position, cameraPos, mode = 'CameraBasedMovement', renderOrder, autoBalance }) {
   const keyboardMap = [
     { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
     { name: 'backward', keys: ['ArrowDown', 'KeyS'] },
@@ -28,10 +28,13 @@ export default function Player({ position, cameraPos, mode = 'CameraBasedMovemen
           camLerpMult={1000} // give a big number here, so the camera lerp to the followCam position instantly
           turnVelMultiplier={1} // Turning speed same as moving speed
           dampingC={0.1}
-          autoBalance={false}
+          dragDampingC={0.5}
+          autoBalance={autoBalance}
           maxVelLimit={2.5}
           camZoomSpeed={0}
           jumpVel={0} // disable jump
+          jumpForceToGroundMult={0}
+          slopJumpMult={0}
           floatingDis={1.5} // Set higher view-point
           turnSpeed={100} // give it big turning speed to prevent turning wait time
           mode={mode} // Activate different ecctrl modes ("CameraBasedMovement" | "FixedCamera" | "PointToMove")
