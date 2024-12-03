@@ -7,7 +7,7 @@ import { MachineDetailsTable } from '../html/MachineDetailsTable.jsx';
 import { Annotation } from '../html/Annotation.jsx';
 import { LaserButtonsDetails } from '../html/LaserButtonsDetails.jsx';
 
-export const LasercutClosed = forwardRef(({ openClick, renderOrder }, ref) => {
+export const LasercutClosed = forwardRef(({ openClick, renderOrder, toneMapping, alphaTest }, ref) => {
   const { t } = useTranslation();
   const meshRef = useRef();
 
@@ -45,7 +45,13 @@ export const LasercutClosed = forwardRef(({ openClick, renderOrder }, ref) => {
           <LaserButtonsDetails />
         </div>
       </Annotation>
-      <Splat renderOrder={renderOrder} scale={0.85} src={'./splats/lasercutter_closed.splat'} />
+      <Splat
+        renderOrder={renderOrder}
+        scale={0.85}
+        src={'./splats/lasercutter_closed.splat'}
+        toneMapped={toneMapping}
+        alphaTest={alphaTest}
+      />
       <RigidBody type="fixed">
         <mesh
           renderOrder={renderOrder + 1}

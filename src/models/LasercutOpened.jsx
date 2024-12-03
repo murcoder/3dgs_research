@@ -5,7 +5,7 @@ import { RigidBody } from '@react-three/rapier';
 import { transparentMaterial } from '../constants/materials.js';
 import { Annotation } from '../html/Annotation.jsx';
 
-export const LasercutOpened = forwardRef(({ closeClick, renderOrder }, ref) => {
+export const LasercutOpened = forwardRef(({ closeClick, renderOrder, toneMapping, alphaTest }, ref) => {
   const meshRef = useRef();
   const { t } = useTranslation();
 
@@ -15,6 +15,8 @@ export const LasercutOpened = forwardRef(({ closeClick, renderOrder }, ref) => {
         renderOrder={renderOrder}
         position={[-0.16, -0.04, -0.05]}
         src={'./splats/lasercutter_opened.splat'}
+        toneMapped={toneMapping}
+        alphaTest={alphaTest}
       />
       <Annotation
         onClick={closeClick}
