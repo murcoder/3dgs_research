@@ -91,7 +91,7 @@ const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked }
         {cameraMode === 'orbit' ? (
           <CameraControls />
         ) : (
-          <Player renderOrder={5} position={[-3, 1, -1]} cameraPos={{ x: 0, y: Math.PI / 2 }} />
+          <Player renderOrder={5} position={[-3, 3, -1]} cameraPos={{ x: 0, y: 0 }} />
         )}
       </Physics>
     </group>

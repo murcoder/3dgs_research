@@ -69,11 +69,9 @@ const LasercutDetail = forwardRef(({ debug, cameraMode, onReturnClick }, ref) =>
           <CameraControls />
         ) : (
           <Player
-            renderOrder={5}
-            alphaTest
-            position={[0, 1, -3]}
-            cameraPos={{ x: 0, y: 0 }}
-            mode={'CameraBasedMovement'}
+            renderOrder={2}
+            position={[0, 2, -3]}
+            cameraPos={{ x: Math.PI, y: 0 }}
           />
         )}
       </Physics>
