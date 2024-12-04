@@ -66,5 +66,19 @@
     "interlock": "Interlock",
     "dimensions": "Dimensions",
     "powerRequirement": "Power Requirement"
+  },
+  "electronics": {
+    "title": "Electronics",
+    "details":{
+      "powerSupply": "Power supplies",
+      "oszilloskop": "Oszilloskop"
+    }
+  },
+  "printer": {
+    "title": "3D Printer",
+    "details":{
+      "bambu": "Bambulab X1E",
+      "prusa": "Prusa XL"
+    }
   }
 }

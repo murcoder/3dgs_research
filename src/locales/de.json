@@ -66,5 +66,19 @@
     "interlock": "Interlock (Verriegelung)",
     "dimensions": "Dimensionen",
     "powerRequirement": "Strombedarf"
+  },
+  "electronics": {
+    "title": "Elektronik",
+    "details":{
+      "powerSupply": "Labornetzgeräte",
+      "oszilloskop": "Oszilloskop"
+    }
+  },
+  "printer": {
+    "title": "3D Drucker",
+    "details":{
+      "bambu": "Bambulab X1E",
+      "prusa": "Prusa XL"
+    }
   }
 }
