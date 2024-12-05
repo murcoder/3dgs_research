@@ -1,11 +1,11 @@
 import { Floor } from '../models/Floor.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { forwardRef} from 'react';
 import { CameraControls, Grid, Splat } from '@react-three/drei';
 import { Door } from '../boundries/Door.jsx';
-import { useControls } from 'leva';
 import { Annotation } from '../html/Annotation.jsx';
+import { Wall } from '../boundries/Wall.jsx';
 
 const Room3 = forwardRef(
   ({ debug, laserCutterClicked, cameraMode, doorClicked, toneMapping, alphaTest, show3DScan, paused }, ref) => {
@@ -22,6 +22,11 @@ const Room3 = forwardRef(
       followCamera: false,
       infiniteGrid: true
     };
+    const wallGeometry = {
+      height: 6,
+      width: 10
+    }
+    const wallYPosition = 3
 
     return (
       <group ref={ref}>
@@ -29,7 +34,7 @@ const Room3 = forwardRef(
           iconPath={'./icons/info_icon.svg'}
           cursorStyle={'cursor-help'}
           renderOrder={3}
-          position={[-3.4, 2.4, 1.8]}>
+          position={[4.5, 2.4, 3.5]}>
           <div className="bg-black/80 w-52 p-2 text-center text-sm rounded-lg text-white transition pointer-events-none">
             <p>Stickmaschine MRT</p>
             <ul className="text-xs pt-2">
@@ -43,8 +48,8 @@ const Room3 = forwardRef(
           {show3DScan ? (
             <Splat
               renderOrder={2}
-              scale={0.65}
-              src="./splats/textil.splat"
+              scale={0.8}
+              src="./splats/textil_low.splat"
               toneMapped={toneMapping}
               alphaTest={alphaTest}
             />
@@ -54,15 +59,48 @@ const Room3 = forwardRef(
           ) : null}
           <Door
             renderOrder={3}
-            position={{ x: 0.3, y: 2.3, z: -0.9 }}
-            rotation={{ x: 0, y: 1.57, z: 0 }}
+            position={{ x: 0.4, y: 2.2, z: -4.6 }}
+            boxGeometry={{ width: 2, height: 4.5, depth: 0.1 }}
             onDoorClick={doorClicked}
           />
           <Floor renderOrder={1} />
+          <Wall
+            name={"left-wall"}
+            renderOrder={1}
+            position={{ x: 5, y: wallYPosition, z: 0 }}
+            rotation={{ x: 0, y: Math.PI/2, z: 0 }}
+            boxGeometry={{ width: wallGeometry.width, height: wallGeometry.height, depth: 0.1 }}
+          />
+          <Wall
+            name={"right-wall"}
+            renderOrder={1}
+            position={{ x: -1, y: wallYPosition, z: 0 }}
+            rotation={{ x: 0, y: Math.PI/2, z: 0 }}
+            boxGeometry={{ width: wallGeometry.width, height: wallGeometry.height, depth: 0.1 }}
+          />
+          <Wall
+            name={"front-wall"}
+            renderOrder={1}
+            position={{ x: 0, y: wallYPosition, z: 5 }}
+            rotation={{ x: 0, y: 0, z: 0 }}
+            boxGeometry={{ width: wallGeometry.width, height: wallGeometry.height, depth: 0.1 }}
+          />
+          <Wall
+            name={"back-wall"}
+            renderOrder={1}
+            position={{ x: 0, y: wallYPosition, z: -4 }}
+            rotation={{ x: 0, y: 0, z: 0 }}
+            boxGeometry={{ width: wallGeometry.width, height: wallGeometry.height, depth: 0.1 }}
+          />
           {cameraMode === 'orbit' ? (
             <CameraControls />
           ) : (
-            <Player renderOrder={5} position={[-0.7, 2, -0.3]} cameraPos={{ x: 0, y: 30 }} autoBalance={false}/>
+            <Player
+              renderOrder={5}
+              position={[1, 2, -3]}
+              cameraPos={{ x: 0, y: 0 }}
+              autoBalance={false}
+            />
           )}
         </Physics>
       </group>

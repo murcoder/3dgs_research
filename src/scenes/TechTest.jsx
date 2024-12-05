@@ -7,11 +7,11 @@ import { Wall } from '../boundries/Wall.jsx';
 import { useControls } from 'leva';
 import { Label } from '../html/Label.jsx';
 import {useTranslation} from 'react-i18next';
-import { LumaSplatsThree, LumaSplatsSemantics } from "@lumaai/luma-web";
+//import { LumaSplatsThree, LumaSplatsSemantics } from "@lumaai/luma-web";
 import { extend } from '@react-three/fiber';
 
 // Extend LumaSplatsThree to make it available in react-three-fiber
-extend({ LumaSplatsThree });
+//extend({ LumaSplatsThree });
 
 const TechTest = forwardRef(({ debug, cameraMode, toneMapping, alphaTest, show3DScan, paused }, ref) => {
   const {t} = useTranslation()
@@ -31,7 +31,7 @@ const TechTest = forwardRef(({ debug, cameraMode, toneMapping, alphaTest, show3D
   };
   const laserSplatPosition = { x:-2, y:0, z:5 }
   const laserHuggingPosition = { x:-8, y:0, z:5 }
-  const laserLumaPosition = { x:-14, y:1, z:5 }
+  //const laserLumaPosition = { x:-14, y:1, z:5 }
 
   return (
     <group ref={ref}>
@@ -71,23 +71,23 @@ const TechTest = forwardRef(({ debug, cameraMode, toneMapping, alphaTest, show3D
           </Html>
 
           {/* LUMA */}
-          <lumaSplatsThree
-            renderOrder={2}
-            semanticsMask={LumaSplatsSemantics.FOREGROUND}
-            source="https://lumalabs.ai/capture/fc042829-31c6-4c14-8b74-502838c19ede"
-            position={[laserLumaPosition.x, laserLumaPosition.y, laserLumaPosition.z]}
-            rotation={[0,Math.PI,0]}
-            scale={0.8}
-            antialias={false}
-            particleRevealEnabled={true}
-          />
-          <Html
-            center
-            position={[laserLumaPosition.x, laserLumaPosition.y+2, laserLumaPosition.z]}
-            distanceFactor={8}
-            style={{ pointerEvents: 'none' }}>
-            <Label title={'Luma Web Library'} content={'Integrated with Luma Web Library'} />
-          </Html>
+          {/*<lumaSplatsThree*/}
+          {/*  renderOrder={2}*/}
+          {/*  semanticsMask={LumaSplatsSemantics.FOREGROUND}*/}
+          {/*  source="https://lumalabs.ai/capture/fc042829-31c6-4c14-8b74-502838c19ede"*/}
+          {/*  position={[laserLumaPosition.x, laserLumaPosition.y, laserLumaPosition.z]}*/}
+          {/*  rotation={[0,Math.PI,0]}*/}
+          {/*  scale={0.8}*/}
+          {/*  antialias={false}*/}
+          {/*  particleRevealEnabled={true}*/}
+          {/*/>*/}
+          {/*<Html*/}
+          {/*  center*/}
+          {/*  position={[laserLumaPosition.x, laserLumaPosition.y+2, laserLumaPosition.z]}*/}
+          {/*  distanceFactor={8}*/}
+          {/*  style={{ pointerEvents: 'none' }}>*/}
+          {/*  <Label title={'Luma Web Library'} content={'Integrated with Luma Web Library'} />*/}
+          {/*</Html>*/}
         </group>
       ) : null}
       <Physics debug={debug} timeStep="vary" paused={paused}>

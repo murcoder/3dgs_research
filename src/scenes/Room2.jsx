@@ -94,7 +94,7 @@ const Room2 = forwardRef(
           {cameraMode === 'orbit' ? (
             <CameraControls />
           ) : (
-            <Player renderOrder={5} position={[2.3, 1, -1.5]} cameraPos={{ x: 0, y: 30 }} autoBalance={false}/>
+            <Player renderOrder={5} position={[2.3, 2, -1.5]} cameraPos={{ x: 0, y: 30 }} autoBalance={false}/>
             // <Player renderOrder={5} position={[4, 1, 0]} cameraPos={{ x: 0, y: 0 }} />
           )}
         </Physics>

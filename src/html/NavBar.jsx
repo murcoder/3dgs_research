@@ -39,7 +39,7 @@ export default function NavBar({ closeDetailClick, showDetailBar = false, detail
 
         {/* Menu Links */}
         <ul
-          className={`md:flex md:items-center space-y-4 md:space-y-0 md:space-x-6 font-body ${isOpen ? 'block' : 'hidden'} md:block`}>
+          className={`md:flex md:items-center space-y-4 md:space-y-0 md:space-x-6 font-body ${isOpen ? 'block' : 'hidden'} md:block font-bold uppercase`}>
           <li>
             <a
               href="https://threejs-journey.com"

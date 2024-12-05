@@ -14,7 +14,7 @@ export default function LanguageSwitcher() {
         id="language-select"
         onChange={handleChangeLanguage}
         defaultValue={i18n.language}
-        className="text-black bg-inherit"
+        className="text-black bg-inherit uppercase"
       >
         <option value="en">English</option>
         <option value="de">Deutsch</option>
