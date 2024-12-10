@@ -57,25 +57,19 @@ const Room2Part1 = forwardRef(
           position={[-3, 3, 4]}>
           <BambuDetails/>
         </Annotation>
+        {show3DScan ? (
+          <Splat
+            renderOrder={2}
+            scale={1}
+            src="./splats/room2_1.splat"
+            toneMapped={toneMapping}
+            alphaTest={alphaTest}
+          />
+        ) : null}
+        {!show3DScan ? (
+          <Grid renderOrder={3} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
+        ) : null}
         <Physics debug={debug} timeStep="vary" paused={paused}>
-          {show3DScan ? (
-            <Splat
-              renderOrder={2}
-              scale={1}
-              src="./splats/room2_1.splat"
-              toneMapped={toneMapping}
-              alphaTest={alphaTest}
-            />
-          ) : null}
-          {!show3DScan ? (
-            <Grid renderOrder={3} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
-          ) : null}
-          {/*<Lasercutter*/}
-          {/*  renderOrder={3}*/}
-          {/*  position={{ x: -0.6, y: 0.9, z: 1.7 }}*/}
-          {/*  boxGeometry={{ width: 1.2, height: 1.6, depth: 2.7 }}*/}
-          {/*  onMachineClick={laserCutterClicked}*/}
-          {/*/>*/}
           <Door
             name={'room1_door'}
             renderOrder={3}

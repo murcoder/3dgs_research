@@ -44,19 +44,19 @@ const Room3 = forwardRef(
             </ul>
           </div>
         </Annotation>
+        {show3DScan ? (
+          <Splat
+            renderOrder={2}
+            scale={0.8}
+            src="./splats/textil_low.splat"
+            toneMapped={toneMapping}
+            alphaTest={alphaTest}
+          />
+        ) : null}
+        {!show3DScan ? (
+          <Grid renderOrder={3} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
+        ) : null}
         <Physics debug={debug} timeStep="vary" paused={paused}>
-          {show3DScan ? (
-            <Splat
-              renderOrder={2}
-              scale={0.8}
-              src="./splats/textil_low.splat"
-              toneMapped={toneMapping}
-              alphaTest={alphaTest}
-            />
-          ) : null}
-          {!show3DScan ? (
-            <Grid renderOrder={3} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
-          ) : null}
           <Door
             renderOrder={3}
             position={{ x: 0.4, y: 2.2, z: -4.6 }}

@@ -31,19 +31,19 @@ const Room2 = forwardRef(
 
     return (
       <group ref={ref}>
+        {show3DScan ? (
+          <Splat
+            renderOrder={2}
+            scale={1.3}
+            src="./splats/garage.splat"
+            toneMapped={toneMapping}
+            alphaTest={alphaTest}
+          />
+        ) : null}
+        {!show3DScan ? (
+          <Grid renderOrder={3} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
+        ) : null}
         <Physics debug={debug} timeStep="vary" paused={paused}>
-          {show3DScan ? (
-            <Splat
-              renderOrder={2}
-              scale={1.3}
-              src="./splats/garage.splat"
-              toneMapped={toneMapping}
-              alphaTest={alphaTest}
-            />
-          ) : null}
-          {!show3DScan ? (
-            <Grid renderOrder={3} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
-          ) : null}
           <Lasercutter
             renderOrder={3}
             position={{ x: -0.6, y: 0.9, z: 1.7 }}
