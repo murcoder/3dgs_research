@@ -8,6 +8,7 @@ import TechTest from './scenes/TechTest.jsx';
 import useGame from './stores/useGame.jsx';
 import Room3 from './scenes/Room3.jsx';
 import Room2Part1 from './scenes/Room2Part1.jsx';
+import DiscordButton from './html/DiscordButton.jsx';
 
 export default function Experience() {
   const room1 = useRef();

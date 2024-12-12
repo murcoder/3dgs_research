@@ -12,6 +12,7 @@ import LaserChecklist1 from './html/LaserChecklist1.jsx';
 import useGame from './stores/useGame.jsx';
 import { Button } from './html/Button.jsx';
 import { Headline } from './html/Headline.jsx';
+import DiscordButton from './html/DiscordButton.jsx';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 
@@ -105,6 +106,7 @@ root.render(
     <DynamicNavBar />
     {/*<DynamicTitleBar />*/}
     <Checklist />
+    <DiscordButton />
     <Canvas
       shadows
       onContextMenu={handleContextMenu}
