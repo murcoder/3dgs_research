@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Splat } from '@react-three/drei';
 import { CuboidCollider, RigidBody } from '@react-three/rapier';
 

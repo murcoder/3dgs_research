@@ -2,7 +2,7 @@ import './style.css';
 import ReactDOM from 'react-dom/client';
 import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
-import React, { StrictMode, Suspense, useState, useEffect } from 'react';
+import { StrictMode, Suspense, useState, useEffect } from 'react';
 import './i18n';
 import { Leva } from 'leva';
 import { Html, useProgress } from '@react-three/drei';
@@ -16,21 +16,21 @@ import GPUWarning from './html/GPUWarning.jsx';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 
-function Loader() {
+export const Loader = () => {
   const { progress } = useProgress();
   return <Html center>{progress.toFixed(1)}%</Html>;
-}
+};
 
 const handleContextMenu = (event) => {
   event.preventDefault();
 };
 
-const Checklist = () => {
+export const  Checklist = () => {
   const currentScene = useGame((state) => state.currentScene);
   return <>{currentScene === 4 && <LaserChecklist1 />}</>;
 };
 
-const DynamicNavBar = () => {
+export const DynamicNavBar = () => {
   const { currentScene, setCurrentScene } = useGame((state) => ({
     currentScene: state.currentScene,
     setCurrentScene: state.setCurrentScene,
@@ -55,7 +55,7 @@ const DynamicNavBar = () => {
   );
 };
 
-function App() {
+export const App = () => {
   const [isWeakGPU, setIsWeakGPU] = useState(false);
   const [proceedAnyway, setProceedAnyway] = useState(false);
   const [gpuInfo, setGpuInfo] = useState(null);

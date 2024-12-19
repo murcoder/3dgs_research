@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Html } from '@react-three/drei';
 
 export function Annotation({children, iconPath, onClick, cursorStyle = "cursor-pointer", iconStyle, textStyle, ...props}) {

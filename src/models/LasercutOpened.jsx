@@ -1,6 +1,6 @@
-import React, { forwardRef, useRef } from 'react';
+import { forwardRef, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Html, Splat } from '@react-three/drei';
+import { Splat } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
 import { transparentMaterial } from '../constants/materials.js';
 import { Annotation } from '../html/Annotation.jsx';
@@ -52,3 +52,4 @@ export const LasercutOpened = forwardRef(({ closeClick, renderOrder, toneMapping
     </>
   );
 });
+LasercutOpened.displayName = 'LasercutOpened'

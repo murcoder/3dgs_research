@@ -1,6 +1,6 @@
 import { useControls } from 'leva';
 import { Perf } from 'r3f-perf';
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Room1 from './scenes/Room1.jsx';
 import Room2 from './scenes/Room2.jsx';
 import LasercutDetail from './scenes/LasercutDetail.jsx';
@@ -8,7 +8,6 @@ import TechTest from './scenes/TechTest.jsx';
 import useGame from './stores/useGame.jsx';
 import Room3 from './scenes/Room3.jsx';
 import Room2Part1 from './scenes/Room2Part1.jsx';
-import DiscordButton from './html/DiscordButton.jsx';
 
 export default function Experience() {
   const room1 = useRef();

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { subscribeWithSelector } from 'zustand/middleware';
 
-export default create(subscribeWithSelector((set) => ({
+const useGame = create(subscribeWithSelector((set) => ({
     cleaningTasks: [
         { label: "Getränke wegräumen", completed: false },
         { label: "Staubreste entfernen", completed: false },
@@ -13,3 +13,5 @@ export default create(subscribeWithSelector((set) => ({
     currentScene: 1,
     setCurrentScene: (scene) => set({ currentScene: scene }),
 })));
+
+export default useGame;

@@ -1,20 +1,19 @@
 import { Floor } from '../models/Floor.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { CameraControls, Grid, Splat } from '@react-three/drei';
 import { Door } from '../boundries/Door.jsx';
 import { Wall } from '../boundries/Wall.jsx';
 import { BoundaryBox } from '../boundries/BoundaryBox.jsx';
 import { Annotation } from '../html/Annotation.jsx';
-import { useTranslation } from 'react-i18next';
 import { ElectronicsDetailsTable } from '../html/ElectronicsDetailsTable.jsx';
 import { BambuDetails } from '../html/BambuDetails.jsx';
 import { PrusaDetails } from '../html/PrusaDetails.jsx';
 
 const Room2Part1 = forwardRef(
   (
-    { debug, laserCutterClicked, cameraMode, door1Clicked, door3Clicked, toneMapping, alphaTest, show3DScan, paused },
+    { debug, cameraMode, door1Clicked, door3Clicked, toneMapping, alphaTest, show3DScan, paused },
     ref
   ) => {
     const wallHeight = 6;
@@ -32,7 +31,6 @@ const Room2Part1 = forwardRef(
       followCamera: false,
       infiniteGrid: true
     };
-    const { t } = useTranslation();
 
     return (
       <group ref={ref}>
@@ -138,5 +136,5 @@ const Room2Part1 = forwardRef(
     );
   }
 );
-
+Room2Part1.displayName = 'Room2Part1'
 export default Room2Part1;

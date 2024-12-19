@@ -1,4 +1,4 @@
-import React, { forwardRef, Suspense, useRef, useState } from 'react';
+import { forwardRef, Suspense, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Html, Outlines, Plane, Splat } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
@@ -110,3 +110,4 @@ export const PcDesk = forwardRef(({ renderOrder, toneMapping, alphaTest }, ref) 
     </group>
   );
 });
+PcDesk.displayName = 'PcDesk'

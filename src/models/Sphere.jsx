@@ -1,5 +1,5 @@
-import { Html, Outlines, Sparkles } from '@react-three/drei';
-import React, { useRef, useState } from 'react';
+import { Html, Outlines } from '@react-three/drei';
+import { useRef, useState } from 'react';
 import { useControls } from 'leva';
 import { Label } from '../html/Label.jsx';
 import { RigidBody } from '@react-three/rapier';

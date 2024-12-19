@@ -2,14 +2,14 @@ import { CameraControls, Grid } from '@react-three/drei';
 import { LasercutClosed } from '../models/LasercutClosed.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useRef, useState } from 'react';
 import { Floor } from '../models/Floor.jsx';
 import { LasercutOpened } from '../models/LasercutOpened.jsx';
 import { PcDesk } from '../models/PcDesk.jsx';
 import { Wall } from '../boundries/Wall.jsx';
 
 const LasercutDetail = forwardRef(
-  ({ debug, cameraMode, onReturnClick, toneMapping, alphaTest, show3DScan, paused }, ref) => {
+  ({ debug, cameraMode, toneMapping, alphaTest, paused }, ref) => {
     const machine = useRef();
     const pcDesk = useRef();
     const gridConfig = {
@@ -85,5 +85,5 @@ const LasercutDetail = forwardRef(
     );
   }
 );
-
+LasercutDetail.displayName = 'LasercutDetail'
 export default LasercutDetail;

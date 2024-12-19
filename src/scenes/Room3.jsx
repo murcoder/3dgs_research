@@ -1,14 +1,14 @@
 import { Floor } from '../models/Floor.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import React, { forwardRef} from 'react';
+import { forwardRef} from 'react';
 import { CameraControls, Grid, Splat } from '@react-three/drei';
 import { Door } from '../boundries/Door.jsx';
 import { Annotation } from '../html/Annotation.jsx';
 import { Wall } from '../boundries/Wall.jsx';
 
 const Room3 = forwardRef(
-  ({ debug, laserCutterClicked, cameraMode, doorClicked, toneMapping, alphaTest, show3DScan, paused }, ref) => {
+  ({ debug, cameraMode, doorClicked, toneMapping, alphaTest, show3DScan, paused }, ref) => {
     const gridConfig = {
       gridSize: [10.5, 10.5],
       cellSize: 0.6,
@@ -107,5 +107,5 @@ const Room3 = forwardRef(
     );
   }
 );
-
+Room3.displayName = 'Room3'
 export default Room3;

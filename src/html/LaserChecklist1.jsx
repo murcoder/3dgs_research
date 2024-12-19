@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import useGame from '../stores/useGame.jsx';
 
-export default function LaserChecklist1({ renderOrder, occludeRefs = [], ...props }) {
+export default function LaserChecklist1() {
   const { t } = useTranslation();
   const { cleaningTasks, setCleaningTasks } = useGame((state) => ({
     cleaningTasks: state.cleaningTasks,

@@ -1,12 +1,9 @@
-import React, { forwardRef, useRef, useState } from 'react';
-import {useTranslation} from 'react-i18next';
+import { forwardRef, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Html, Outlines } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
 import { transparentMaterial } from '../constants/materials.js';
 import { Label } from '../html/Label.jsx';
-import * as THREE from 'three';
-import { useFrame, useThree } from '@react-three/fiber';
-import {calculateTooltipPosition} from '../helper.js';
 
 export const Lasercutter = forwardRef(
   (
@@ -15,28 +12,17 @@ export const Lasercutter = forwardRef(
       boxGeometry = { width: 2.8, height: 1.52, depth: 1.44 },
       onMachineClick,
       renderOrder,
-      distanceFactor=6
+      distanceFactor = 6
     },
     ref
   ) => {
-    const {t} = useTranslation()
+    const { t } = useTranslation();
     const meshRef = useRef();
     const [hovered, setHovered] = useState(false);
-    //const { camera, pointer } = useThree();
-    // const [tooltipPosition, setTooltipPosition] = useState(new THREE.Vector3());
-    //
-    // useFrame(() => {
-    //   // Update tooltip position every frame
-    //   if (hovered) {
-    //     // Convert normalized mouse coordinates to world space
-    //     const newPostion = calculateTooltipPosition(pointer, camera)
-    //     setTooltipPosition(newPostion);
-    //   }
-    // });
 
     return (
       <>
-        <RigidBody type="fixed">
+        <RigidBody type="fixed" ref={ref}>
           <mesh
             renderOrder={renderOrder}
             ref={meshRef}
@@ -57,7 +43,7 @@ export const Lasercutter = forwardRef(
           {hovered && (
             <Html
               center
-              position={[position.x, position.y+1, position.z]}
+              position={[position.x, position.y + 1, position.z]}
               distanceFactor={distanceFactor}
               style={{ pointerEvents: 'none' }}>
               <Label title={t('boundaries.laserTitle')} content={t('boundaries.details')} />
@@ -68,3 +54,4 @@ export const Lasercutter = forwardRef(
     );
   }
 );
+Lasercutter.displayName = 'Lasercutter';

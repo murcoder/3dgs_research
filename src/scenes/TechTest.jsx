@@ -1,20 +1,12 @@
 import { CameraControls, Grid, Html, Splat } from '@react-three/drei';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useRef } from 'react';
 import { Floor } from '../models/Floor.jsx';
 import { Wall } from '../boundries/Wall.jsx';
-import { useControls } from 'leva';
 import { Label } from '../html/Label.jsx';
-import {useTranslation} from 'react-i18next';
-//import { LumaSplatsThree, LumaSplatsSemantics } from "@lumaai/luma-web";
-import { extend } from '@react-three/fiber';
-
-// Extend LumaSplatsThree to make it available in react-three-fiber
-//extend({ LumaSplatsThree });
 
 const TechTest = forwardRef(({ debug, cameraMode, toneMapping, alphaTest, show3DScan, paused }, ref) => {
-  const {t} = useTranslation()
   const laserRef = useRef();
   const gridConfig = {
     gridSize: [10.5, 10.5],
@@ -120,5 +112,5 @@ const TechTest = forwardRef(({ debug, cameraMode, toneMapping, alphaTest, show3D
     </group>
   );
 });
-
+TechTest.displayName = 'TechTest'
 export default TechTest;

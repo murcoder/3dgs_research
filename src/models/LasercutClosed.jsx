@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import { forwardRef, useRef } from 'react';
 import { Splat } from '@react-three/drei';
 import { useTranslation } from 'react-i18next';
 import { RigidBody } from '@react-three/rapier';
@@ -65,3 +65,4 @@ export const LasercutClosed = forwardRef(({ openClick, renderOrder, toneMapping,
     </>
   );
 });
+LasercutClosed.displayName = 'LasercutClosed'

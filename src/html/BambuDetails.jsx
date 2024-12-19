@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import React from 'react';
 
 export function BambuDetails() {
   const { t } = useTranslation();
@@ -24,8 +23,6 @@ export function BambuDetails() {
     `
     }
   ];
-
-
 
   return (
     <div className="w-[500px] overflow-hidden text-white text-xs rounded-lg bg-black/80  border border-white/50">

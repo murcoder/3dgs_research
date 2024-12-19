@@ -1,11 +1,10 @@
 import { Floor } from '../models/Floor.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import React, { forwardRef, useEffect, useState } from 'react';
+import { forwardRef} from 'react';
 import { CameraControls, Grid, Splat } from '@react-three/drei';
 import { Lasercutter } from '../boundries/Lasercutter.jsx';
 import { Door } from '../boundries/Door.jsx';
-import { useControls } from 'leva';
 import { Wall } from '../boundries/Wall.jsx';
 
 const Room2 = forwardRef(
@@ -102,5 +101,5 @@ const Room2 = forwardRef(
     );
   }
 );
-
+Room2.displayName = 'Room2'
 export default Room2;
