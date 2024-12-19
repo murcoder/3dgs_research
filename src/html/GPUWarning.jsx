@@ -22,7 +22,7 @@ function GPUWarning({ onProceed, gpuInfo }) {
       <div
         className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center text-xs text-center">
         <div className="mb-2">
-          <img src="./icons/info_circle.svg" alt="Info Icon" className="h-4 w-4" />
+          <img src="./icons/info_circle.svg" alt="Info Icon" className="h-6 w-6" />
         </div>
         <p>{gpuInfo.vendor}</p>
         <p>{gpuInfo.renderer}</p>
