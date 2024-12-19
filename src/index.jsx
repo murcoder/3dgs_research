@@ -58,24 +58,27 @@ const DynamicNavBar = () => {
 function App() {
   const [isWeakGPU, setIsWeakGPU] = useState(false);
   const [proceedAnyway, setProceedAnyway] = useState(false);
+  const [gpuInfo, setGpuInfo] = useState(null);
 
   // GPU detection logic
   useEffect(() => {
     const gl = document.createElement('canvas').getContext('webgl');
     const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-    const gpuInfo = {
+
+    const gpuDetails = {
       vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
       renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),
     };
 
-    console.log('GPU information', gpuInfo)
+    console.log('Your GPU', gpuDetails)
+    setGpuInfo(gpuDetails);
 
-    const isWeakGPU = (gpuInfo) => {
+    const isWeakGPU = (gpuDetails) => {
       const weakGPUs = ['Intel HD Graphics', 'Mali-', 'Adreno-', 'PowerVR', 'Apple M1'];
-      return weakGPUs.some((name) => gpuInfo.renderer.includes(name));
+      return weakGPUs.some((name) => gpuDetails.renderer.includes(name));
     };
 
-    setIsWeakGPU(isWeakGPU(gpuInfo));
+    setIsWeakGPU(isWeakGPU(gpuDetails));
   }, []);
 
   const handleProceed = () => {
@@ -84,7 +87,7 @@ function App() {
 
   if (isWeakGPU && !proceedAnyway) {
     return (
-      <GPUWarning onProceed={handleProceed}/>
+      <GPUWarning onProceed={handleProceed} gpuInfo={gpuInfo}/>
     );
   }
 
