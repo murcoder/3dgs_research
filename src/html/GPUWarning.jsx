@@ -6,7 +6,7 @@ function GPUWarning({ onProceed }) {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white text-center">
       <div className="flex items-center mb-14">
-        <img src="./icons/logo_white.svg" alt="Logo" className="h-8 w-8 fill-white" />
+        <img src="./icons/logo_white.svg" alt="Logo" className="h-10 w-10 fill-white" />
         <span className="text-4xl font-extrabold text-white font-logo ml-2">
             {t('title')}
           </span>
