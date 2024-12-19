@@ -2,7 +2,7 @@ import './style.css';
 import ReactDOM from 'react-dom/client';
 import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
-import React, { StrictMode, Suspense, useState } from 'react';
+import React, { StrictMode, Suspense, useState, useEffect } from 'react';
 import './i18n';
 import { Leva } from 'leva';
 import { Html, useProgress } from '@react-three/drei';
@@ -11,8 +11,8 @@ import Experience from './Experience.jsx';
 import LaserChecklist1 from './html/LaserChecklist1.jsx';
 import useGame from './stores/useGame.jsx';
 import DiscordButton from './html/DiscordButton.jsx';
-import GPUWarning from './html/GPUWarning';
-import ControlsInfo from './html/ControlsInfo';
+import ControlsInfo from './html/ControlsInfo.jsx';
+import GPUWarning from './html/GPUWarning.jsx';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 
@@ -55,52 +55,72 @@ const DynamicNavBar = () => {
   );
 };
 
+function App() {
+  const [isWeakGPU, setIsWeakGPU] = useState(false);
+  const [proceedAnyway, setProceedAnyway] = useState(false);
+
+  // GPU detection logic
+  useEffect(() => {
+    const gl = document.createElement('canvas').getContext('webgl');
+    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+    const gpuInfo = {
+      vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
+      renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),
+    };
+
+    console.log('GPU information', gpuInfo)
+
+    const isWeakGPU = (gpuInfo) => {
+      const weakGPUs = ['Intel HD Graphics', 'Mali-', 'Adreno-', 'PowerVR', 'Apple M1'];
+      return weakGPUs.some((name) => gpuInfo.renderer.includes(name));
+    };
+
+    setIsWeakGPU(isWeakGPU(gpuInfo));
+  }, []);
+
+  const handleProceed = () => {
+    setProceedAnyway(true);
+  };
+
+  if (isWeakGPU && !proceedAnyway) {
+    return (
+      <GPUWarning onProceed={handleProceed}/>
+    );
+  }
+
+  return (
+    <>
+      <Leva />
+      <DynamicNavBar />
+      <Checklist />
+      <DiscordButton />
+      <Canvas
+        shadows
+        onContextMenu={handleContextMenu}
+        className="r3f"
+        gl={{
+          antialias: false,
+          toneMapping: THREE.ACESFilmicToneMapping,
+          outputColorSpace: THREE.SRGBColorSpace,
+          pixelRatio: 2,
+        }}
+        camera={{
+          layers: 0,
+          near: 0.1,
+          far: 200,
+          fov: 75,
+        }}>
+        <Suspense fallback={<Loader />}>
+          <Experience />
+        </Suspense>
+      </Canvas>
+      <ControlsInfo />
+    </>
+  );
+}
+
 root.render(
   <StrictMode>
     <App />
   </StrictMode>
 );
-
-function App() {
-  const [showWarning, setShowWarning] = useState(true);
-
-  const handleProceed = () => {
-    setShowWarning(false);
-  };
-
-  return (
-    <>
-      {showWarning ? (
-        <GPUWarning onProceed={handleProceed} />
-      ) : (
-        <>
-          <Leva />
-          <DynamicNavBar />
-          <Checklist />
-          <DiscordButton />
-          <Canvas
-            shadows
-            onContextMenu={handleContextMenu}
-            className="r3f"
-            gl={{
-              antialias: false,
-              toneMapping: THREE.ACESFilmicToneMapping,
-              outputColorSpace: THREE.SRGBColorSpace,
-              pixelRatio: 2,
-            }}
-            camera={{
-              layers: 0,
-              near: 0.1,
-              far: 200,
-              fov: 75,
-            }}>
-            <Suspense fallback={<Loader />}>
-              <Experience />
-            </Suspense>
-          </Canvas>
-          <ControlsInfo />
-        </>
-      )}
-    </>
-  );
-}
