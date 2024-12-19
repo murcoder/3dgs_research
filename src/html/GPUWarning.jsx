@@ -15,7 +15,7 @@ function GPUWarning({ onProceed }) {
         GPU Warning
       </p>
       <p className="mb-4 text-lg">
-        Your detected GPU might not be powerful enough to run this application smoothly.
+        Your graphics card may not be powerful enough to run this 3D-Application smoothly.
       </p>
       <button
         onClick={onProceed}
