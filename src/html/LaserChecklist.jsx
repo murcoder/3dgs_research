@@ -1,22 +1,22 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import useGame from '../stores/useGame.jsx';
+import useStore from '../stores/useStore.jsx';
 
-export default function LaserChecklist1() {
+export default function LaserChecklist() {
   const { t } = useTranslation();
-  const { cleaningTasks, setCleaningTasks } = useGame((state) => ({
-    cleaningTasks: state.cleaningTasks,
-    setCleaningTasks: state.setCleaningTasks
+  const { lasercutTasks, setLasercutTasks } = useStore((state) => ({
+    lasercutTasks: state.lasercutTasks,
+    setLasercutTasks: state.setLasercutTasks
   }));
 
   const handleTaskToggle = (index) => {
-    const updatedTasks = cleaningTasks.map((task, taskIndex) =>
+    const updatedTasks = lasercutTasks.map((task, taskIndex) =>
       taskIndex === index ? { ...task, completed: !task.completed } : task
     );
-    setCleaningTasks(updatedTasks);
+    setLasercutTasks(updatedTasks);
   };
 
-  const allTasksCompleted = cleaningTasks.every((task) => task.completed);
+  const allTasksCompleted = lasercutTasks.every((task) => task.completed);
 
   const initialPosition = {
     x: window.innerWidth - 270,
@@ -66,7 +66,7 @@ export default function LaserChecklist1() {
         <h1 className="text-center uppercase text-lg font-bold tracking-widest"> {t('checklistTitle')}</h1>
         <p className="text-xs text-center mb-4 text-gray-400">{t('checklistDescription')}</p>
         <ul className="text-xs text-left list-none space-y-2">
-          {cleaningTasks.map((task, index) => (
+          {lasercutTasks.map((task, index) => (
             <li key={index}>
               <label className="flex items-center space-x-2">
                 <input
@@ -75,7 +75,7 @@ export default function LaserChecklist1() {
                   onChange={() => handleTaskToggle(index)}
                   className="form-checkbox h-4 w-4 text-blue-500"
                 />
-                <span className={task.completed ? 'line-through text-gray-400' : ''}>{t(`cleaningTasks.task${index + 1}`)}</span>
+                <span className={task.completed ? 'line-through text-gray-400' : ''}>{t(`lasercutTasks.task${index + 1}`)}</span>
               </label>
             </li>
           ))}

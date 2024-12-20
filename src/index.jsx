@@ -8,11 +8,12 @@ import { Leva } from 'leva';
 import { Html, useProgress } from '@react-three/drei';
 import NavBar from './html/NavBar.jsx';
 import Experience from './Experience.jsx';
-import LaserChecklist1 from './html/LaserChecklist1.jsx';
-import useGame from './stores/useGame.jsx';
+import LaserChecklist from './html/LaserChecklist.jsx';
+import useStore from './stores/useStore.jsx';
 import DiscordButton from './html/DiscordButton.jsx';
 import ControlsInfo from './html/ControlsInfo.jsx';
 import GPUWarning from './html/GPUWarning.jsx';
+import TextileChecklist from './html/TextileChecklist.jsx';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 
@@ -25,15 +26,18 @@ const handleContextMenu = (event) => {
   event.preventDefault();
 };
 
-export const  Checklist = () => {
-  const currentScene = useGame((state) => state.currentScene);
-  return <>{currentScene === 4 && <LaserChecklist1 />}</>;
+export const Checklist = () => {
+  const currentScene = useStore((state) => state.currentScene);
+  return <>
+    {currentScene === 3 && <TextileChecklist />}
+    {currentScene === 4 && <LaserChecklist />}
+  </>;
 };
 
 export const DynamicNavBar = () => {
-  const { currentScene, setCurrentScene } = useGame((state) => ({
+  const { currentScene, setCurrentScene } = useStore((state) => ({
     currentScene: state.currentScene,
-    setCurrentScene: state.setCurrentScene,
+    setCurrentScene: state.setCurrentScene
   }));
 
   const handleBackClick = () => {
@@ -67,10 +71,10 @@ export const App = () => {
 
     const gpuDetails = {
       vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
-      renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),
+      renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
     };
 
-    console.log('Your GPU', gpuDetails)
+    console.log('Your GPU', gpuDetails);
     setGpuInfo(gpuDetails);
 
     const isWeakGPU = (gpuDetails) => {
@@ -86,9 +90,7 @@ export const App = () => {
   };
 
   if (isWeakGPU && !proceedAnyway) {
-    return (
-      <GPUWarning onProceed={handleProceed} gpuInfo={gpuInfo}/>
-    );
+    return <GPUWarning onProceed={handleProceed} gpuInfo={gpuInfo} />;
   }
 
   return (
@@ -105,13 +107,13 @@ export const App = () => {
           antialias: false,
           toneMapping: THREE.ACESFilmicToneMapping,
           outputColorSpace: THREE.SRGBColorSpace,
-          pixelRatio: 2,
+          pixelRatio: 2
         }}
         camera={{
           layers: 0,
           near: 0.1,
           far: 200,
-          fov: 75,
+          fov: 75
         }}>
         <Suspense fallback={<Loader />}>
           <Experience />
@@ -120,7 +122,7 @@ export const App = () => {
       <ControlsInfo />
     </>
   );
-}
+};
 
 root.render(
   <StrictMode>

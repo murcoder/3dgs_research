@@ -8,11 +8,15 @@
     "turnPcOn": "PC",
     "turnPcOnText": "PC ein/ausschalten"
   },
-  "cleaningTasks": {
-    "task1": "Getränke wegräumen",
-    "task2": "Staubreste entfernen",
-    "task3": "Linse reinigen",
-    "task4": "Düse säubern"
+  "lasercutTasks": {
+    "task1": "Steuerung ansehen",
+    "task2": "Klappe öffnen",
+    "task3": "Linse ansehen",
+    "task4": "PC einschalten"
+  },
+  "textileTasks": {
+    "task1": "Stickmaschine ansehen",
+    "task2": "Nähmaschine ansehen"
   },
   "checklistTitle": "Checkliste",
   "checklistDescription": "Erfülle alle Aufgaben",

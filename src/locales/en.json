@@ -8,11 +8,15 @@
     "turnPcOn": "PC",
     "turnPcOnText": "Turn PC on/off"
   },
-  "cleaningTasks": {
-    "task1": "Clear away drinks",
-    "task2": "Remove dust",
-    "task3": "Clean the lens",
-    "task4": "Clean the nozzle"
+  "lasercutTasks": {
+    "task1": "Look at the controls",
+    "task2": "Open the lid",
+    "task3": "Look at the lens",
+    "task4": "Turn on the PC"
+  },
+  "textileTasks": {
+    "task1": "Look at the embroidery machine",
+    "task2": "Look at the sewing machine"
   },
   "checklistTitle": "Checklist",
   "checklistDescription": "Finish all tasks",

@@ -5,7 +5,7 @@ import Room1 from './scenes/Room1.jsx';
 import Room2 from './scenes/Room2.jsx';
 import LasercutDetail from './scenes/LasercutDetail.jsx';
 import TechTest from './scenes/TechTest.jsx';
-import useGame from './stores/useGame.jsx';
+import useStore from './stores/useStore.jsx';
 import Room3 from './scenes/Room3.jsx';
 import Room2Part1 from './scenes/Room2Part1.jsx';
 
@@ -16,7 +16,7 @@ export default function Experience() {
   const lasercutDetail = useRef();
   const techTest = useRef();
 
-  const { currentScene, setCurrentScene } = useGame((state) => ({
+  const { currentScene, setCurrentScene } = useStore((state) => ({
     currentScene: state.currentScene,
     setCurrentScene: state.setCurrentScene
   }));
