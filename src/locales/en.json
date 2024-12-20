@@ -15,12 +15,12 @@
     "task4": "Turn on the PC"
   },
   "textileTasks": {
-    "task1": "Check out the embroidery machine",
-    "task2": "Check out the sewing machine"
+    "task1": "Find the embroidery machine",
+    "task2": "Find the sewing machine"
   },
   "checklistTitle": "Checklist",
   "checklistDescription": "Finish all tasks",
-  "allTasksDone": "FINISHED!",
+  "allTasksDone": "WELL DONE!",
   "navigation": {
     "tutorial": "Tutorial",
     "papers": "Papers",

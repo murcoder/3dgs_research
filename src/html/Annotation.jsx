@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Html } from '@react-three/drei';
 
-export function Annotation({children, iconPath, onClick, cursorStyle = "cursor-pointer", iconStyle, textStyle, ...props}) {
+export function Annotation({children, iconPath, onClick, onHover, cursorStyle = "cursor-pointer", iconStyle, textStyle, ...props}) {
   const [isPointHovered, setIsPointHovered] = useState(false);
   const [isTextHovered, setIsTextHovered] = useState(false);
   let hideTimeout;
@@ -10,6 +10,9 @@ export function Annotation({children, iconPath, onClick, cursorStyle = "cursor-p
     event.stopPropagation();
     clearTimeout(hideTimeout);
     setIsPointHovered(true);
+    if (onHover) {
+      onHover();
+    }
   };
 
   // Hide details when pointer leaves point-0, after a small delay

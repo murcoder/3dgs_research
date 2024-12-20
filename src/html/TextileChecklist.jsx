@@ -9,12 +9,12 @@ export default function TextileChecklist() {
     setTextileTasks: state.setTextileTasks
   }));
 
-  const handleTaskToggle = (index) => {
-    const updatedTasks = textileTasks.map((task, taskIndex) =>
-      taskIndex === index ? { ...task, completed: !task.completed } : task
-    );
-    setTextileTasks(updatedTasks);
-  };
+  // const handleTaskToggle = (index) => {
+  //   const updatedTasks = textileTasks.map((task, taskIndex) =>
+  //     taskIndex === index ? { ...task, completed: !task.completed } : task
+  //   );
+  //   setTextileTasks(updatedTasks);
+  // };
 
   const allTasksCompleted = textileTasks.every((task) => task.completed);
 
@@ -72,7 +72,8 @@ export default function TextileChecklist() {
                 <input
                   type="checkbox"
                   checked={task.completed}
-                  onChange={() => handleTaskToggle(index)}
+                  // onChange={() => handleTaskToggle(index)}
+                  readOnly
                   className="form-checkbox h-4 w-4 text-blue-500"
                 />
                 <span className={task.completed ? 'line-through text-gray-400' : ''}>{t(`textileTasks.task${index + 1}`)}</span>

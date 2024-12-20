@@ -7,6 +7,7 @@ import { Floor } from '../models/Floor.jsx';
 import { LasercutOpened } from '../models/LasercutOpened.jsx';
 import { PcDesk } from '../models/PcDesk.jsx';
 import { Wall } from '../boundries/Wall.jsx';
+import useStore from '../stores/useStore.jsx';
 
 const LasercutDetail = forwardRef(
   ({ debug, cameraMode, toneMapping, alphaTest, paused }, ref) => {
@@ -26,14 +27,27 @@ const LasercutDetail = forwardRef(
       infiniteGrid: true
     };
     const [showMachine1, setShowMachine1] = useState(true);
+
+    // Access global store for tasks
+    const { lasercutTasks, setLasercutTasks } = useStore((state) => ({
+      lasercutTasks: state.lasercutTasks,
+      setLasercutTasks: state.setLasercutTasks,
+    }));
+
     const handleMachineClick = () => {
       setShowMachine1(!showMachine1);
+
+      // DONE - Task 2 (open the lid)
+      if (!lasercutTasks[1].completed) {
+        const updatedTasks = lasercutTasks.map((task, index) =>
+          index === 1 ? { ...task, completed: true } : task
+        );
+        setLasercutTasks(updatedTasks);
+      }
     };
 
     return (
       <group ref={ref}>
-        {/*<PointerLockControls />*/}
-        {/*<Environment preset={'apartment'} background backgroundBlurriness={1} />*/}
         <Grid renderOrder={1} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
 
         <Physics debug={debug} timeStep="vary" paused={paused}>

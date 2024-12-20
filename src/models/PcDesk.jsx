@@ -6,6 +6,7 @@ import { transparentMaterial } from '../constants/materials.js';
 import Video from './Video.jsx';
 import * as THREE from 'three';
 import { Label } from '../html/Label.jsx';
+import useStore from '../stores/useStore.jsx';
 
 export const PcDesk = forwardRef(({ renderOrder, toneMapping, alphaTest }, ref) => {
   const meshRef = useRef();
@@ -19,6 +20,12 @@ export const PcDesk = forwardRef(({ renderOrder, toneMapping, alphaTest }, ref) 
   const [isScaledUp, setIsScaledUp] = useState(false);
   const planeRef = useRef()
 
+  // Access global store for tasks
+  const { lasercutTasks, setLasercutTasks } = useStore((state) => ({
+    lasercutTasks: state.lasercutTasks,
+    setLasercutTasks: state.setLasercutTasks,
+  }));
+
   const handleClick = () => {
     setIsScaledUp(!isScaledUp);
 
@@ -28,6 +35,16 @@ export const PcDesk = forwardRef(({ renderOrder, toneMapping, alphaTest }, ref) 
       planeRef.current.position.y -= 1;
     }
   };
+
+  const taskCompleted = () => {
+    // DONE - Task 4 (turn on the PC)
+    if (!lasercutTasks[3].completed) {
+      const updatedTasks = lasercutTasks.map((task, index) =>
+        index === 3 ? { ...task, completed: true } : task
+      );
+      setLasercutTasks(updatedTasks);
+    }
+  }
 
   return (
     <group ref={ref}>
@@ -70,6 +87,7 @@ export const PcDesk = forwardRef(({ renderOrder, toneMapping, alphaTest }, ref) 
           }}
           onPointerUp={() => {
             setIsTurnedOn(!turnedOn);
+            taskCompleted()
           }}
           material={transparentMaterial}
         >

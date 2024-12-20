@@ -9,12 +9,12 @@ export default function LaserChecklist() {
     setLasercutTasks: state.setLasercutTasks
   }));
 
-  const handleTaskToggle = (index) => {
-    const updatedTasks = lasercutTasks.map((task, taskIndex) =>
-      taskIndex === index ? { ...task, completed: !task.completed } : task
-    );
-    setLasercutTasks(updatedTasks);
-  };
+  // const handleTaskToggle = (index) => {
+  //   const updatedTasks = lasercutTasks.map((task, taskIndex) =>
+  //     taskIndex === index ? { ...task, completed: !task.completed } : task
+  //   );
+  //   setLasercutTasks(updatedTasks);
+  // };
 
   const allTasksCompleted = lasercutTasks.every((task) => task.completed);
 
@@ -72,7 +72,8 @@ export default function LaserChecklist() {
                 <input
                   type="checkbox"
                   checked={task.completed}
-                  onChange={() => handleTaskToggle(index)}
+                  // onChange={() => handleTaskToggle(index)}
+                  readOnly
                   className="form-checkbox h-4 w-4 text-blue-500"
                 />
                 <span className={task.completed ? 'line-through text-gray-400' : ''}>{t(`lasercutTasks.task${index + 1}`)}</span>

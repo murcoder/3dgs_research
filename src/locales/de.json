@@ -15,12 +15,12 @@
     "task4": "PC einschalten"
   },
   "textileTasks": {
-    "task1": "Stickmaschine ansehen",
-    "task2": "Nähmaschine ansehen"
+    "task1": "Stickmaschine finden",
+    "task2": "Nähmaschine finden"
   },
   "checklistTitle": "Checkliste",
   "checklistDescription": "Erfülle alle Aufgaben",
-  "allTasksDone": "FERTIG!",
+  "allTasksDone": "ABGESCHLOSSEN!",
   "navigation": {
     "tutorial": "Tutorial",
     "papers": "Papers",
