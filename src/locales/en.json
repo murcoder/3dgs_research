@@ -9,14 +9,14 @@
     "turnPcOnText": "Turn PC on/off"
   },
   "lasercutTasks": {
-    "task1": "Look at the controls",
+    "task1": "Check out the controls",
     "task2": "Open the lid",
-    "task3": "Look at the lens",
+    "task3": "Find the lens",
     "task4": "Turn on the PC"
   },
   "textileTasks": {
-    "task1": "Look at the embroidery machine",
-    "task2": "Look at the sewing machine"
+    "task1": "Check out the embroidery machine",
+    "task2": "Check out the sewing machine"
   },
   "checklistTitle": "Checklist",
   "checklistDescription": "Finish all tasks",
