@@ -8,6 +8,7 @@ import TechTest from './scenes/TechTest.jsx';
 import useStore from './stores/useStore.jsx';
 import Room3 from './scenes/Room3.jsx';
 import Room2Part1 from './scenes/Room2Part1.jsx';
+import Room3Low from './scenes/Room3Low.jsx';
 
 export default function Experience() {
   const room1 = useRef();
@@ -25,7 +26,7 @@ export default function Experience() {
     monitoring: false,
     scenes: {
       label: 'Scenes',
-      options: { Room1: 1, Room2: 2, Room3: 3, LasercutDetail: 4, TechTest: 5, Room2Legacy: 6 },
+      options: { Room1: 1, Room2: 2, Room3: 3, LasercutDetail: 4, TechTest: 5, Room2Legacy: 6, Room3Low: 7 },
       default: 1,
       onChange: (slug, propName, options) => {
         if (!options.initial) {
@@ -101,6 +102,19 @@ export default function Experience() {
       )}
       {currentScene === 3 && (
         <Room3
+          ref={room3}
+          debug={debug}
+          alphaTest={alphaTest}
+          toneMapping={toneMapping}
+          show3DScan={show3DScan}
+          cameraMode={switchCameraControl}
+          laserCutterClicked={() => switchScenes(4)}
+          doorClicked={() => switchScenes(2)}
+          paused={paused}
+        />
+      )}
+      {currentScene === 7 && (
+        <Room3Low
           ref={room3}
           debug={debug}
           alphaTest={alphaTest}
