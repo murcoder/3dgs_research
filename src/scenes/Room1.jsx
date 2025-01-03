@@ -10,7 +10,7 @@ import { Wall } from '../boundries/Wall.jsx';
 const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked, toneMapping, alphaTest, show3DScan, paused }, ref) => {
   const wallGeometry = {
     height: 6,
-    width: 10
+    width: 8
   }
   const wallYPosition = 3
   const gridConfig = {
