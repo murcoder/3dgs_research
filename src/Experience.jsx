@@ -63,6 +63,7 @@ export default function Experience() {
   }, []);
 
   function switchScenes(sceneNumber) {
+    document.body.style.cursor = 'default';
     setCurrentScene(sceneNumber);
   }
 

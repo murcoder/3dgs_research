@@ -33,9 +33,11 @@ export const Door = forwardRef(
             onPointerEnter={(event) => {
               event.stopPropagation();
               setHovered(true);
+              document.body.style.cursor = 'pointer';
             }}
             onPointerLeave={() => {
               setHovered(false);
+              document.body.style.cursor = 'default';
             }}
             position={[position.x, position.y, position.z]}
             rotation={[rotation.x, rotation.y, rotation.z]}

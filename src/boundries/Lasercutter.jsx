@@ -30,9 +30,11 @@ export const Lasercutter = forwardRef(
             onPointerEnter={(event) => {
               event.stopPropagation();
               setHovered(true);
+              document.body.style.cursor = 'pointer';
             }}
             onPointerLeave={() => {
               setHovered(false);
+              document.body.style.cursor = 'default';
             }}
             name="lasercutter_closed"
             position={[position.x, position.y, position.z]}
