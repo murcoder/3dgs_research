@@ -4,6 +4,8 @@
 A research project to create an interactive [3D-Gaussian-Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) scene with react-three-fiber. 
 Includes Physics, monitoring, PlayerController, Debug UI and more.
 
+--> see [Demo Video](https://vimeo.com/1024414563)
+
 ## Tech Stack
 
 | Technologie                                                       | Version | Description                                        |
