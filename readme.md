@@ -1,7 +1,7 @@
-# Interactive 3D-Gaussian-Splatting WebApp
+# Virtual Makerspace Tour
 ![demo](public/assets/demo_1.gif)
 ## Description
-A research project to create an interactive [3D-Gaussian-Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) scene with react-three-fiber. 
+A research project to create an interactive [3D-Gaussian-Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) Web-App with react-three-fiber. 
 Includes Physics, monitoring, PlayerController, Debug UI and more.
 
 --> see [Demo Video](https://vimeo.com/1024414563)
