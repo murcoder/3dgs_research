@@ -3,7 +3,7 @@ import { Perf } from 'r3f-perf';
 import { useRef, useEffect, useState } from 'react';
 import Room1 from './scenes/Room1.jsx';
 import Room2 from './scenes/Room2.jsx';
-import LasercutDetail from './scenes/LasercutDetail.jsx';
+import LasercutDetailRoom from './scenes/LasercutDetailRoom.jsx';
 import TechTest from './scenes/TechTest.jsx';
 import useStore from './stores/useStore.jsx';
 import Room3 from './scenes/Room3.jsx';
@@ -14,7 +14,7 @@ export default function Experience() {
   const room1 = useRef();
   const room2 = useRef();
   const room3 = useRef();
-  const lasercutDetail = useRef();
+  const lasercutDetailRoom = useRef();
   const techTest = useRef();
 
   const { currentScene, setCurrentScene } = useStore((state) => ({
@@ -26,7 +26,7 @@ export default function Experience() {
     monitoring: false,
     scenes: {
       label: 'Scenes',
-      options: { Room1: 1, Room2: 2, Room3: 3, LasercutDetail: 4, TechTest: 5, Room2Legacy: 6, Room3Low: 7 },
+      options: { Room1: 1, Room2: 2, Room3: 3, lasercutDetailRoom: 4, TechTest: 5, Room2Legacy: 6, Room3Low: 7 },
       default: 1,
       onChange: (slug, propName, options) => {
         if (!options.initial) {
@@ -128,8 +128,8 @@ export default function Experience() {
         />
       )}
       {currentScene === 4 && (
-        <LasercutDetail
-          ref={lasercutDetail}
+        <LasercutDetailRoom
+          ref={lasercutDetailRoom}
           debug={debug}
           alphaTest={alphaTest}
           toneMapping={toneMapping}

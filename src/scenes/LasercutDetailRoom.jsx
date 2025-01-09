@@ -9,7 +9,7 @@ import { PcDesk } from '../models/PcDesk.jsx';
 import { Wall } from '../boundries/Wall.jsx';
 import useStore from '../stores/useStore.jsx';
 
-const LasercutDetail = forwardRef(({ debug, cameraMode, toneMapping, alphaTest, paused }, ref) => {
+const LasercutDetailRoom = forwardRef(({ debug, cameraMode, toneMapping, alphaTest, paused }, ref) => {
   const machine = useRef();
   const pcDesk = useRef();
   const gridConfig = {
@@ -113,5 +113,5 @@ const LasercutDetail = forwardRef(({ debug, cameraMode, toneMapping, alphaTest, 
     </group>
   );
 });
-LasercutDetail.displayName = 'LasercutDetail';
-export default LasercutDetail;
+LasercutDetailRoom.displayName = 'LasercutDetailRoom';
+export default LasercutDetailRoom;
