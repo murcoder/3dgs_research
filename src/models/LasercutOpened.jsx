@@ -46,17 +46,17 @@ export const LasercutOpened = forwardRef(({ closeClick, renderOrder, toneMapping
           <p>{t('laser.close')}</p>
         </div>
       </Annotation>
-      <Annotation
-        iconPath={'./icons/image_icon.svg'}
-        cursorStyle={'cursor-help'}
-        renderOrder={3}
-        position={[-0.5, 1.7, 0]}
-        onHover={handleLensHover}>
-        <div className="bg-black/80 w-52 p-2 text-center text-sm rounded-lg text-white transition pointer-events-none">
-          <p>{t('laser.lens')}</p>
-          <img src="./assets/laser_100_lens.png" alt="laser_100_lens" />
-        </div>
-      </Annotation>
+<Annotation
+  iconPath={'./icons/image_icon.svg'}
+  cursorStyle={'cursor-help'}
+  renderOrder={3}
+  position={[-0.5, 1.7, 0]}
+  onHover={handleLensHover}>
+  <div className="bg-black/80 w-52 p-2 text-center text-sm rounded-lg text-white transition pointer-events-none">
+    <p>{t('laser.lens')}</p>
+    <img src="./assets/laser_100_lens.png" alt="laser_100_lens" />
+  </div>
+</Annotation>
       <RigidBody type="fixed">
         <mesh
           renderOrder={renderOrder + 1}

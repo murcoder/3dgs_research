@@ -18,7 +18,7 @@ export const LasercutClosed = forwardRef(({ openClick, renderOrder, toneMapping,
     setLasercutTasks: state.setLasercutTasks,
   }));
 
-  const handleLensHover = () => {
+  const handleControlsOver = () => {
     // DONE - Task 1 (check out the controls)
     if (!lasercutTasks[0].completed) {
       const updatedTasks = lasercutTasks.map((task, index) =>
@@ -51,7 +51,7 @@ export const LasercutClosed = forwardRef(({ openClick, renderOrder, toneMapping,
         iconPath={'./icons/image_icon.svg'}
         cursorStyle={'cursor-help'}
         renderOrder={3}
-        onHover={handleLensHover}
+        onHover={handleControlsOver}
         position={[-1.2, 1.8, -0.3]}>
         <div className="bg-black/80 w-80 p-2 text-center text-sm rounded-lg text-white transition h-96 overflow-hidden">
           <p className="pointer-events-none"> {t('laser.buttons')}</p>

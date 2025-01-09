@@ -3,7 +3,7 @@ import { Html } from '@react-three/drei';
 
 export function Annotation({children, iconPath, onClick, onHover, cursorStyle = "cursor-pointer", iconStyle, textStyle, ...props}) {
   const [isPointHovered, setIsPointHovered] = useState(false);
-  const [isTextHovered, setIsTextHovered] = useState(false);
+  const [isContentHovered, setIsContentHovered] = useState(false);
   let hideTimeout;
 
   const handlePointEnter = (event) => {
@@ -23,18 +23,18 @@ export function Annotation({children, iconPath, onClick, onHover, cursorStyle = 
   };
 
   // Set hover state for text container only if point-0 was hovered
-  const handleTextEnter = (event) => {
+  const handleContentEnter = (event) => {
     event.stopPropagation();
     if (isPointHovered) {
       clearTimeout(hideTimeout);
-      setIsTextHovered(true);
+      setIsContentHovered(true);
     }
   };
 
   // Clear both hover states if pointer leaves text
-  const handleTextLeave = () => {
+  const handleContentLeave = () => {
     hideTimeout = setTimeout(() => {
-      setIsTextHovered(false);
+      setIsContentHovered(false);
       setIsPointHovered(false);
     }, 150);
   };
@@ -52,10 +52,10 @@ export function Annotation({children, iconPath, onClick, onHover, cursorStyle = 
           }>
           <img src={iconPath} alt="Open Icon" className={'w-8 h-8 ' + iconStyle} />
         </div>
-        {(isPointHovered || isTextHovered) && (
+        {(isPointHovered || isContentHovered) && (
           <div
-            onPointerEnter={handleTextEnter}
-            onPointerLeave={handleTextLeave}
+            onPointerEnter={handleContentEnter}
+            onPointerLeave={handleContentLeave}
             className={`z-10 transition-opacity duration-300 ${textStyle}`}>
             {children}
           </div>
