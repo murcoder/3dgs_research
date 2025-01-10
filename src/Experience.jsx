@@ -26,7 +26,7 @@ export default function Experience() {
     monitoring: false,
     scenes: {
       label: 'Scenes',
-      options: { Room1: 1, Room2: 2, Room3: 3, lasercutDetailRoom: 4, TechTest: 5, Room2Legacy: 6, Room3Low: 7 },
+      options: { Room1: 1, Room2: 2, Room3: 3, Room3Low: 7, lasercutDetailRoom: 4, TechTest: 5, Room2Legacy: 6 },
       default: 1,
       onChange: (slug, propName, options) => {
         if (!options.initial) {
