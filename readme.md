@@ -11,13 +11,13 @@ Includes Physics, monitoring, PlayerController, Debug UI and more.
 
 | Technologie                                                       | Version | Description                                        |
 |-------------------------------------------------------------------|---------|----------------------------------------------------|
-| [three](https://threejs.org/)                                     | 0.158.0 | Graphic Javascript Framework based on JS API WebGL |
-| [@react-three/fiber](https://github.com/pmndrs/react-three-fiber) | 8.15    | react-three-fiber is a React renderer for threejs  |
-| [@react-three/drei](https://github.com/pmndrs/drei)               | 9.88    | Graphic Javascript Framework based on JS API WebGL |
-| [@react-three/rapier](https://github.com/pmndrs/react-three-rapier)| 1.3     | A physics engine packed in a wrapper for the web  |
-| [leva](https://github.com/pmndrs/leva)                            | 0.9     | A Debug UI package                                 |
-| [R3F-Perf](https://www.npmjs.com/package/r3f-perf)                            | 0.9     | Monitoring Tool for R3F                |
-| [VITE](https://vitejs.dev/)                                       | 5.1.6   | Fast Frontend Building Tool                        |
+| [three](https://threejs.org/)                                     | 0.171.0 | Graphic Javascript Framework based on JS API WebGL |
+| [@react-three/fiber](https://github.com/pmndrs/react-three-fiber) | 8.17.8    | react-three-fiber is a React renderer for threejs  |
+| [@react-three/drei](https://github.com/pmndrs/drei)               | 9.114.0    | Graphic Javascript Framework based on JS API WebGL |
+| [@react-three/rapier](https://github.com/pmndrs/react-three-rapier)| 1.4.0     | A physics engine packed in a wrapper for the web  |
+| [leva](https://github.com/pmndrs/leva)                            | 0.9.35     | A Debug UI package                                 |
+| [R3F-Perf](https://www.npmjs.com/package/r3f-perf)                            | 7.2.1     | Monitoring Tool for R3F                |
+| [VITE](https://vitejs.dev/)                                       | 5.4.8   | Fast Frontend Building Tool                        |
 
 
 ## Run
