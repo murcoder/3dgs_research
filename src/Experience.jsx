@@ -2,12 +2,12 @@ import { useControls } from 'leva';
 import { Perf } from 'r3f-perf';
 import { useRef, useEffect, useState } from 'react';
 import Room1 from './scenes/Room1.jsx';
-import Room2 from './scenes/Room2.jsx';
+import Room2Legacy from './scenes/Room2Legacy.jsx';
 import LasercutDetailRoom from './scenes/LasercutDetailRoom.jsx';
 import TechTest from './scenes/TechTest.jsx';
 import useStore from './stores/useStore.jsx';
 import Room3 from './scenes/Room3.jsx';
-import Room2Part1 from './scenes/Room2Part1.jsx';
+import Room2 from './scenes/Room2.jsx';
 import Room3Low from './scenes/Room3Low.jsx';
 
 export default function Experience() {
@@ -88,7 +88,7 @@ export default function Experience() {
         />
       )}
       {currentScene === 2 && (
-        <Room2Part1
+        <Room2
           ref={room2}
           debug={debug}
           alphaTest={alphaTest}
@@ -149,9 +149,9 @@ export default function Experience() {
           cameraMode={switchCameraControl}
           paused={paused}
         />
-      )}
+      )}xx
       {currentScene === 6 && (
-        <Room2
+        <Room2Legacy
           ref={room2}
           debug={debug}
           alphaTest={alphaTest}

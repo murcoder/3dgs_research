@@ -2,7 +2,7 @@
 import { Splat } from '@react-three/drei';
 import { CuboidCollider, RigidBody } from '@react-three/rapier';
 
-export function SplatObject2() {
+export function SplatPhysicsObject() {
   return (
     <>
       <RigidBody colliders={false} mass={10}>

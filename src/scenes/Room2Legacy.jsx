@@ -1,19 +1,15 @@
 import { Floor } from '../models/Floor.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import { forwardRef } from 'react';
+import { forwardRef} from 'react';
 import { CameraControls, Grid, Splat } from '@react-three/drei';
+import { Lasercutter } from '../boundries/Lasercutter.jsx';
 import { Door } from '../boundries/Door.jsx';
 import { Wall } from '../boundries/Wall.jsx';
-import { BoundaryBox } from '../boundries/BoundaryBox.jsx';
-import { Annotation } from '../html/Annotation.jsx';
-import { ElectronicsDetailsTable } from '../html/ElectronicsDetailsTable.jsx';
-import { BambuDetails } from '../html/BambuDetails.jsx';
-import { PrusaDetails } from '../html/PrusaDetails.jsx';
 
-const Room2Part1 = forwardRef(
+const Room2Legacy = forwardRef(
   (
-    { debug, cameraMode, door1Clicked, door3Clicked, toneMapping, alphaTest, show3DScan, paused },
+    { debug, laserCutterClicked, cameraMode, door1Clicked, door3Clicked, toneMapping, alphaTest, show3DScan, paused },
     ref
   ) => {
     const wallHeight = 6;
@@ -34,32 +30,11 @@ const Room2Part1 = forwardRef(
 
     return (
       <group ref={ref}>
-        <Annotation
-          iconPath={'./icons/info_icon.svg'}
-          cursorStyle={'cursor-help'}
-          renderOrder={3}
-          position={[8, 3, -4]}>
-          <ElectronicsDetailsTable/>
-        </Annotation>
-        <Annotation
-          iconPath={'./icons/info_icon.svg'}
-          cursorStyle={'cursor-help'}
-          renderOrder={3}
-          position={[6, 3, 4]}>
-          <PrusaDetails/>
-        </Annotation>
-        <Annotation
-          iconPath={'./icons/info_icon.svg'}
-          cursorStyle={'cursor-help'}
-          renderOrder={3}
-          position={[-3, 3, 4]}>
-          <BambuDetails/>
-        </Annotation>
         {show3DScan ? (
           <Splat
             renderOrder={2}
-            scale={1}
-            src="./splats/room2_1.splat"
+            scale={1.3}
+            src="./splats/garage.splat"
             toneMapped={toneMapping}
             alphaTest={alphaTest}
           />
@@ -68,11 +43,16 @@ const Room2Part1 = forwardRef(
           <Grid renderOrder={3} position={[0, 0, 0]} args={[10.5, 10.5]} {...gridConfig} />
         ) : null}
         <Physics debug={debug} timeStep="vary" paused={paused}>
+          <Lasercutter
+            renderOrder={3}
+            position={{ x: -0.6, y: 0.9, z: 1.7 }}
+            boxGeometry={{ width: 1.2, height: 1.6, depth: 2.7 }}
+            onMachineClick={laserCutterClicked}
+          />
           <Door
             name={'room1_door'}
             renderOrder={3}
-            boxGeometry={{ width: 2, height: 5, depth: 0.1 }}
-            position={{ x: -9.5, y: 2, z: 3 }}
+            position={{ x: 4.2, y: 1.54, z: -2.02 }}
             rotation={{ x: 0, y: 1.57, z: 0 }}
             tooltipDistanceFactor={10}
             onDoorClick={door1Clicked}
@@ -80,55 +60,40 @@ const Room2Part1 = forwardRef(
           <Door
             name={'textil_door'}
             renderOrder={3}
-            position={{ x: 10, y: 1.54, z: -0.62 }}
+            position={{ x: -9.15, y: 1.54, z: -0.62 }}
             rotation={{ x: 0, y: Math.PI / 2, z: 0 }}
             tooltipDistanceFactor={10}
             onDoorClick={door3Clicked}
           />
           <Floor renderOrder={1} />
-          <BoundaryBox
-            name={'pc_table'}
-            renderOrder={3}
-            position={{ x: 1.4, y: 0.9, z: 3 }}
-            boxGeometry={{ width: 3, height: 1.6, depth: 5}}
-          />
           <Wall
-            name={'front'}
             renderOrder={1}
-            position={{ x: 9, y: wallYPosition, z: 0 }}
+            position={{ x: 4, y: wallYPosition, z: 0 }}
             rotation={{ x: 0, y: Math.PI / 2, z: 0 }}
             boxGeometry={{ width: 10, height: wallHeight, depth: 0.1 }}
           />
           <Wall
-            name={'back'}
             renderOrder={1}
-            position={{ x: -7.5, y: wallYPosition, z: 0 }}
+            position={{ x: -10, y: wallYPosition, z: 0 }}
             rotation={{ x: 0, y: Math.PI / 2, z: 0 }}
             boxGeometry={{ width: 10, height: wallHeight, depth: 0.1 }}
           />
           <Wall
-            name={'right'}
             renderOrder={1}
             position={{ x: 0, y: wallYPosition, z: 3.5 }}
             rotation={{ x: 0, y: 0, z: 0 }}
             boxGeometry={{ width: 20, height: wallHeight, depth: 0.1 }}
           />
           <Wall
-            name={'left'}
             renderOrder={1}
-            position={{ x: 0, y: wallYPosition, z: -2.5 }}
+            position={{ x: 0, y: wallYPosition, z: -3.5 }}
             rotation={{ x: 0, y: 0, z: 0 }}
             boxGeometry={{ width: 20, height: wallHeight, depth: 0.1 }}
           />
           {cameraMode === 'orbit' ? (
             <CameraControls />
           ) : (
-            <Player
-              renderOrder={5}
-              position={[-3.5, 2, 0]}
-              cameraPos={{ x: 0, y: Math.PI / 2 }}
-              autoBalance={false}
-            />
+            <Player renderOrder={5} position={[2.3, 2, -1.5]} cameraPos={{ x: 0, y: 30 }} autoBalance={false}/>
             // <Player renderOrder={5} position={[4, 1, 0]} cameraPos={{ x: 0, y: 0 }} />
           )}
         </Physics>
@@ -136,5 +101,5 @@ const Room2Part1 = forwardRef(
     );
   }
 );
-Room2Part1.displayName = 'Room2Part1'
-export default Room2Part1;
+Room2Legacy.displayName = 'Room2'
+export default Room2Legacy;
