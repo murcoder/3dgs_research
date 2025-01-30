@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import Tabs from './Tabs.jsx';
+import Tabs from '../html/Tabs.jsx';
 
 export function BambuFilament() {
   const { t } = useTranslation();
@@ -29,8 +29,8 @@ export function BambuFilament() {
 
   return (
     <div>
-      <div className="w-[500px] overflow-hidden text-white text-xs rounded-lg bg-black/80  border border-white/50">
-        <div className="mb-4 text-center bg-black/80 w-100 p-2 text-sm rounded-lg text-white transition pointer-events-none">
+      <div className="w-[700px] overflow-hidden text-white text-lg rounded-lg bg-black/80  border border-white/50">
+        <div className="mb-4 text-center bg-black/80 w-100 text-2xl p-2 rounded-t-lg text-white border-b-2 border-white/50 transition pointer-events-none">
           <p>{t('printer.bambu.filament.title')}</p>
         </div>
         <Tabs tabs={tabs} title={t('printer.bambu.title')}/>

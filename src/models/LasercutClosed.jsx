@@ -5,7 +5,7 @@ import { RigidBody } from '@react-three/rapier';
 import { transparentMaterial } from '../constants/materials.js';
 import { MachineDetailsTable } from '../html/MachineDetailsTable.jsx';
 import { Annotation } from '../html/Annotation.jsx';
-import { LaserButtonsDetails } from '../html/LaserButtonsDetails.jsx';
+import { LaserButtonsDetails } from '../hotspots/LaserButtonsDetails.jsx';
 import useStore from '../stores/useStore.jsx';
 
 export const LasercutClosed = forwardRef(({ openClick, renderOrder, toneMapping, alphaTest }, ref) => {

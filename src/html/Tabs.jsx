@@ -5,7 +5,6 @@ export default function Tabs({ tabs, title }) {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState(0);
   const formattedTitle = title.toLowerCase().replace(/\s+/g, '-');
-  console.log('formattedTitle', formattedTitle)
 
   return (
     <div role="tablist" className="tabs tabs-lifted">
@@ -16,7 +15,7 @@ export default function Tabs({ tabs, title }) {
             type="radio"
             name="my_tabs"
             role="tab"
-            className={`tab text-white bg-black hover:bg-base-100 ${activeTab === index ? 'bg-gray-800' : ''}`}
+            className={`tab text-white bg-black text-lg hover:bg-base-100 ${activeTab === index ? 'bg-gray-800' : ''}`}
             aria-label={`${t(tab.tabTitle)}`}
             checked={activeTab === index}
             onChange={() => setActiveTab(index)}

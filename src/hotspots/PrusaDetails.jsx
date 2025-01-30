@@ -20,8 +20,8 @@ export function PrusaDetails() {
   ];
 
   return (
-    <div className="w-[700px] overflow-hidden text-white text-xs rounded-lg bg-black/80 border border-white/50">
-      <div className="text-center bg-black/80 w-full p-2 text-sm rounded-lg text-white transition pointer-events-none">
+    <div className="w-[700px] overflow-hidden text-white text-lg rounded-lg bg-black/80 border border-white/50">
+      <div className="text-center bg-black/80 w-full p-2 text-2xl rounded-t-lg text-white border-b-2 border-white/50 transition pointer-events-none">
         <p>{t('printer.prusa.title')}</p>
       </div>
       <div className="flex gap-6 items-center p-4">

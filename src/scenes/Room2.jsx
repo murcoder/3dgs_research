@@ -7,11 +7,12 @@ import { Door } from '../boundries/Door.jsx';
 import { Wall } from '../boundries/Wall.jsx';
 import { BoundaryBox } from '../boundries/BoundaryBox.jsx';
 import { Annotation } from '../html/Annotation.jsx';
-import { ElectronicsDetailsTable } from '../html/ElectronicsDetailsTable.jsx';
-import { BambuDetails } from '../html/BambuDetails.jsx';
-import { PrusaDetails } from '../html/PrusaDetails.jsx';
-import { BambuFilament } from '../html/BambuFilament.jsx';
-import { PrusaFilament } from '../html/PrusaFilament.jsx';
+import { ElectronicsDetailsTable } from '../hotspots/ElectronicsDetailsTable.jsx';
+import { BambuDetails } from '../hotspots/BambuDetails.jsx';
+import { PrusaDetails } from '../hotspots/PrusaDetails.jsx';
+import { BambuFilament } from '../hotspots/BambuFilament.jsx';
+import { PrusaFilament } from '../hotspots/PrusaFilament.jsx';
+import { SolderingDetailsTable } from '../hotspots/SolderingDetailsTable.jsx';
 
 const Room2 = forwardRef(
   (
@@ -41,8 +42,15 @@ const Room2 = forwardRef(
           iconPath={'./icons/info_icon.svg'}
           cursorStyle={'cursor-help'}
           renderOrder={3}
-          position={[8, 3, -4]}>
+          position={[7.5, 2.8, -4]}>
           <ElectronicsDetailsTable/>
+        </Annotation>
+        <Annotation
+          iconPath={'./icons/info_icon.svg'}
+          cursorStyle={'cursor-help'}
+          renderOrder={3}
+          position={[9.4, 2.7, -4]}>
+          <SolderingDetailsTable/>
         </Annotation>
 
         {/* PRUSA - 3D PRINTER */}

@@ -56,7 +56,7 @@ export function Annotation({children, iconPath, onClick, onHover, cursorStyle = 
           <div
             onPointerEnter={handleContentEnter}
             onPointerLeave={handleContentLeave}
-            className={`z-10 transition-opacity duration-300 ${textStyle}`}>
+            className={`mt-2 z-10 transition-opacity duration-300 ${textStyle}`}>
             {children}
           </div>
         )}
