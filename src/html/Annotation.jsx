@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Html } from '@react-three/drei';
 
-export function Annotation({children, iconPath, onClick, onHover, cursorStyle = "cursor-pointer", iconStyle, textStyle, ...props}) {
+export function Annotation({children, iconPath, onClick, onHover, cursorStyle = "cursor-pointer", iconStyle="w-8 h-8", textStyle, ...props}) {
   const [isPointHovered, setIsPointHovered] = useState(false);
   const [isContentHovered, setIsContentHovered] = useState(false);
   let hideTimeout;
@@ -50,7 +50,7 @@ export function Annotation({children, iconPath, onClick, onHover, cursorStyle = 
             'z-20 w-12 h-12 rounded-full bg-black/50 border-2 border-white/80 text-white font-light text-sm flex items-center justify-center ' +
             cursorStyle
           }>
-          <img src={iconPath} alt="Open Icon" className={'w-8 h-8 ' + iconStyle} />
+          <img src={iconPath} alt="Open Icon" className={iconStyle} />
         </div>
         {(isPointHovered || isContentHovered) && (
           <div

@@ -19,6 +19,12 @@
     "task3": "Linse finden",
     "task4": "PC einschalten"
   },
+  "textile": {
+    "changeRoom": {
+        "title": "Textil",
+        "text": "Betrete hier den Textilbereich"
+    }
+  },
   "textileTasks": {
     "task1": "Stickmaschine finden",
     "task2": "Nähmaschine finden"

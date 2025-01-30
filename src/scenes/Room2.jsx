@@ -13,6 +13,7 @@ import { PrusaDetails } from '../hotspots/PrusaDetails.jsx';
 import { BambuFilament } from '../hotspots/BambuFilament.jsx';
 import { PrusaFilament } from '../hotspots/PrusaFilament.jsx';
 import { SolderingDetailsTable } from '../hotspots/SolderingDetailsTable.jsx';
+import { useTranslation } from 'react-i18next';
 
 const Room2 = forwardRef(
   (
@@ -34,6 +35,7 @@ const Room2 = forwardRef(
       followCamera: false,
       infiniteGrid: true
     };
+    const { t } = useTranslation();
 
     return (
       <group ref={ref}>
@@ -43,14 +45,14 @@ const Room2 = forwardRef(
           cursorStyle={'cursor-help'}
           renderOrder={3}
           position={[7.5, 2.8, -4]}>
-          <ElectronicsDetailsTable/>
+          <ElectronicsDetailsTable />
         </Annotation>
         <Annotation
           iconPath={'./icons/info_icon.svg'}
           cursorStyle={'cursor-help'}
           renderOrder={3}
           position={[9.4, 2.7, -4]}>
-          <SolderingDetailsTable/>
+          <SolderingDetailsTable />
         </Annotation>
 
         {/* PRUSA - 3D PRINTER */}
@@ -59,14 +61,14 @@ const Room2 = forwardRef(
           cursorStyle={'cursor-help'}
           renderOrder={3}
           position={[6, 2.5, 4.5]}>
-          <PrusaDetails/>
+          <PrusaDetails />
         </Annotation>
         <Annotation
           iconPath={'./icons/change.svg'}
           cursorStyle={'cursor-help'}
           renderOrder={3}
           position={[7.6, 2, 4.5]}>
-          <PrusaFilament/>
+          <PrusaFilament />
         </Annotation>
 
         {/* BAMBU - 3D PRINTER */}
@@ -75,7 +77,7 @@ const Room2 = forwardRef(
           cursorStyle={'cursor-help'}
           renderOrder={3}
           position={[-3, 2.5, 5]}>
-          <BambuDetails/>
+          <BambuDetails />
         </Annotation>
         <Annotation
           iconPath={'./icons/change.svg'}
@@ -83,8 +85,24 @@ const Room2 = forwardRef(
           cursorStyle={'cursor-help'}
           renderOrder={3}
           position={[-2, 3, 4.5]}>
-          <BambuFilament/>
+          <BambuFilament />
         </Annotation>
+
+        {/* TEXTILE AREA */}
+        <Annotation
+          iconPath={'./icons/enter_white.svg'}
+          iconStyle={'w-20 h-20 fill-white'}
+          cursorStyle={'cursor-pointer w-40 h-40'}
+          renderOrder={3}
+          position={[14, 3, -0.62]}
+          onClick={door3Clicked}>
+          <div className="absolute bg-black/80 -top-48 -right-52 w-[600px] h-40 text-center text-white text-4xl rounded-xl p-6">
+              <strong>{t('textile.changeRoom.title')}</strong>
+              <br />
+              {t('textile.changeRoom.text')}
+            </div>
+        </Annotation>
+
         {show3DScan ? (
           <Splat
             renderOrder={2}
@@ -107,20 +125,12 @@ const Room2 = forwardRef(
             tooltipDistanceFactor={10}
             onDoorClick={door1Clicked}
           />
-          <Door
-            name={'textil_door'}
-            renderOrder={3}
-            position={{ x: 10, y: 1.54, z: -0.62 }}
-            rotation={{ x: 0, y: Math.PI / 2, z: 0 }}
-            tooltipDistanceFactor={10}
-            onDoorClick={door3Clicked}
-          />
           <Floor renderOrder={1} />
           <BoundaryBox
             name={'pc_table'}
             renderOrder={3}
             position={{ x: 1.4, y: 0.9, z: 3 }}
-            boxGeometry={{ width: 3, height: 1.6, depth: 5}}
+            boxGeometry={{ width: 3, height: 1.6, depth: 5 }}
           />
           <Wall
             name={'front'}

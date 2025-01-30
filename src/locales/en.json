@@ -19,6 +19,12 @@
     "task3": "Find the lens",
     "task4": "Turn on the PC"
   },
+  "textile":{
+    "changeRoom": {
+      "title": "Textile",
+      "text": "Enter the textile area"
+    }
+  },
   "textileTasks": {
     "task1": "Find the embroidery machine",
     "task2": "Find the sewing machine"
