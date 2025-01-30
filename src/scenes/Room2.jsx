@@ -81,7 +81,6 @@ const Room2 = forwardRef(
         </Annotation>
         <Annotation
           iconPath={'./icons/change.svg'}
-          iconStyle={'fill-white'}
           cursorStyle={'cursor-help'}
           renderOrder={3}
           position={[-2, 3, 4.5]}>
