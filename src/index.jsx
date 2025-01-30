@@ -14,6 +14,7 @@ import DiscordButton from './html/DiscordButton.jsx';
 import ControlsInfo from './html/ControlsInfo.jsx';
 import GPUWarning from './html/GPUWarning.jsx';
 import TextileChecklist from './html/TextileChecklist.jsx';
+import Help from './html/Help.jsx';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 
@@ -98,6 +99,7 @@ export const App = () => {
       <Leva />
       <DynamicNavBar />
       <Checklist />
+      <Help />
       <DiscordButton />
       <Canvas
         shadows

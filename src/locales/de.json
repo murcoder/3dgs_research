@@ -2,7 +2,12 @@
   "title": "Virtueller Makerspace Rundgang",
   "detailView": "Detailansicht",
   "buttons": {
-    "back": "Zurück"
+    "back": "Zurück",
+    "close": "Schließen"
+  },
+  "help": {
+    "title": "Hallo!",
+    "text": "<strong>Willkommen im virtuellen Makerspace-Rundgang!</strong><br /><br />Diese Anwendung ermöglicht dir eine interaktive Erkundung des Makerspaces. Nutze die <strong>WASD-Tasten</strong>, um dich zu bewegen, und die <strong>Maus</strong>, um dich umzusehen. Klicke auf <strong>hervorgehobene Symbole</strong>, um mehr über Maschinen und Werkzeuge zu erfahren.<br /><br />Jede Maschine enthält <strong>detaillierte Beschreibungen</strong> und interaktive Erklärungen, die dir ihre Funktionsweise näherbringen. Außerdem steht dir eine <strong>Checkliste</strong> zur Verfügung, um deine Fortschritte zu verfolgen und sicherzustellen, dass du alle Aufgaben erledigst.<br /><br />Der virtuelle Rundgang wurde entwickelt, um ein immersives Erlebnis zu bieten – sei es zum Lernen, zur Projektplanung oder um den Makerspace vor einem physischen Besuch kennenzulernen. Falls du Fragen hast, erreichst du uns über <strong>Discord</strong> (Button unten rechts).<br /><br />Viel Spaß beim Erkunden!"
   },
   "laserDetailRoom": {
     "turnPcOn": "PC",
