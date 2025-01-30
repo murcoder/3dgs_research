@@ -96,7 +96,16 @@
       }
     },
     "prusa": {
-      "title": "Prusa XL"
+      "title": "Prusa XL",
+      "filament": {
+        "title": "Change filament",
+        "tab1": "Prepare",
+        "tab1Text": "Changing the filament is very simple and relatively intuitive.<br /><br />It is important to know in advance <strong>which material</strong> you want to load (PLA, PET, TPU, ABS). The material designation can be found on the side of the spool.<br /><br />It is also important to <strong>know the remaining filament weight on the spool</strong> (the filament sensor is deactivated). The weight can be determined using the scales and the difference from the empty weight of the spool.<br /><br />The available filament should be at least 10% more than the filament requirement specified by the slicer.<br /><br />According to the slicer, the filament consumption is 170.48g (~171g). There should therefore be at least ~190g of filament on the spool.",
+        "tab2": "Remove",
+        "tab2Text": "Make sure which material is loaded in the printer. (on the side of the spool) <br /><br />With the rotary knob. Menu → Filament → ‘CHANGE FILAMENT’ (the printer heats up and pushes the filament out after a few moments).<br /><br />Take the end of the filament and attach it to the spool (then put the spool back)",
+        "tab3": "Insert",
+        "tab3Text": "Select the option for loading filament on the touchscreen menu<br /><br />Cut the end of the filament at an angle (approx. 45° angle) to ensure easy insertion into the extruder. Make sure that the filament is not damaged or kinked<br /><br />If you are using multiple extruders, select the corresponding extruder in the menu into which the filament is to be loaded.<br /><br />The printer automatically heats the nozzle to the correct temperature required for the respective filament. Wait until the target temperature is reached before inserting the filament.<br /><br />Insert the prepared filament end into the extruder. The printer will automatically pull the filament into the extruder. Hold the filament lightly until it is caught by the gears.<br /><br />The printer extrudes a small amount of filament to ensure that the filament flow is even. Check that the filament flows cleanly out of the nozzle.<br /><br />Once the filament is loaded correctly, confirm the loading process on the touchscreen. The printer is now ready to start printing.<br /><br />Congratulations, you have changed the filament"
+      }
     }
   }
 }

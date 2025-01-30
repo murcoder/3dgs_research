@@ -33,7 +33,7 @@ export function BambuFilament() {
         <div className="mb-4 text-center bg-black/80 w-100 p-2 text-sm rounded-lg text-white transition pointer-events-none">
           <p>{t('printer.bambu.filament.title')}</p>
         </div>
-        <Tabs tabs={tabs} />
+        <Tabs tabs={tabs} title={t('printer.bambu.title')}/>
       </div>
     </div>
   );

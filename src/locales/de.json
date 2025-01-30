@@ -74,7 +74,7 @@
   },
   "electronics": {
     "title": "Elektronik",
-    "details":{
+    "details": {
       "powerSupply": "Labornetzgeräte",
       "oszilloskop": "Oszilloskop"
     }
@@ -96,7 +96,16 @@
       }
     },
     "prusa": {
-      "title": "Prusa XL"
+      "title": "Prusa XL",
+      "filament": {
+        "title": "Filament wechseln",
+        "tab1": "Vorbereitung",
+        "tab1Text": "Das Wechseln des Filaments ist sehr einfach und relativ intuitiv.<br /><br />Es ist wichtig, im Voraus zu wissen, <strong>welches Material</strong> geladen werden soll (PLA, PET, TPU, ABS). Die Materialbezeichnung befindet sich an der Seite der Spule.<br /><br />Außerdem ist es wichtig, <strong>das verbleibende Filamentgewicht auf der Spule zu kennen</strong> (der Filamentsensor ist deaktiviert). Das Gewicht kann mithilfe einer Waage und der Differenz zum Leergewicht der Spule bestimmt werden.<br /><br />Das verfügbare Filament sollte mindestens 10 % mehr betragen als der vom Slicer angegebene Filamentbedarf.<br /><br />Laut Slicer beträgt der Filamentverbrauch 170,48 g (~171 g). Daher sollten sich mindestens ~190 g Filament auf der Spule befinden.",
+        "tab2": "Entfernen",
+        "tab2Text": "Stelle sicher, welches Material im Drucker geladen ist (siehe Seitenaufdruck der Spule).<br /><br />Mit dem Drehknopf navigieren: Menü → Filament → ‘FILAMENT WECHSELN’ (der Drucker heizt auf und schiebt das Filament nach wenigen Momenten heraus).<br /><br />Das Filamentende nehmen und an der Spule befestigen (danach die Spule wieder zurücklegen).",
+        "tab3": "Einsetzen",
+        "tab3Text": "Wähle im Touchscreen-Menü die Option zum Laden von Filament.<br /><br />Schneide das Filamentende schräg (ca. 45°-Winkel), um ein einfaches Einführen in den Extruder zu ermöglichen. Achte darauf, dass das Filament nicht beschädigt oder geknickt ist.<br /><br />Falls du mehrere Extruder verwendest, wähle im Menü den entsprechenden Extruder aus, in den das Filament geladen werden soll.<br /><br />Der Drucker heizt die Düse automatisch auf die richtige Temperatur für das jeweilige Filament auf. Warte, bis die Zieltemperatur erreicht ist, bevor du das Filament einführst.<br /><br />Führe das vorbereitete Filamentende in den Extruder ein. Der Drucker zieht das Filament automatisch in den Extruder. Halte das Filament leicht fest, bis es von den Zahnrädern erfasst wird.<br /><br />Der Drucker extrudiert eine kleine Menge Filament, um sicherzustellen, dass der Filamentfluss gleichmäßig ist. Überprüfe, ob das Filament sauber aus der Düse austritt.<br /><br />Sobald das Filament korrekt geladen ist, bestätige den Ladevorgang auf dem Touchscreen. Der Drucker ist nun bereit für den Druck.<br /><br />Glückwunsch, du hast das Filament gewechselt!"
+      }
     }
   }
 }

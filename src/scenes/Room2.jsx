@@ -11,6 +11,7 @@ import { ElectronicsDetailsTable } from '../html/ElectronicsDetailsTable.jsx';
 import { BambuDetails } from '../html/BambuDetails.jsx';
 import { PrusaDetails } from '../html/PrusaDetails.jsx';
 import { BambuFilament } from '../html/BambuFilament.jsx';
+import { PrusaFilament } from '../html/PrusaFilament.jsx';
 
 const Room2 = forwardRef(
   (
@@ -35,6 +36,7 @@ const Room2 = forwardRef(
 
     return (
       <group ref={ref}>
+        {/* ELECTRONICS */}
         <Annotation
           iconPath={'./icons/info_icon.svg'}
           cursorStyle={'cursor-help'}
@@ -42,13 +44,24 @@ const Room2 = forwardRef(
           position={[8, 3, -4]}>
           <ElectronicsDetailsTable/>
         </Annotation>
+
+        {/* PRUSA - 3D PRINTER */}
         <Annotation
           iconPath={'./icons/info_icon.svg'}
           cursorStyle={'cursor-help'}
           renderOrder={3}
-          position={[6, 3, 4]}>
+          position={[6, 2.5, 4.5]}>
           <PrusaDetails/>
         </Annotation>
+        <Annotation
+          iconPath={'./icons/change.svg'}
+          cursorStyle={'cursor-help'}
+          renderOrder={3}
+          position={[7.6, 2, 4.5]}>
+          <PrusaFilament/>
+        </Annotation>
+
+        {/* BAMBU - 3D PRINTER */}
         <Annotation
           iconPath={'./icons/info_icon.svg'}
           cursorStyle={'cursor-help'}
