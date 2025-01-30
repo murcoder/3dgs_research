@@ -96,7 +96,7 @@ export const App = () => {
 
   return (
     <>
-      <Leva />
+      <Leva collapsed />
       <DynamicNavBar />
       <Checklist />
       <Help />

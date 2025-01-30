@@ -64,7 +64,7 @@ body,
     margin-top: 65px !important;
 }
 .pulse {
-    animation: pulse-animation 2s infinite;
+    animation: pulse-animation 1s infinite;
 }
 
 @keyframes pulse-animation {

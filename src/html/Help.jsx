@@ -26,7 +26,7 @@ const Help = () => {
     localStorage.setItem('hasSeenHelp', 'true');
 
     setIsPulsing(true);
-    setTimeout(() => setIsPulsing(false), 10000);
+    setTimeout(() => setIsPulsing(false), 8000);
   };
 
   return (
