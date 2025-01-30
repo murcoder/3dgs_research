@@ -5,7 +5,7 @@ const Help = () => {
   const { t } = useTranslation();
   const modalRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-
+  const [isPulsing, setIsPulsing] = useState(false);
 
   useEffect(() => {
     const hasSeenHelp = localStorage.getItem('hasSeenHelp');
@@ -24,6 +24,9 @@ const Help = () => {
     setIsOpen(false);
     modalRef.current?.close();
     localStorage.setItem('hasSeenHelp', 'true');
+
+    setIsPulsing(true);
+    setTimeout(() => setIsPulsing(false), 10000);
   };
 
   return (
@@ -32,7 +35,10 @@ const Help = () => {
       <div className="absolute z-50 bottom-24 right-4 flex">
         <button
           onClick={openModal}
-          className="bg-black text-white font-bold py-4 px-4 rounded-full shadow-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-500">
+          className={`bg-black text-white font-bold py-4 px-4 rounded-full shadow-[4px_4px_8px_0px_rgba(0,_0,_0,_0.35)]
+            hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-500 
+            ${isPulsing ? 'pulse' : ''}`}
+        >
           <img src="./icons/help.svg" alt="Help Icon" className="h-8 w-8" />
         </button>
       </div>
