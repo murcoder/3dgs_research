@@ -47,7 +47,7 @@ export function Annotation({children, iconPath, onClick, onHover, cursorStyle = 
           onPointerLeave={handlePointLeave}
           onClick={onClick}
           className={
-            'z-20 w-10 h-10 rounded-full bg-black/50 border border-white/80 text-white font-light text-sm flex items-center justify-center ' +
+            'z-20 w-12 h-12 rounded-full bg-black/50 border-2 border-white/80 text-white font-light text-sm flex items-center justify-center ' +
             cursorStyle
           }>
           <img src={iconPath} alt="Open Icon" className={'w-8 h-8 ' + iconStyle} />

@@ -10,6 +10,7 @@ import { Annotation } from '../html/Annotation.jsx';
 import { ElectronicsDetailsTable } from '../html/ElectronicsDetailsTable.jsx';
 import { BambuDetails } from '../html/BambuDetails.jsx';
 import { PrusaDetails } from '../html/PrusaDetails.jsx';
+import { BambuFilament } from '../html/BambuFilament.jsx';
 
 const Room2 = forwardRef(
   (
@@ -52,8 +53,16 @@ const Room2 = forwardRef(
           iconPath={'./icons/info_icon.svg'}
           cursorStyle={'cursor-help'}
           renderOrder={3}
-          position={[-3, 3, 4]}>
+          position={[-3, 2.5, 5]}>
           <BambuDetails/>
+        </Annotation>
+        <Annotation
+          iconPath={'./icons/change.svg'}
+          iconStyle={'fill-white'}
+          cursorStyle={'cursor-help'}
+          renderOrder={3}
+          position={[-2, 3, 4.5]}>
+          <BambuFilament/>
         </Annotation>
         {show3DScan ? (
           <Splat

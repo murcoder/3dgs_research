@@ -6,7 +6,7 @@ export function PrusaDetails() {
 
   const printerDetails = [
     {
-      label: t("printer.details.prusa"),
+      label: t("printer.prusa.title"),
       value: `
       Model: Prusa XL<br>
       Printing Technology: Fused Deposition Modeling (FDM)<br>

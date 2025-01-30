@@ -81,9 +81,22 @@
   },
   "printer": {
     "title": "3D Drucker",
-    "details":{
-      "bambu": "Bambulab X1E",
-      "prusa": "Prusa XL"
+    "bambu": {
+      "title": "Bambulab X1E",
+      "filament": {
+        "title": "Filament wechseln",
+        "tab1": "Vorbereiten",
+        "tab1Text": "Der Wechsel des Filaments ist sehr einfach und relativ intuitiv.<br /><br />Es ist wichtig, im Voraus zu wissen, <strong>welches Material</strong> geladen werden soll (PLA, PET, TPU, ABS). Die Materialbezeichnung befindet sich an der Seite der Spule.<br /><br />Es ist außerdem wichtig, <strong>das verbleibende Filamentgewicht auf der Spule zu kennen</strong> (der Filamentsensor ist deaktiviert). Das Gewicht kann mit einer Waage bestimmt werden, indem die Differenz zum Leergewicht der Spule berechnet wird.<br /><br />Das verfügbare Filament sollte <strong>mindestens 10 % mehr</strong> betragen als der im Slicer angegebene Filamentbedarf.<br /><br />Laut Slicer beträgt der Filamentverbrauch 170,48 g (~171 g). Es sollten daher mindestens ~190 g Filament auf der Spule sein.",
+        "tab2": "Entfernen",
+        "tab2Text": "Alle Filamente sind bereits im AMS des Geräts entladen und können einfach entfernt werden.<br /><br />Schieben Sie dazu den grauen Knopf in Richtung des Filaments und ziehen Sie das Filament heraus. Nehmen Sie das Filamentende und befestigen Sie es an der Spule (legen Sie die Spule anschließend zurück).",
+        "tab3": "Einlegen",
+        "tab3Text": "Legen Sie die neue Spule in einen freien Steckplatz im AMS.<br /><br />Nehmen Sie das Filamentende in die linke Hand und schneiden Sie mit der rechten Hand das letzte Stück Filament ab, um ein sauberes Ende zu erhalten. Drücken Sie den grauen Knopf in Richtung der Spule und führen Sie das Filamentende ein.<br /><br />Um eines der vier Filamente im AMS zu verwenden, müssen Sie die Komponente in Bambu Studio dem entsprechenden Filament zuweisen!",
+        "tab4": "Konfigurieren",
+        "tab4Text": "Wählen Sie das zweite Menüelement oben links auf dem Touchscreen und tippen Sie auf den entsprechenden Steckplatz.<br /><br />Wählen Sie das Material (Generisches PLA/PET/ABS/ASA) und die Farbe.<br /><br />Die Auswahl des Filaments kann natürlich auch direkt im Slicer (Bambu Studio) eingestellt werden.<br /><br />Wählen Sie in der oberen Menüleiste 'Gerät', um das AMS-Menü zu öffnen.<br /><br />Für detailliertere Anleitungen und weitere Informationen besuchen Sie die Bambu Lab Wiki: https://wiki.bambulab.com/en/home."
+      }
+    },
+    "prusa": {
+      "title": "Prusa XL"
     }
   }
 }

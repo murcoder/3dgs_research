@@ -74,16 +74,29 @@
   },
   "electronics": {
     "title": "Electronics",
-    "details":{
+    "details": {
       "powerSupply": "Power supplies",
       "oszilloskop": "Oszilloskop"
     }
   },
   "printer": {
     "title": "3D Printer",
-    "details":{
-      "bambu": "Bambulab X1E",
-      "prusa": "Prusa XL"
+    "bambu": {
+      "title": "Bambulab X1E",
+      "filament": {
+        "title": "Change filament",
+        "tab1": "Prepare",
+        "tab1Text": "Changing the filament is very simple and relatively intuitive.<br /><br />It is important to know in advance <strong>which material</strong> you want to load (PLA, PET, TPU, ABS). The material designation can be found on the side of the spool.<br /><br />It is also important to <strong>know the remaining filament weight on the spool</strong> (the filament sensor is deactivated). The weight can be determined using the scales and the difference from the empty weight of the spool.<br /><br />The available filament should be at least 10% more than the filament requirement specified by the slicer.<br /><br />According to the slicer, the filament consumption is 170.48g (~171g). There should therefore be at least ~190g of filament on the spool.",
+        "tab2": "Remove",
+        "tab2Text": "All filaments are already unloaded in the AMS of the device and can be easily removed.<br /><br />To do this, slide the grey button to the filament and remove the filament. Take the end of the filament and attach it to the spool (then put the spool back).",
+        "tab3": "Insert",
+        "tab3Text": "Place the new spool in a free slot in the AMS.<br /><br />Take the filament end in your left hand and with your right hand cut off the last piece of filament to get a clean end. Press the grey button towards the spool and insert the loose end.<br /><br />To use one of the 4 filaments in the AMS, you have to assign the component in Bambu Studio to the corresponding filament!",
+        "tab4": "Configure",
+        "tab4Text": "Select the second menu item at the top left of the touchscreen and tap the corresponding slot.<br /><br />Select the material (Generic PLA/PET/ABS/ASA) and the colour.<br /><br />The selection of the filament can, of course, also be set in the slicer itself (Bambu Studio).<br /><br />Select 'Device' from the top menu bar, and the AMS menu opens.<br /><br />For more detailed instructions and additional information, visit the Bambu Lab Wiki: https://wiki.bambulab.com/en/home."
+      }
+    },
+    "prusa": {
+      "title": "Prusa XL"
     }
   }
 }
