@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher.jsx';
 
 const Help = () => {
   const { t } = useTranslation();
@@ -42,6 +43,7 @@ const Help = () => {
       {/* Modal Component */}
       <dialog ref={modalRef} className="modal">
         <div className="modal-box relative w-full max-w-2xl bg-gray-100 text-black p-4 rounded-lg shadow-lg">
+          <LanguageSwitcher className="absolute top-2 right-14" />
           <button
             className="absolute top-2 right-4 text-2xl hover:text-gray-400"
             onClick={closeModal}>
@@ -65,9 +67,6 @@ const Help = () => {
             </button>
           </div>
         </div>
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
       </dialog>
     </>
   );

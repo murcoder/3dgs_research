@@ -1,7 +1,7 @@
 
 import { useTranslation } from 'react-i18next';
 
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({ className = '' }) {
   const { i18n } = useTranslation();
 
   const handleChangeLanguage = (event) => {
@@ -9,7 +9,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div>
+    <div  className={`${className}`}>
       <select
         id="language-select"
         onChange={handleChangeLanguage}
