@@ -4,17 +4,10 @@ import useStore from '../stores/useStore.jsx';
 
 export default function TextileChecklist() {
   const { t } = useTranslation();
-  const { textileTasks, setTextileTasks } = useStore((state) => ({
+  const { textileTasks } = useStore((state) => ({
     textileTasks: state.textileTasks,
     setTextileTasks: state.setTextileTasks
   }));
-
-  // const handleTaskToggle = (index) => {
-  //   const updatedTasks = textileTasks.map((task, taskIndex) =>
-  //     taskIndex === index ? { ...task, completed: !task.completed } : task
-  //   );
-  //   setTextileTasks(updatedTasks);
-  // };
 
   const allTasksCompleted = textileTasks.every((task) => task.completed);
 

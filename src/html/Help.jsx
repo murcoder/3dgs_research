@@ -4,24 +4,20 @@ import { Trans, useTranslation } from 'react-i18next';
 const Help = () => {
   const { t } = useTranslation();
   const modalRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
   const [isPulsing, setIsPulsing] = useState(false);
 
   useEffect(() => {
     const hasSeenHelp = localStorage.getItem('hasSeenHelp');
     if (!hasSeenHelp) {
-      setIsOpen(true);
       modalRef.current?.showModal();
     }
   }, []);
 
   const openModal = () => {
-    setIsOpen(true);
     modalRef.current?.showModal();
   };
 
   const closeModal = () => {
-    setIsOpen(false);
     modalRef.current?.close();
     localStorage.setItem('hasSeenHelp', 'true');
 

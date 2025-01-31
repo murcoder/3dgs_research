@@ -4,17 +4,10 @@ import useStore from '../stores/useStore.jsx';
 
 export default function LaserChecklist() {
   const { t } = useTranslation();
-  const { lasercutTasks, setLasercutTasks } = useStore((state) => ({
+  const { lasercutTasks } = useStore((state) => ({
     lasercutTasks: state.lasercutTasks,
     setLasercutTasks: state.setLasercutTasks
   }));
-
-  // const handleTaskToggle = (index) => {
-  //   const updatedTasks = lasercutTasks.map((task, taskIndex) =>
-  //     taskIndex === index ? { ...task, completed: !task.completed } : task
-  //   );
-  //   setLasercutTasks(updatedTasks);
-  // };
 
   const allTasksCompleted = lasercutTasks.every((task) => task.completed);
 
