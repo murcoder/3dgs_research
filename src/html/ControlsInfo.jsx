@@ -9,7 +9,7 @@ function ControlsInfo() {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/murcoder"
+          href="https://christophmurauer.com"
           className="text-black-600 hover:underline">
           Christoph Murauer
         </a>
