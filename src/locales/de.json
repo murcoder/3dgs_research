@@ -1,21 +1,37 @@
 {
+  "title": "Virtueller Makerspace Rundgang",
   "detailView": "Detailansicht",
   "buttons": {
-    "back": "Zurück"
+    "back": "Zurück",
+    "close": "Schließen"
+  },
+  "help": {
+    "title": "Hallo!",
+    "text": "<strong>Willkommen im virtuellen Makerspace-Rundgang!</strong><br /><br />Diese Anwendung ermöglicht dir eine interaktive Erkundung des Makerspaces. Nutze die <strong>WASD-Tasten</strong>, um dich zu bewegen, und die <strong>Maus</strong>, um dich umzusehen. Klicke auf <strong>hervorgehobene Symbole</strong>, um mehr über Maschinen und Werkzeuge zu erfahren.<br /><br />Einige Geräte enthalten <strong>detaillierte Beschreibungen</strong> und interaktive Erklärungen, die dir ihre Funktionsweise näherbringen. In einigen Räumen lassen sich kleine Aufgaben erfüllen. Dazu ist dort eine <strong>Checkliste</strong> verfügbar, um deine Fortschritte zu verfolgen.<br /><br />Der virtuelle Rundgang wurde entwickelt, um ein immersives Erlebnis zu bieten – sei es zum Lernen, zur Projektplanung oder um den Makerspace vor einem physischen Besuch kennenzulernen. Es handelt sich dabei um einen <strong>frühen Prototypen</strong>, deshalb bitte um Verständnis bei Ungereimtheiten. \uD83D\uDE0A <br /><br />Falls du Fragen hast, erreichst du uns per Email (siehe Makerspace Webseite) oder über <strong>Discord</strong> (Button unten rechts).<br /><br />Viel Spaß beim Erkunden! \uD83D\uDD0D"
   },
   "laserDetailRoom": {
     "turnPcOn": "PC",
     "turnPcOnText": "PC ein/ausschalten"
   },
-  "cleaningTasks": {
-    "task1": "Getränke wegräumen",
-    "task2": "Staubreste entfernen",
-    "task3": "Linse reinigen",
-    "task4": "Düse säubern"
+  "lasercutTasks": {
+    "task1": "Steuerung ansehen",
+    "task2": "Klappe öffnen",
+    "task3": "Linse finden",
+    "task4": "PC einschalten"
+  },
+  "textile": {
+    "changeRoom": {
+        "title": "Textil",
+        "text": "Betrete hier den Textilbereich"
+    }
+  },
+  "textileTasks": {
+    "task1": "Stickmaschine finden",
+    "task2": "Nähmaschine finden"
   },
   "checklistTitle": "Checkliste",
   "checklistDescription": "Erfülle alle Aufgaben",
-  "allTasksDone": "FERTIG!",
+  "allTasksDone": "ABGESCHLOSSEN!",
   "navigation": {
     "tutorial": "Tutorial",
     "papers": "Papers",
@@ -66,5 +82,47 @@
     "interlock": "Interlock (Verriegelung)",
     "dimensions": "Dimensionen",
     "powerRequirement": "Strombedarf"
+  },
+  "electronics": {
+    "title": "Elektronik und IoT",
+    "solder:" : {
+      "title": "Löten",
+      "ads200_description": "Das <strong>Pace ADS200</strong> ist eine Hochleistungs-Lötstation, die für professionelle Elektronikmontage- und Reparaturanwendungen entwickelt wurde.<br />Sie bietet schnelle Aufheizzeiten, präzise Temperaturkontrolle und außergewöhnliche Haltbarkeit, was sie sowohl für den Einsatz in der Serienproduktion als auch für detaillierte Reparaturarbeiten geeignet macht.<br /><br /><strong>Hauptmerkmale:</strong><br />- Hohe Leistung: Liefert bis zu 120 Watt für schnelle Wärmebereitstellung und gleichmäßige Lötleistung.<br />- AccuDrive-Technologie: Sorgt für präzise Temperaturkontrolle ohne Kalibrierung und unterstützt einen breiten Temperaturbereich.<br />- Langlebige Lötspitzen: Reduzieren Wartungskosten und verbessern die Effizienz.<br />- Ergonomisches Handstück: Leichtes und komfortables Design minimiert Ermüdungserscheinungen beim Arbeiten.<br />- Schnelle Aufheizzeit: Erreicht Betriebstemperatur in Sekunden und steigert so die Produktivität.<br /><br /><strong>Anwendungen:</strong><br />Ideal für die professionelle Elektronikmontage, Reparaturarbeiten und Serienproduktion, bei denen Präzision und Zuverlässigkeit gefragt sind.",
+      "mbt350_description": "Das <strong>Pace MBT350</strong> ist eine vielseitige Mehrkanal-Löt-, Entlöt- und Nacharbeitsstation, die für anspruchsvolle Elektronikmontage- und Reparaturaufgaben entwickelt wurde.<br />Sie bietet präzise Steuerung, leistungsstarke Leistung und Flexibilität für eine Vielzahl von Löt- und Nacharbeitsanwendungen.<br /><br /><strong>Hauptmerkmale:</strong><br />- Mehrkanalbetrieb: Unterstützt bis zu drei gleichzeitige Handstücke für Löten, Entlöten und Heißluftnacharbeit.<br />- SmartHeat-Technologie: Sorgt für präzise und konstante Temperaturkontrolle ohne Kalibrierung.<br />- Breite Anwendungsmöglichkeiten: Ideal für Durchsteck- und Oberflächenmontage-Nacharbeiten.<br />- Benutzerfreundliche Schnittstelle: Einfache Bedienelemente und digitales Display für präzise Einstellungen.<br />- Langlebige und ergonomische Handstücke: Für langfristigen und komfortablen Betrieb ausgelegt.<br /><br /><strong>Anwendungen:</strong><br />Perfekt für Elektronikmontage, Nacharbeit und Reparaturarbeiten in professionellen Produktionsumgebungen und Reparaturzentren."
+    },
+    "measure": {
+      "title": "Messgeräte",
+      "hmc_8012_description": "Das <strong>Rohde & Schwarz HMC 8012</strong> ist ein hochpräzises und leistungsstarkes Digital-Multimeter, das für professionelle Anwendungen in der Elektronikentwicklung, Tests und Fehlersuche konzipiert wurde.<br />Bekannt für seine Genauigkeit und Zuverlässigkeit, ist das HMC 8012 ideal für den Einsatz in Labor- und Industrieumgebungen.<br /><br /><strong>Hauptmerkmale:</strong><br />- Hohe Messgenauigkeit: Bietet bis zu 6 ½ Stellen Auflösung und ermöglicht präzise Messungen von Spannung, Strom, Widerstand und mehr.<br />- Vielseitige Messfunktionen: Unterstützt AC/DC-Spannung und -Strom, Kapazität, Frequenz und Durchgangsprüfungen sowie Temperatur- und Diodenmessungen.<br />- Helles TFT-Display: Sorgt für eine klare und intuitive Darstellung der Messergebnisse mit anpassbaren Anzeigeoptionen.<br />- Fortschrittliche Konnektivität: Enthält USB-, LAN- und optionale GPIB-Schnittstellen für Fernsteuerung und Datenerfassung.<br />- Datenaufzeichnung und Diagrammerstellung: Ermöglicht detaillierte Datenaufzeichnung und -analyse für umfassende Tests und Forschungsanwendungen.<br />- Kompaktes, robustes Design: Für den intensiven Einsatz in Labor- und Produktionsumgebungen ausgelegt.<br /><br /><strong>Anwendungen:</strong><br />Perfekt für Fachleute in Elektronik-F&E, Ausbildung und industrieller Produktion, die Präzision und zuverlässige Leistung von ihren Messwerkzeugen verlangen.",
+      "rtm3004_description": "Das <strong>Rohde & Schwarz RTM3004</strong> ist ein leistungsstarkes und vielseitiges 4-Kanal-Digitaloszilloskop, das für anspruchsvolle Elektroniktests und Fehleranalysen entwickelt wurde.<br />Es bietet präzise Messmöglichkeiten und eine intuitive Benutzeroberfläche, was es sowohl im Labor als auch im Außeneinsatz zu einer hervorragenden Wahl macht.<br /><br /><strong>Hauptmerkmale:</strong><br />- Hohe Bandbreite und Abtastrate: Unterstützt bis zu 1 GHz Bandbreite und 5 GSa/s Abtastrate für eine präzise Signalanalyse.<br />- Fortschrittliche Trigger- und Dekodierfunktionen: Umfassende Tools zur Analyse komplexer Signale, einschließlich I2C, SPI, UART und mehr.<br />- Großes Touchscreen-Display: Verfügt über einen 10,1-Zoll kapazitiven Touchscreen für eine intuitive Bedienung und detaillierte Wellenformvisualisierung.<br />- Flexible Speichertiefe: Bis zu 400 Mpoints Speicher gewährleisten hochauflösende Messungen auch bei langen Signalaufzeichnungen.<br />- Erweiterte Analysefunktionen: Einschließlich FFT-Analyse, automatisierter Messfunktionen und mathematischer Operationen.<br />- Konnektivität: Unterstützt USB-, LAN- und optionale WLAN-Schnittstellen für nahtlose Datenübertragung und Fernzugriff.<br /><br /><strong>Anwendungen:</strong><br />Ideal für F&E-Ingenieure, Ausbilder und Techniker, die Präzision und Flexibilität bei der Signalanalyse benötigen."
+    }
+  },
+  "printer": {
+    "title": "3D Drucker",
+    "bambu": {
+      "title": "Bambulab X1E",
+      "filament": {
+        "title": "Filament wechseln",
+        "tab1": "Vorbereiten",
+        "tab1Text": "Der Wechsel des Filaments ist sehr einfach und relativ intuitiv.<br /><br />Es ist wichtig, im Voraus zu wissen, <strong>welches Material</strong> geladen werden soll (PLA, PET, TPU, ABS). Die Materialbezeichnung befindet sich an der Seite der Spule.<br /><br />Es ist außerdem wichtig, <strong>das verbleibende Filamentgewicht auf der Spule zu kennen</strong> (der Filamentsensor ist deaktiviert). Das Gewicht kann mit einer Waage bestimmt werden, indem die Differenz zum Leergewicht der Spule berechnet wird.<br /><br />Das verfügbare Filament sollte <strong>mindestens 10 % mehr</strong> betragen als der im Slicer angegebene Filamentbedarf.<br /><br />Laut Slicer beträgt der Filamentverbrauch 170,48 g (~171 g). Es sollten daher mindestens ~190 g Filament auf der Spule sein.",
+        "tab2": "Entfernen",
+        "tab2Text": "Alle Filamente sind bereits im AMS des Geräts entladen und können einfach entfernt werden.<br /><br />Schieben Sie dazu den grauen Knopf in Richtung des Filaments und ziehen Sie das Filament heraus. Nehmen Sie das Filamentende und befestigen Sie es an der Spule (legen Sie die Spule anschließend zurück).",
+        "tab3": "Einlegen",
+        "tab3Text": "Legen Sie die neue Spule in einen freien Steckplatz im AMS.<br /><br />Nehmen Sie das Filamentende in die linke Hand und schneiden Sie mit der rechten Hand das letzte Stück Filament ab, um ein sauberes Ende zu erhalten. Drücken Sie den grauen Knopf in Richtung der Spule und führen Sie das Filamentende ein.<br /><br />Um eines der vier Filamente im AMS zu verwenden, müssen Sie die Komponente in Bambu Studio dem entsprechenden Filament zuweisen!",
+        "tab4": "Konfigurieren",
+        "tab4Text": "Wählen Sie das zweite Menüelement oben links auf dem Touchscreen und tippen Sie auf den entsprechenden Steckplatz.<br /><br />Wählen Sie das Material (Generisches PLA/PET/ABS/ASA) und die Farbe.<br /><br />Die Auswahl des Filaments kann natürlich auch direkt im Slicer (Bambu Studio) eingestellt werden.<br /><br />Wählen Sie in der oberen Menüleiste 'Gerät', um das AMS-Menü zu öffnen.<br /><br />Für detailliertere Anleitungen und weitere Informationen besuchen Sie die Bambu Lab Wiki: https://wiki.bambulab.com/en/home."
+      }
+    },
+    "prusa": {
+      "title": "Prusa XL",
+      "filament": {
+        "title": "Filament wechseln",
+        "tab1": "Vorbereitung",
+        "tab1Text": "Das Wechseln des Filaments ist sehr einfach und relativ intuitiv.<br /><br />Es ist wichtig, im Voraus zu wissen, <strong>welches Material</strong> geladen werden soll (PLA, PET, TPU, ABS). Die Materialbezeichnung befindet sich an der Seite der Spule.<br /><br />Außerdem ist es wichtig, <strong>das verbleibende Filamentgewicht auf der Spule zu kennen</strong> (der Filamentsensor ist deaktiviert). Das Gewicht kann mithilfe einer Waage und der Differenz zum Leergewicht der Spule bestimmt werden.<br /><br />Das verfügbare Filament sollte mindestens 10 % mehr betragen als der vom Slicer angegebene Filamentbedarf.<br /><br />Laut Slicer beträgt der Filamentverbrauch 170,48 g (~171 g). Daher sollten sich mindestens ~190 g Filament auf der Spule befinden.",
+        "tab2": "Entfernen",
+        "tab2Text": "Stelle sicher, welches Material im Drucker geladen ist (siehe Seitenaufdruck der Spule).<br /><br />Mit dem Drehknopf navigieren: Menü → Filament → ‘FILAMENT WECHSELN’ (der Drucker heizt auf und schiebt das Filament nach wenigen Momenten heraus).<br /><br />Das Filamentende nehmen und an der Spule befestigen (danach die Spule wieder zurücklegen).",
+        "tab3": "Einsetzen",
+        "tab3Text": "Wähle im Touchscreen-Menü die Option zum Laden von Filament.<br /><br />Schneide das Filamentende schräg (ca. 45°-Winkel), um ein einfaches Einführen in den Extruder zu ermöglichen. Achte darauf, dass das Filament nicht beschädigt oder geknickt ist.<br /><br />Falls du mehrere Extruder verwendest, wähle im Menü den entsprechenden Extruder aus, in den das Filament geladen werden soll.<br /><br />Der Drucker heizt die Düse automatisch auf die richtige Temperatur für das jeweilige Filament auf. Warte, bis die Zieltemperatur erreicht ist, bevor du das Filament einführst.<br /><br />Führe das vorbereitete Filamentende in den Extruder ein. Der Drucker zieht das Filament automatisch in den Extruder. Halte das Filament leicht fest, bis es von den Zahnrädern erfasst wird.<br /><br />Der Drucker extrudiert eine kleine Menge Filament, um sicherzustellen, dass der Filamentfluss gleichmäßig ist. Überprüfe, ob das Filament sauber aus der Düse austritt.<br /><br />Sobald das Filament korrekt geladen ist, bestätige den Ladevorgang auf dem Touchscreen. Der Drucker ist nun bereit für den Druck."
+      }
+    }
   }
 }

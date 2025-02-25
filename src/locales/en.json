@@ -1,21 +1,37 @@
 {
+  "title": "Virtual Makerspace Tour",
   "detailView": "Zoom in",
   "buttons": {
-    "back": "Back"
+    "back": "Back",
+    "close": "Close"
   },
   "laserDetailRoom": {
     "turnPcOn": "PC",
     "turnPcOnText": "Turn PC on/off"
   },
-  "cleaningTasks": {
-    "task1": "Clear away drinks",
-    "task2": "Remove dust",
-    "task3": "Clean the lens",
-    "task4": "Clean the nozzle"
+  "help": {
+    "title": "Hi!",
+    "text": "<strong>Welcome to the virtual makerspace tour!</strong><br /><br />This application allows you to explore the makerspace interactively. Use the <strong>WASD keys</strong> to move around and the <strong>mouse</strong> to look around. Click on <strong>highlighted icons</strong> to learn more about machines and tools.<br /><br />Some devices include <strong>detailed descriptions</strong> and interactive explanations to help you understand how they work. In certain rooms, you can complete small tasks. A <strong>checklist</strong> is available there to track your progress.<br /><br />The virtual tour is designed to provide an immersive experience—whether for learning, project planning, or getting to know the makerspace before a physical visit. This is an <strong>early prototype</strong>, so please be patient with any inconsistencies. \uD83D\uDE0A <br /><br />If you have any questions, you can reach us via email (see the makerspace website) or on <strong>Discord</strong> (button at the bottom right).<br /><br />Enjoy exploring! \uD83D\uDD0D"
+  },
+  "lasercutTasks": {
+    "task1": "Check out the controls",
+    "task2": "Open the lid",
+    "task3": "Find the lens",
+    "task4": "Turn on the PC"
+  },
+  "textile":{
+    "changeRoom": {
+      "title": "Textile",
+      "text": "Enter the textile area"
+    }
+  },
+  "textileTasks": {
+    "task1": "Find the embroidery machine",
+    "task2": "Find the sewing machine"
   },
   "checklistTitle": "Checklist",
   "checklistDescription": "Finish all tasks",
-  "allTasksDone": "FINISHED!",
+  "allTasksDone": "WELL DONE!",
   "navigation": {
     "tutorial": "Tutorial",
     "papers": "Papers",
@@ -66,5 +82,47 @@
     "interlock": "Interlock",
     "dimensions": "Dimensions",
     "powerRequirement": "Power Requirement"
+  },
+  "electronics": {
+    "title": "Electronics and IoT",
+    "solder": {
+      "title": "Soldering",
+      "ads200_description": "The <strong>Pace ADS200</strong> is a high-performance soldering station designed for professional electronics assembly and rework applications.<br />It offers fast heat-up times, precise temperature control, and exceptional durability, making it suitable for high-volume production environments and detailed repair work.<br /><br /><strong>Key Features:</strong><br />- High Power Output: Delivers up to 120 watts for rapid heat recovery and consistent soldering performance.<br />- AccuDrive Technology: Ensures accurate temperature control without calibration, supporting a wide temperature range.<br />- Durable Soldering Tips: Long-lasting tips reduce maintenance costs and improve efficiency.<br />- Ergonomic Handpiece: Lightweight and comfortable design minimizes operator fatigue.<br />- Fast Heat-Up Time: Reaches operating temperature in seconds, enhancing productivity.<br /><br /><strong>Applications:</strong><br />Ideal for professional electronics assembly, repair tasks, and high-volume production environments that demand precision and reliability.",
+      "mbt350_description": "The <strong>Pace MBT350</strong> is a versatile multi-channel soldering, desoldering, and rework station designed for advanced electronics assembly and repair tasks.<br />It provides precise control, powerful performance, and flexibility for a wide range of soldering and rework applications.<br /><br /><strong>Key Features:</strong><br />- Multi-Channel Operation: Supports up to three simultaneous handpieces for soldering, desoldering, and hot-air rework.<br />- SmartHeat Technology: Delivers accurate and consistent temperature control without calibration.<br />- Wide Application Support: Ideal for through-hole and surface-mount rework.<br />- User-Friendly Interface: Simple controls and digital display for precise settings.<br />- Durable and Ergonomic Handpieces: Designed for long-term, comfortable operation.<br /><br /><strong>Applications:</strong><br />Perfect for electronics assembly, rework, and repair tasks in professional production environments and repair centers."
+    },
+    "measure": {
+      "title": "Measuring Instruments",
+      "hmc_8012_description": "The <strong>Rohde & Schwarz HMC 8012</strong> is a high-performance, precision digital multimeter designed for professional applications in electronics design, testing, and troubleshooting.<br />Known for its accuracy and reliability, the HMC 8012 is ideal for laboratory and industrial environments.<br /><br /><strong>Key Features:</strong><br />- High Measurement Accuracy: Offers up to 6 ½ digits of resolution, enabling precise measurements of voltage, current, resistance, and more.<br />- Versatile Measurement Functions: Supports AC/DC voltage and current, capacitance, frequency, and continuity testing, along with temperature and diode measurements.<br />- Bright TFT Display: Provides clear, intuitive visualization of measurement results with customizable display options.<br />- Advanced Connectivity: Includes USB, LAN, and optional GPIB interfaces for remote control and data acquisition.<br />- Data Logging and Graphing: Enables detailed data recording and analysis for comprehensive testing and research applications.<br />- Compact, Durable Design: Built for rigorous use in both laboratory and production environments.<br /><br /><strong>Applications:</strong><br />Perfect for professionals in electronics R&D, education, and industrial production who demand precision and reliable performance from their measurement tools.",
+      "rtm3004_description": "The <strong>Rohde & Schwarz RTM3004</strong> is a powerful and versatile 4-channel digital oscilloscope designed for advanced electronics testing and debugging applications.<br />It offers precise measurement capabilities and an intuitive interface, making it an excellent choice for both laboratory and field use.<br /><br /><strong>Key Features:</strong><br />- High Bandwidth and Sampling Rate: Supports up to 1 GHz bandwidth and 5 GSa/s sampling rate for accurate signal analysis.<br />- Advanced Triggering and Decoding: Includes comprehensive tools for analyzing complex signals, including I2C, SPI, UART, and more.<br />- Large Touchscreen Display: Features a 10.1-inch capacitive touchscreen for intuitive operation and detailed waveform visualization.<br />- Flexible Memory Depth: Up to 400 Mpoints memory ensures high-resolution measurements even for long signal captures.<br />- Advanced Analysis Functions: Includes FFT analysis, automated measurement functions, and math operations.<br />- Connectivity: Supports USB, LAN, and optional Wi-Fi interfaces for seamless data sharing and remote access.<br /><br /><strong>Applications:</strong><br />Ideal for R&D engineers, educators, and technicians who require precision and flexibility in signal testing and analysis."
+    }
+  },
+  "printer": {
+    "title": "3D Printer",
+    "bambu": {
+      "title": "Bambulab X1E",
+      "filament": {
+        "title": "Change filament",
+        "tab1": "Prepare",
+        "tab1Text": "Changing the filament is very simple and relatively intuitive.<br /><br />It is important to know in advance <strong>which material</strong> you want to load (PLA, PET, TPU, ABS). The material designation can be found on the side of the spool.<br /><br />It is also important to <strong>know the remaining filament weight on the spool</strong> (the filament sensor is deactivated). The weight can be determined using the scales and the difference from the empty weight of the spool.<br /><br />The available filament should be at least 10% more than the filament requirement specified by the slicer.<br /><br />According to the slicer, the filament consumption is 170.48g (~171g). There should therefore be at least ~190g of filament on the spool.",
+        "tab2": "Remove",
+        "tab2Text": "All filaments are already unloaded in the AMS of the device and can be easily removed.<br /><br />To do this, slide the grey button to the filament and remove the filament. Take the end of the filament and attach it to the spool (then put the spool back).",
+        "tab3": "Insert",
+        "tab3Text": "Place the new spool in a free slot in the AMS.<br /><br />Take the filament end in your left hand and with your right hand cut off the last piece of filament to get a clean end. Press the grey button towards the spool and insert the loose end.<br /><br />To use one of the 4 filaments in the AMS, you have to assign the component in Bambu Studio to the corresponding filament!",
+        "tab4": "Configure",
+        "tab4Text": "Select the second menu item at the top left of the touchscreen and tap the corresponding slot.<br /><br />Select the material (Generic PLA/PET/ABS/ASA) and the colour.<br /><br />The selection of the filament can, of course, also be set in the slicer itself (Bambu Studio).<br /><br />Select 'Device' from the top menu bar, and the AMS menu opens.<br /><br />For more detailed instructions and additional information, visit the Bambu Lab Wiki: https://wiki.bambulab.com/en/home."
+      }
+    },
+    "prusa": {
+      "title": "Prusa XL",
+      "filament": {
+        "title": "Change filament",
+        "tab1": "Prepare",
+        "tab1Text": "Changing the filament is very simple and relatively intuitive.<br /><br />It is important to know in advance <strong>which material</strong> you want to load (PLA, PET, TPU, ABS). The material designation can be found on the side of the spool.<br /><br />It is also important to <strong>know the remaining filament weight on the spool</strong> (the filament sensor is deactivated). The weight can be determined using the scales and the difference from the empty weight of the spool.<br /><br />The available filament should be at least 10% more than the filament requirement specified by the slicer.<br /><br />According to the slicer, the filament consumption is 170.48g (~171g). There should therefore be at least ~190g of filament on the spool.",
+        "tab2": "Remove",
+        "tab2Text": "Make sure which material is loaded in the printer. (on the side of the spool) <br /><br />With the rotary knob. Menu → Filament → ‘CHANGE FILAMENT’ (the printer heats up and pushes the filament out after a few moments).<br /><br />Take the end of the filament and attach it to the spool (then put the spool back)",
+        "tab3": "Insert",
+        "tab3Text": "Select the option for loading filament on the touchscreen menu<br /><br />Cut the end of the filament at an angle (approx. 45° angle) to ensure easy insertion into the extruder. Make sure that the filament is not damaged or kinked<br /><br />If you are using multiple extruders, select the corresponding extruder in the menu into which the filament is to be loaded.<br /><br />The printer automatically heats the nozzle to the correct temperature required for the respective filament. Wait until the target temperature is reached before inserting the filament.<br /><br />Insert the prepared filament end into the extruder. The printer will automatically pull the filament into the extruder. Hold the filament lightly until it is caught by the gears.<br /><br />The printer extrudes a small amount of filament to ensure that the filament flow is even. Check that the filament flows cleanly out of the nozzle.<br /><br />Once the filament is loaded correctly, confirm the loading process on the touchscreen. The printer is now ready to start printing."
+      }
+    }
   }
 }

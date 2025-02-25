@@ -1,15 +1,32 @@
-import React, { forwardRef, useRef } from 'react';
+import { forwardRef, useRef } from 'react';
 import { Splat } from '@react-three/drei';
 import { useTranslation } from 'react-i18next';
 import { RigidBody } from '@react-three/rapier';
 import { transparentMaterial } from '../constants/materials.js';
 import { MachineDetailsTable } from '../html/MachineDetailsTable.jsx';
 import { Annotation } from '../html/Annotation.jsx';
-import { LaserButtonsDetails } from '../html/LaserButtonsDetails.jsx';
+import { LaserButtonsDetails } from '../hotspots/LaserButtonsDetails.jsx';
+import useStore from '../stores/useStore.jsx';
 
 export const LasercutClosed = forwardRef(({ openClick, renderOrder, toneMapping, alphaTest }, ref) => {
   const { t } = useTranslation();
   const meshRef = useRef();
+
+  // Access global store for tasks
+  const { lasercutTasks, setLasercutTasks } = useStore((state) => ({
+    lasercutTasks: state.lasercutTasks,
+    setLasercutTasks: state.setLasercutTasks,
+  }));
+
+  const handleControlsOver = () => {
+    // DONE - Task 1 (check out the controls)
+    if (!lasercutTasks[0].completed) {
+      const updatedTasks = lasercutTasks.map((task, index) =>
+        index === 0 ? { ...task, completed: true } : task
+      );
+      setLasercutTasks(updatedTasks);
+    }
+  };
 
   return (
     <>
@@ -34,6 +51,7 @@ export const LasercutClosed = forwardRef(({ openClick, renderOrder, toneMapping,
         iconPath={'./icons/image_icon.svg'}
         cursorStyle={'cursor-help'}
         renderOrder={3}
+        onHover={handleControlsOver}
         position={[-1.2, 1.8, -0.3]}>
         <div className="bg-black/80 w-80 p-2 text-center text-sm rounded-lg text-white transition h-96 overflow-hidden">
           <p className="pointer-events-none"> {t('laser.buttons')}</p>
@@ -65,3 +83,4 @@ export const LasercutClosed = forwardRef(({ openClick, renderOrder, toneMapping,
     </>
   );
 });
+LasercutClosed.displayName = 'LasercutClosed'

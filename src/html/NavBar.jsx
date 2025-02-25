@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
 
@@ -14,8 +14,11 @@ export default function NavBar({ closeDetailClick, showDetailBar = false, detail
     <nav className="bg-white/70 backdrop-blur-md shadow-md fixed w-full top-0 left-0 z-10">
       <div className="container mx-auto flex items-center justify-between p-4">
         {/* Logo */}
-        <div className="text-2xl font-extrabold text-black-600 font-logo">
-          3DGS - RESEARCH PROJECT
+        <div className="flex items-center">
+          <img src="./icons/logo.svg" alt="Logo" className="h-8 w-8 fill-black" />
+          <span className="text-2xl font-extrabold text-black font-logo ml-2">
+            {t('title')}
+          </span>
         </div>
 
         {/* Menu Icon (Mobile) */}
@@ -39,39 +42,55 @@ export default function NavBar({ closeDetailClick, showDetailBar = false, detail
 
         {/* Menu Links */}
         <ul
-          className={`md:flex md:items-center space-y-4 md:space-y-0 md:space-x-6 font-body ${isOpen ? 'block' : 'hidden'} md:block`}>
+          className={`md:flex md:items-center space-y-4 md:space-y-0 md:space-x-6 font-body ${isOpen ? 'block' : 'hidden'} md:block font-bold uppercase`}>
           <li>
             <a
-              href="https://threejs-journey.com"
+              href="https://wiki.grandgarage.eu"
               className="text-gray-800 hover:underline"
               target="_blank">
-              {t('navigation.tutorial')}
+              Wiki
             </a>
           </li>
           <li>
             <a
-              href="https://github.com/MrNeRF/awesome-3D-gaussian-splatting"
+              href="https://grandgarage.eu"
               className="text-gray-800 hover:underline"
               target="_blank">
-              {t('navigation.papers')}
+              Makerspace
             </a>
           </li>
-          <li>
-            <a
-              href="https://drei.docs.pmnd.rs/getting-started/introduction"
-              className="text-gray-800 hover:underline"
-              target="_blank">
-              {t('navigation.docs')}
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://threejs-portfolio-murauer.vercel.app/"
-              className="text-gray-800 hover:underline"
-              target="_blank">
-              {t('navigation.about')}
-            </a>
-          </li>
+          {/*<li>*/}
+          {/*  <a*/}
+          {/*    href="https://threejs-journey.com"*/}
+          {/*    className="text-gray-800 hover:underline"*/}
+          {/*    target="_blank">*/}
+          {/*    {t('navigation.tutorial')}*/}
+          {/*  </a>*/}
+          {/*</li>*/}
+          {/*<li>*/}
+          {/*  <a*/}
+          {/*    href="https://github.com/MrNeRF/awesome-3D-gaussian-splatting"*/}
+          {/*    className="text-gray-800 hover:underline"*/}
+          {/*    target="_blank">*/}
+          {/*    {t('navigation.papers')}*/}
+          {/*  </a>*/}
+          {/*</li>*/}
+          {/*<li>*/}
+          {/*  <a*/}
+          {/*    href="https://drei.docs.pmnd.rs/getting-started/introduction"*/}
+          {/*    className="text-gray-800 hover:underline"*/}
+          {/*    target="_blank">*/}
+          {/*    {t('navigation.docs')}*/}
+          {/*  </a>*/}
+          {/*</li>*/}
+          {/*<li>*/}
+          {/*  <a*/}
+          {/*    href="https://threejs-portfolio-murauer.vercel.app/"*/}
+          {/*    className="text-gray-800 hover:underline"*/}
+          {/*    target="_blank">*/}
+          {/*    {t('navigation.about')}*/}
+          {/*  </a>*/}
+          {/*</li>*/}
           <li>
             <LanguageSwitcher />
           </li>
@@ -91,7 +110,6 @@ export default function NavBar({ closeDetailClick, showDetailBar = false, detail
             <h1 className="font-bold text-lg">{detailTitle}</h1>
           </div>
         </div>
-
       )}
     </nav>
   );

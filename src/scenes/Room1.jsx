@@ -1,17 +1,16 @@
 import { Floor } from '../models/Floor.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import React, { forwardRef, useEffect, useState } from 'react';
+import { forwardRef } from 'react';
 import { CameraControls, Grid, Splat } from '@react-three/drei';
 import { Lasercutter } from '../boundries/Lasercutter.jsx';
 import { Door } from '../boundries/Door.jsx';
-import { useControls } from 'leva';
 import { Wall } from '../boundries/Wall.jsx';
 
 const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked, toneMapping, alphaTest, show3DScan, paused }, ref) => {
   const wallGeometry = {
     height: 6,
-    width: 10
+    width: 8
   }
   const wallYPosition = 3
   const gridConfig = {
@@ -30,16 +29,16 @@ const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked, 
 
   return (
     <group ref={ref}>
+      {show3DScan ? (
+        <Splat
+          renderOrder={2}
+          scale={1}
+          src="./splats/lasercutter_room.splat"
+          alphaTest={alphaTest}
+          toneMapped={toneMapping}
+        />
+      ) : null}
       <Physics debug={debug} timeStep="vary" paused={paused}>
-        {show3DScan ? (
-          <Splat
-            renderOrder={2}
-            scale={1}
-            src="./splats/lasercutter_room.splat"
-            alphaTest={alphaTest}
-            toneMapped={toneMapping}
-          />
-        ) : null}
         {!show3DScan ? (
           <Grid
             renderPriority={3}
@@ -100,5 +99,5 @@ const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked, 
     </group>
   );
 });
-
+Room1.displayName = 'Room1'
 export default Room1;

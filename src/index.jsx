@@ -2,59 +2,41 @@ import './style.css';
 import ReactDOM from 'react-dom/client';
 import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
-import React, { StrictMode, Suspense } from 'react';
+import { StrictMode, Suspense, useState, useEffect } from 'react';
 import './i18n';
 import { Leva } from 'leva';
 import { Html, useProgress } from '@react-three/drei';
 import NavBar from './html/NavBar.jsx';
 import Experience from './Experience.jsx';
-import LaserChecklist1 from './html/LaserChecklist1.jsx';
-import useGame from './stores/useGame.jsx';
-import { Button } from './html/Button.jsx';
-import { Headline } from './html/Headline.jsx';
+import LaserChecklist from './html/LaserChecklist.jsx';
+import useStore from './stores/useStore.jsx';
+import DiscordButton from './html/DiscordButton.jsx';
+import ControlsInfo from './html/ControlsInfo.jsx';
+import GPUWarning from './html/GPUWarning.jsx';
+import TextileChecklist from './html/TextileChecklist.jsx';
+import Help from './html/Help.jsx';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 
-function Loader() {
-  const { progress, active } = useProgress();
+export const Loader = () => {
+  const { progress } = useProgress();
   return <Html center>{progress.toFixed(1)}%</Html>;
-}
+};
 
 const handleContextMenu = (event) => {
   event.preventDefault();
 };
 
-const Checklist = () => {
-  const currentScene = useGame((state) => state.currentScene);
-  return <>{currentScene === 4 && <LaserChecklist1 />}</>;
+export const Checklist = () => {
+  const currentScene = useStore((state) => state.currentScene);
+  return <>
+    {currentScene === 3 && <TextileChecklist />}
+    {currentScene === 4 && <LaserChecklist />}
+  </>;
 };
 
-// const DynamicTitleBar = () => {
-//   const { currentScene, setCurrentScene } = useGame((state) => ({
-//     currentScene: state.currentScene,
-//     setCurrentScene: state.setCurrentScene
-//   }));
-//
-//   const handleBackClick = () => {
-//     setCurrentScene(1);
-//   };
-//
-//   return (
-//     <>
-//       {currentScene === 3 && (
-//         <div className="bg-black/80 justify-center items-center text-center">
-//           <h1 className="z-50 h-10 text-white text-lg">Lasercutter - Speedy 100 Flex</h1>
-//           <Button handleClick={handleBackClick}>
-//             <img src="./icons/close_icon.svg" alt="close_icon" className="w-5 h-5" />
-//           </Button>
-//         </div>
-//       )}
-//     </>
-//   );
-// };
-
-const DynamicNavBar = () => {
-  const { currentScene, setCurrentScene } = useGame((state) => ({
+export const DynamicNavBar = () => {
+  const { currentScene, setCurrentScene } = useStore((state) => ({
     currentScene: state.currentScene,
     setCurrentScene: state.setCurrentScene
   }));
@@ -72,58 +54,80 @@ const DynamicNavBar = () => {
           detailTitle={'Lasercutter | Speedy 100 Flex'}
         />
       ) : (
-        // <div className="bg-black/80 justify-center items-center text-center">
-        //   <h1 className="z-50 h-10 text-white text-lg">Lasercutter - Speedy 100 Flex</h1>
-        //   <Button handleClick={handleBackClick}>
-        //     <img src="./icons/close_icon.svg" alt="close_icon" className="w-5 h-5" />
-        //   </Button>
-        // </div>
         <NavBar />
       )}
     </>
   );
 };
 
-// const DynamicHeadline = () => {
-//   const { currentScene, setCurrentScene } = useGame((state) => ({
-//     currentScene: state.currentScene,
-//     setCurrentScene: state.setCurrentScene
-//   }));
-//
-//   const handleBackClick = () => {
-//     setCurrentScene(1);
-//   };
-//
-//   return <>{currentScene === 3 && <Headline title={'Lasercutter - Speedy 100 Flex'} />}</>;
-// };
+export const App = () => {
+  const [isWeakGPU, setIsWeakGPU] = useState(false);
+  const [proceedAnyway, setProceedAnyway] = useState(false);
+  const [gpuInfo, setGpuInfo] = useState(null);
+
+  // GPU detection logic
+  useEffect(() => {
+    const gl = document.createElement('canvas').getContext('webgl');
+    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+
+    const gpuDetails = {
+      vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
+      renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
+    };
+
+    console.log('Your GPU', gpuDetails);
+    setGpuInfo(gpuDetails);
+
+    const isWeakGPU = (gpuDetails) => {
+      const weakGPUs = ['Intel HD Graphics', 'Mali-', 'Adreno-', 'PowerVR', 'Apple M1'];
+      return weakGPUs.some((name) => gpuDetails.renderer.includes(name));
+    };
+
+    setIsWeakGPU(isWeakGPU(gpuDetails));
+  }, []);
+
+  const handleProceed = () => {
+    setProceedAnyway(true);
+  };
+
+  if (isWeakGPU && !proceedAnyway) {
+    return <GPUWarning onProceed={handleProceed} gpuInfo={gpuInfo} />;
+  }
+
+  return (
+    <>
+      <Leva collapsed />
+      <DynamicNavBar />
+      <Checklist />
+      <Help />
+      <DiscordButton />
+      <Canvas
+        shadows
+        onContextMenu={handleContextMenu}
+        className="r3f"
+        gl={{
+          antialias: false,
+          toneMapping: THREE.ACESFilmicToneMapping,
+          outputColorSpace: THREE.SRGBColorSpace,
+          pixelRatio: 2
+        }}
+        camera={{
+          layers: 0,
+          near: 0.1,
+          far: 200,
+          fov: 75
+        }}>
+        <Suspense fallback={<Loader />}>
+          <Experience />
+        </Suspense>
+      </Canvas>
+      <ControlsInfo />
+    </>
+  );
+};
 
 root.render(
   <StrictMode>
-    <Leva />
-    {/*<DynamicHeadline />*/}
-    <NavBar />
-    <DynamicNavBar />
-    {/*<DynamicTitleBar />*/}
-    <Checklist />
-    <Canvas
-      shadows
-      onContextMenu={handleContextMenu}
-      className="r3f"
-      gl={{
-        antialias: false,
-        toneMapping: THREE.ACESFilmicToneMapping,
-        outputColorSpace: THREE.SRGBColorSpace,
-        pixelRatio: 2
-      }}
-      camera={{
-        layers: 0,
-        near: 0.1,
-        far: 100,
-        fov: 75
-      }}>
-      <Suspense fallback={<Loader />}>
-        <Experience />
-      </Suspense>
-    </Canvas>
+    <App />
   </StrictMode>
 );
