@@ -1,16 +1,16 @@
-import { Capsule, KeyboardControls, PerspectiveCamera } from '@react-three/drei';
+import { PerspectiveCamera } from '@react-three/drei';
 import { useEffect, useRef, useState } from 'react';
 import { Euler, Quaternion, Vector3 } from 'three';
 import { useThree, useFrame } from '@react-three/fiber';
-import { CapsuleCollider, Physics, RigidBody } from '@react-three/rapier';
+import { CapsuleCollider, RigidBody } from '@react-three/rapier';
 
-export default function Player({ position, cameraPos, mode = 'CameraBasedMovement', renderOrder }) {
+export default function Player({ position, cameraPos, renderOrder }) {
   const cameraRef = useRef();
   const { camera } = useThree(); // Get the global camera from useThree()
   const body = useRef();
-  const speed = 5; // Movement speed
-  const runMultiplier = 2; // Multiplier when "run" key is pressed
-  const mouseSensitivity = 0.002; // Sensitivity for mouse look
+  const speed = 3;
+  const runMultiplier = 2;
+  const mouseSensitivity = 0.002;
   const pitch = useRef(cameraPos.y); // Track pitch (up/down rotation)
   const yaw = useRef(cameraPos.x); // Track yaw (left/right rotation)
 
@@ -23,10 +23,8 @@ export default function Player({ position, cameraPos, mode = 'CameraBasedMovemen
     rightward: false,
     jump: false
   });
-  //
-  // Handle keyboard input
+
   const handleKeyDown = (e) => {
-    //console.log('keyDown', e)
     if (e.code === 'ShiftLeft') setIsRunning(true);
     setKeysPressed((keys) => ({
       ...keys,
@@ -39,7 +37,6 @@ export default function Player({ position, cameraPos, mode = 'CameraBasedMovemen
   };
 
   const handleKeyUp = (e) => {
-    //console.log('keyUp', e)
     if (e.code === 'ShiftLeft') setIsRunning(false);
     setKeysPressed((keys) => ({
       ...keys,
@@ -51,23 +48,12 @@ export default function Player({ position, cameraPos, mode = 'CameraBasedMovemen
     }));
   };
   const handleMouseDown = () => {
-    console.log('handleMouseDown');
     setIsMousePressed(true);
   };
 
   const handleMouseUp = () => {
-    console.log('handleMouseUp');
     setIsMousePressed(false);
   };
-
-  const keyboardMap = [
-    { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
-    { name: 'backward', keys: ['ArrowDown', 'KeyS'] },
-    { name: 'leftward', keys: ['ArrowLeft', 'KeyA'] },
-    { name: 'rightward', keys: ['ArrowRight', 'KeyD'] },
-    { name: 'jump', keys: ['Space'] },
-    { name: 'run', keys: ['Shift'] }
-  ];
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
@@ -76,7 +62,6 @@ export default function Player({ position, cameraPos, mode = 'CameraBasedMovemen
     window.addEventListener('mouseup', handleMouseUp);
 
     const handleMouseMove = (e) => {
-      console.log('handleMouseMove');
       if (isMousePressed) {
         yaw.current -= e.movementX * mouseSensitivity;
         pitch.current = Math.max(
@@ -95,7 +80,7 @@ export default function Player({ position, cameraPos, mode = 'CameraBasedMovemen
       window.removeEventListener('mouseup', handleMouseUp);
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [isMousePressed]); // Re-run when `isMousePressed` changes
+  }, [isMousePressed]);
 
   // Movement logic
   useFrame((_, delta) => {
@@ -120,7 +105,7 @@ export default function Player({ position, cameraPos, mode = 'CameraBasedMovemen
 
     impulse.normalize().multiplyScalar(speed * (isRunning ? runMultiplier : 1));
 
-    // Apply movement to RigidBody
+    // Apply movement to RigidBody (linear velocity)
     body.current.setLinvel(impulse, true);
 
     // Update camera rotation
@@ -135,24 +120,28 @@ export default function Player({ position, cameraPos, mode = 'CameraBasedMovemen
 
   return (
     <>
-      <PerspectiveCamera
-        ref={cameraRef}
-        position={position}
-        makeDefault
-        fov={camera.fov}
-        near={camera.near}
-        far={camera.far}
-      />
-      <RigidBody
-        // type="kinematicVelocity"
-        renderOrder={renderOrder}
-        colliders={false}
-        ref={body}
-        position={position}
-        friction={0.5}
-        restitution={0}>
-        <CapsuleCollider args={[0.6, 0.8]} />
-      </RigidBody>
+      <group>
+        <PerspectiveCamera
+          ref={cameraRef}
+          position={position}
+          makeDefault
+          fov={camera.fov}
+          near={camera.near}
+          far={camera.far}
+          gravityScale={0}
+        />
+        <RigidBody
+          renderOrder={renderOrder}
+          colliders={false}
+          ref={body}
+          position={position}
+          friction={0}
+          restitution={2}
+          type="kinematicVelocity"
+          ccd={true}>
+          <CapsuleCollider args={[0.6, 0.8]} />
+        </RigidBody>
+      </group>
     </>
   );
 }

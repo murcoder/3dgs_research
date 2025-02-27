@@ -38,7 +38,7 @@ const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked, 
           toneMapped={toneMapping}
         />
       ) : null}
-      <Physics debug={debug} timeStep="vary" paused={paused}>
+      <Physics debug={debug} timeStep="vary">
         {!show3DScan ? (
           <Grid
             renderPriority={3}
@@ -93,7 +93,7 @@ const Room1 = forwardRef(({ debug, cameraMode, laserCutterClicked, doorClicked, 
         {cameraMode === 'orbit' ? (
           <CameraControls />
         ) : (
-          <Player renderOrder={5} position={[-3, 3, -1]} cameraPos={{ x: 0, y: 0 }} />
+          <Player renderOrder={5} position={[-3, 1, 0]} cameraPos={{ x: -(Math.PI / 2), y: 0 }} />
         )}
       </Physics>
     </group>

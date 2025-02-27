@@ -38,7 +38,7 @@ export default function Experience() {
       label: 'Camera',
       options: { FirstPerson: 'player', Free: 'orbit' }
     },
-    debug: false
+    debug: true
   });
   const {alphaTest, toneMapping, show3DScan } = useControls('Splats', {
     show3DScan: true,
@@ -149,7 +149,7 @@ export default function Experience() {
           cameraMode={switchCameraControl}
           paused={paused}
         />
-      )}xx
+      )}
       {currentScene === 6 && (
         <Room2Legacy
           ref={room2}
