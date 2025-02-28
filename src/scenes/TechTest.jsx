@@ -91,7 +91,7 @@ const TechTest = forwardRef(({ debug, cameraMode, toneMapping, alphaTest, show3D
             renderOrder={5}
             alphaTest
             position={[0, 1, -3]}
-            cameraPos={{ x: 0, y: 0 }}
+            cameraPos={{ x: Math.PI, y: 0 }}
             mode={'CameraBasedMovement'}
             autoBalance={false}
           />

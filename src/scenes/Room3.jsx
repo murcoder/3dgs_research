@@ -142,7 +142,7 @@ const Room3 = forwardRef(
             <Player
               renderOrder={5}
               position={[1, 2, -3]}
-              cameraPos={{ x: 0, y: 0 }}
+              cameraPos={{ x: Math.PI, y: 0 }}
               autoBalance={false}
             />
           )}

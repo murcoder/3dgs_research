@@ -104,8 +104,8 @@ const LasercutDetailRoom = forwardRef(({ debug, cameraMode, toneMapping, alphaTe
           <Player
             renderOrder={5}
             alphaTest
-            position={[0, 3, -3]}
-            cameraPos={{ x: 0, y: 0 }}
+            position={[0, 1, -3]}
+            cameraPos={{ x: Math.PI, y: 0 }}
             autoBalance={false}
           />
         )}

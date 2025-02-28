@@ -1,7 +1,7 @@
 import { Floor } from '../models/Floor.jsx';
 import Player from '../models/Player.jsx';
 import { Physics } from '@react-three/rapier';
-import { forwardRef} from 'react';
+import { forwardRef } from 'react';
 import { CameraControls, Grid, Splat } from '@react-three/drei';
 import { Lasercutter } from '../boundries/Lasercutter.jsx';
 import { Door } from '../boundries/Door.jsx';
@@ -9,7 +9,17 @@ import { Wall } from '../boundries/Wall.jsx';
 
 const Room2Legacy = forwardRef(
   (
-    { debug, laserCutterClicked, cameraMode, door1Clicked, door3Clicked, toneMapping, alphaTest, show3DScan, paused },
+    {
+      debug,
+      laserCutterClicked,
+      cameraMode,
+      door1Clicked,
+      door3Clicked,
+      toneMapping,
+      alphaTest,
+      show3DScan,
+      paused
+    },
     ref
   ) => {
     const wallHeight = 6;
@@ -93,13 +103,16 @@ const Room2Legacy = forwardRef(
           {cameraMode === 'orbit' ? (
             <CameraControls />
           ) : (
-            <Player renderOrder={5} position={[2.3, 2, -1.5]} cameraPos={{ x: 0, y: 30 }} autoBalance={false}/>
-            // <Player renderOrder={5} position={[4, 1, 0]} cameraPos={{ x: 0, y: 0 }} />
+            <Player
+              renderOrder={5}
+              position={[2.3, 1, -1.5]}
+              cameraPos={{ x: Math.PI / 2, y: 0 }}
+            />
           )}
         </Physics>
       </group>
     );
   }
 );
-Room2Legacy.displayName = 'Room2'
+Room2Legacy.displayName = 'Room2';
 export default Room2Legacy;

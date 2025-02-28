@@ -141,8 +141,8 @@ const Room3Low = forwardRef(
           ) : (
             <Player
               renderOrder={5}
-              position={[-2.8, 2, -4]}
-              cameraPos={{ x: 0, y: 0 }}
+              position={[-2.8, 1, -4]}
+              cameraPos={{ x: Math.PI, y: 0 }}
               autoBalance={false}
             />
           )}

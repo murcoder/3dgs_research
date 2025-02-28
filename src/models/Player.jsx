@@ -135,10 +135,11 @@ export default function Player({ position, cameraPos, renderOrder }) {
           colliders={false}
           ref={body}
           position={position}
-          friction={0}
-          restitution={2}
-          type="kinematicVelocity"
-          ccd={true}>
+          friction={0.3}
+          restitution={0}
+          lockRotations={true}
+          type="dynamic"
+        >
           <CapsuleCollider args={[0.6, 0.8]} />
         </RigidBody>
       </group>

@@ -164,11 +164,10 @@ const Room2 = forwardRef(
           ) : (
             <Player
               renderOrder={5}
-              position={[-3.5, 2, 0]}
-              cameraPos={{ x: 0, y: Math.PI / 2 }}
+              position={[-3.5, 1, 0]}
+              cameraPos={{ x: -(Math.PI / 2), y: 0 }}
               autoBalance={false}
             />
-            // <Player renderOrder={5} position={[4, 1, 0]} cameraPos={{ x: 0, y: 0 }} />
           )}
         </Physics>
       </group>
