@@ -38,7 +38,7 @@ export default function Experience() {
       label: 'Camera',
       options: { FirstPerson: 'player', Free: 'orbit' }
     },
-    debug: true
+    debug: false
   });
   const {alphaTest, toneMapping, show3DScan } = useControls('Splats', {
     show3DScan: true,
