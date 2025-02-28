@@ -15,16 +15,24 @@ export default function Tabs({ tabs, title }) {
             type="radio"
             name="my_tabs"
             role="tab"
-            className={`tab text-white bg-black text-lg hover:bg-base-100 ${activeTab === index ? 'bg-gray-800' : ''}`}
+            className={`tab text-base-content dark:text-white bg-base-200 text-lg hover:bg-base-300 ${activeTab === index ? 'bg-primary text-primary-content' : ''}`}
             aria-label={`${t(tab.tabTitle)}`}
             checked={activeTab === index}
             onChange={() => setActiveTab(index)}
           />
           {activeTab === index && (
-            <div key={`tabpanel-${formattedTitle}-${index}`} role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
+            <div
+              key={`tabpanel-${formattedTitle}-${index}`}
+              role="tabpanel"
+              className="tab-content bg-base-200 border-base-300 rounded-box p-6 text-base-content dark:text-white"
+            >
               {tab.img && (
                 <div className="mb-4">
-                  <img src={tab.img} alt={`${t(tab.tabTitle)}_img`} className="min-w-80 max-h-72 object-cover" />
+                  <img
+                    src={tab.img}
+                    alt={`${t(tab.tabTitle)}_img`}
+                    className="min-w-80 max-h-72 object-cover"
+                  />
                 </div>
               )}
               <div>

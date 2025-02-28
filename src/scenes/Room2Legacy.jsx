@@ -105,7 +105,7 @@ const Room2Legacy = forwardRef(
           ) : (
             <Player
               renderOrder={5}
-              position={[2.3, 1, -1.5]}
+              position={[2.3, 1.5, -1.5]}
               cameraPos={{ x: Math.PI / 2, y: 0 }}
             />
           )}

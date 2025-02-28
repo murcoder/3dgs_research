@@ -128,7 +128,6 @@ export default function Player({ position, cameraPos, renderOrder }) {
           fov={camera.fov}
           near={camera.near}
           far={camera.far}
-          gravityScale={0}
         />
         <RigidBody
           renderOrder={renderOrder}
@@ -139,6 +138,7 @@ export default function Player({ position, cameraPos, renderOrder }) {
           restitution={0}
           lockRotations={true}
           type="dynamic"
+          gravityScale={0}
         >
           <CapsuleCollider args={[0.6, 0.8]} />
         </RigidBody>

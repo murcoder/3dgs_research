@@ -57,7 +57,7 @@ export default function Experience() {
     setPaused(true);
     const timer = setTimeout(() => {
       setPaused(false);
-    }, 1200);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);

@@ -164,9 +164,8 @@ const Room2 = forwardRef(
           ) : (
             <Player
               renderOrder={5}
-              position={[-3.5, 1, 0]}
+              position={[-3.5, 1.5, 0]}
               cameraPos={{ x: -(Math.PI / 2), y: 0 }}
-              autoBalance={false}
             />
           )}
         </Physics>
